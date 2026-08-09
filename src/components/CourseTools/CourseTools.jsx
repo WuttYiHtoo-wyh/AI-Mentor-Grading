@@ -16,7 +16,7 @@ export default function CourseTools(){
         </li>
         <li className="flex items-center gap-3">
           <span className="p-1 rounded text-[var(--primary)]"><Bookmark size={16} /></span>
-          <span className="text-[var(--text)]">AI Mentor <span className="ml-2 text-xs text-[var(--primary)] px-2 rounded">NEW</span></span>
+          <span className="text-[var(--text)]">AI-Mentor, Htoo Wutt Yi <span className="ml-2 text-xs text-[var(--primary)] px-2 rounded">NEW</span></span>
         </li>
       </ul>
     </div>

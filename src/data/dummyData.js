@@ -1,8 +1,8 @@
 export const course = {
-  title: 'FDAD-FED-Front-End Development',
+  title: 'HDSE-CPL-Capstone Project - Application Development',
   endDate: 'Tue, Jun 30, 2026',
   handouts: [
-    { id: 1, title: 'FDAD-FED Course Handbook', type: 'PDF' }
+    { id: 1, title: 'HDSE-CPL Course Handbook', type: 'PDF' }
   ]
 }
 

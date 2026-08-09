@@ -8,7 +8,7 @@ export default function Navbar(){
         <div className="flex items-center gap-4">
           <div className="w-10 h-10 bg-[var(--primary)] rounded flex items-center justify-center text-white font-semibold">L</div>
           <div className="leading-tight">
-            <div className="text-sm font-semibold text-[var(--text)]">FDAD-FED-Front-End Development</div>
+            <div className="text-sm font-semibold text-[var(--text)]">HDSE-CPL-Capstone Project - Application Development</div>
             <div className="text-xs text-[var(--muted)]">CLaaS2SaaS FED</div>
           </div>
         </div>

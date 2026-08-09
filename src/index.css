@@ -44,7 +44,7 @@ body{background:var(--bg);font-family:Inter, ui-sans-serif, system-ui, -apple-sy
 
 /* AI Mentor drawer sizing and internal spacing for improved readability */
 .ai-drawer{
-  width:520px;
+  width:680px;
   top:148px;
   height:calc(100vh - 148px);
 }
@@ -58,8 +58,34 @@ body{background:var(--bg);font-family:Inter, ui-sans-serif, system-ui, -apple-sy
 .ai-drawer .conversation-item{padding:14px}
 .ai-drawer .conversation-item .text-sm{font-size:15px}
 .ai-drawer .chat-input input{height:44px}
+.ai-drawer .chat-input .btn-primary{height:44px;border-radius:10px}
+
+.ai-conversation{background:#F8FAFC}
+.ai-message-row{display:flex;width:100%}
+.ai-message-row.user{justify-content:flex-end}
+.ai-message-row.assistant{justify-content:flex-start}
+.ai-message{border:1px solid var(--border);border-radius:10px;padding:14px 16px;box-shadow:0 1px 2px rgba(16,24,40,0.03)}
+.ai-message-user{max-width:78%;background:#F2F6FC;color:var(--text)}
+.ai-message-assistant{width:100%;max-width:620px;background:#fff;color:var(--text)}
+.ai-message-label{font-size:12px;font-weight:600;color:var(--primary);margin-bottom:8px}
+.ai-user-text{font-size:15px;line-height:1.55;white-space:pre-wrap;overflow-wrap:anywhere}
+.ai-response-content{font-size:15px;line-height:1.65;color:var(--text)}
+.ai-response-content p{margin:0 0 12px}
+.ai-response-content p:last-child{margin-bottom:0}
+.ai-response-content h4{font-size:15px;font-weight:700;color:var(--text);margin:16px 0 8px}
+.ai-response-content h4:first-child{margin-top:0}
+.ai-response-content ul,.ai-response-content ol{margin:8px 0 14px 22px;padding:0}
+.ai-response-content ul{list-style:disc}
+.ai-response-content ol{list-style:decimal}
+.ai-response-content li{margin:4px 0;padding-left:2px}
+.ai-response-content strong{font-weight:700;color:var(--text)}
+.ai-sources{border-top:1px solid var(--border);margin-top:14px;padding-top:12px;color:var(--subdued);font-size:12px;line-height:1.5}
+.ai-sources-title{font-weight:600;color:var(--text);margin-bottom:6px}
+.ai-sources ul{list-style:disc;margin-left:18px}
+.ai-sources li{margin:3px 0}
 
 @media (max-width: 1024px){
   .ai-drawer{width:calc(100vw - 32px); right:16px; left:auto; top:120px; height:calc(100vh - 120px)}
+  .ai-message-assistant{max-width:none}
 }
 

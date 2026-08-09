@@ -1,5 +1,6 @@
 from fastapi import APIRouter, HTTPException
 from app.schemas.chat import ChatRequest, ChatResponse
+from app.services.conversation_router import get_conversational_response
 from app.services.llm_service import LLMService
 from app.services.retrieval_service import retrieve_cpl_context
 
@@ -12,6 +13,13 @@ def post_chat(request: ChatRequest):
         raise HTTPException(status_code=400, detail="Message must not be empty.")
 
     try:
+        conversational_response = get_conversational_response(
+            message=request.message,
+            conversation_id=request.conversation_id,
+        )
+        if conversational_response:
+            return conversational_response
+
         retrieval_context = retrieve_cpl_context(
             query=request.message,
             course_id=request.course_id,

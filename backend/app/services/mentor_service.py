@@ -8,7 +8,7 @@ class MentorService:
     def get_current_course(self) -> Dict[str, Any]:
         return {
             "course_id": "fdad-fed",
-            "title": "FDAD-FED-Front-End Development",
+            "title": "HDSE-CPL-Capstone Project - Application Development",
             "term": "Summer 2026",
             "endDate": "Tue, Jun 30, 2026",
             "instructor": "AI Mentor Team",

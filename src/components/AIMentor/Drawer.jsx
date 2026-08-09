@@ -1,19 +1,29 @@
-import React, { useState } from 'react'
-import QuickActions from './QuickActions'
+import React, { useEffect, useRef, useState } from 'react'
 import ConversationList from './ConversationList'
 import ChatInput from './ChatInput'
 import { sendChatMessage } from '../../api'
 
 const initialMessages = [
-  { id: 'm1', role: 'assistant', text: 'Hi there! Ask me anything about your course or assignment.' }
+  { id: 'm1', role: 'assistant', text: 'Hi there. Ask me anything about your course or assignment.' },
 ]
 
 export default function Drawer({ open = true, onToggle }) {
   const [messages, setMessages] = useState(initialMessages)
   const [conversationId, setConversationId] = useState(null)
-  const [mentorMode, setMentorMode] = useState('ask_anything')
+  const [mentorMode] = useState('ask_anything')
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState(null)
+  const conversationRef = useRef(null)
+
+  useEffect(() => {
+    const container = conversationRef.current
+    if (!container) return
+
+    const distanceFromBottom = container.scrollHeight - container.scrollTop - container.clientHeight
+    if (distanceFromBottom < 220) {
+      container.scrollTop = container.scrollHeight
+    }
+  }, [messages, loading])
 
   if (!open) return null
 
@@ -42,6 +52,7 @@ export default function Drawer({ open = true, onToggle }) {
         id: `a-${Date.now()}`,
         role: 'assistant',
         text: response.answer,
+        sources: response.sources ?? [],
       }
 
       setConversationId(response.conversation_id)
@@ -58,40 +69,30 @@ export default function Drawer({ open = true, onToggle }) {
   return (
     <div className="ai-drawer fixed right-0 z-50">
       <div className="h-full bg-white border-l border-[var(--border)] flex flex-col" style={{ boxShadow: '-8px 0 24px rgba(16,24,40,0.06)' }}>
-        <div className="p-5 flex items-start justify-between border-b border-[var(--border)] ai-header">
+        <div className="px-6 py-5 flex items-start justify-between border-b border-[var(--border)] ai-header">
           <div>
-            <div className="flex items-center gap-3">
-              <div className="w-10 h-10 bg-[var(--hover)] rounded flex items-center justify-center text-[var(--primary)]">🤖</div>
-              <div>
-                <div className="title">AI Mentor</div>
-                <div className="subtitle">Your learning companion for this course</div>
-              </div>
-            </div>
-
-            <div className="ai-greeting">Hi WuttYi 👋</div>
-            <div className="ai-prompt">How can I help you today?</div>
+            <div className="title">AI-Mentor, Htoo Wutt Yi</div>
+            <div className="subtitle mt-1">Your learning companion for this course</div>
           </div>
 
           <div className="ml-3">
-            <button onClick={onToggle} className="p-2 rounded soft-transition hover:bg-[var(--hover)]">✕</button>
+            <button onClick={onToggle} className="p-2 rounded soft-transition hover:bg-[var(--hover)] text-sm text-[var(--subdued)]" aria-label="Close AI-Mentor">
+              Close
+            </button>
           </div>
         </div>
 
-        <div className="p-4 overflow-y-auto flex-1">
-          <div className="quick-actions">
-            <QuickActions selectedMode={mentorMode} onSelectMode={setMentorMode} />
-          </div>
-          <div className=" mt-4 text-sm text-[var(--text)]">
-            Current mode: <span className="font-semibold">{mentorMode.replace('_', ' ')}</span>
-          </div>
-          <div className="mt-6">
-            <ConversationList messages={messages} />
-          </div>
+        <div ref={conversationRef} className="ai-conversation flex-1 overflow-y-auto px-6 py-5">
+          <ConversationList messages={messages} loading={loading} />
         </div>
 
-        <div className="p-5 border-t border-[var(--border)] chat-input">
+        <div className="px-6 py-5 border-t border-[var(--border)] chat-input">
           <ChatInput onSubmit={handleSend} disabled={loading} error={error} />
-          <div className="text-xs text-[var(--subdued)] mt-3">AI Mentor uses course materials only. Answers may not be 100% accurate.</div>
+          <div className="text-xs text-[var(--subdued)] mt-3 leading-5">
+            AI-Mentor uses course materials only. Answers may not be 100% accurate.
+            <br />
+            Please confirm important information with your mentor when needed.
+          </div>
         </div>
       </div>
     </div>

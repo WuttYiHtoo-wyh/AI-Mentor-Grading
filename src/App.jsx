@@ -3,6 +3,7 @@ import Navbar from './components/Navbar/Navbar'
 import CourseHeader from './components/CourseHeader/CourseHeader'
 import ResumeCard from './components/ResumeCard/ResumeCard'
 import ModuleAccordion from './components/ModuleAccordion/ModuleAccordion'
+import AIMentorGuide from './components/AIMentorGuide/AIMentorGuide'
 import CourseTools from './components/CourseTools/CourseTools'
 import ImportantDates from './components/ImportantDates/ImportantDates'
 import CourseHandouts from './components/CourseHandouts/CourseHandouts'
@@ -48,7 +49,7 @@ export default function App() {
           <>
             <CourseHeader title={course.title} />
             <div className="mt-6 grid grid-cols-12 gap-6">
-              <main className="col-span-8">
+              <main className="col-span-12 lg:col-span-8">
                 <div className="flex items-center justify-between">
                   <div className="w-3/4"> </div>
                   <div className="flex items-center gap-3">
@@ -63,9 +64,13 @@ export default function App() {
                 <div className="mt-6">
                   <ModuleAccordion />
                 </div>
+
+                <div className="mt-6">
+                  <AIMentorGuide />
+                </div>
               </main>
 
-              <aside className="col-span-4">
+              <aside className="col-span-12 lg:col-span-4">
                 <CourseTools />
                 <ImportantDates date={course.term} />
                 <CourseHandouts handouts={course.handouts ?? []} />
