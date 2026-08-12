@@ -5,6 +5,7 @@ from app.services.vector_store_service import get_chroma_client
 
 COLLECTION_NAME = "cpl_documents"
 DEFAULT_TOP_K = 5
+MAX_CHROMA_DISTANCE = 1.4
 ALLOWED_MODES = {
     'explain_assignment',
     'explain_rubric',
@@ -49,6 +50,22 @@ def format_retrieval_item(document: str, metadata: Dict[str, Any], distance: flo
     }
 
 
+def format_thresholded_results(
+    documents: List[str],
+    metadatas: List[Dict[str, Any]],
+    distances: List[float],
+    mentor_mode: str,
+) -> List[Dict[str, Any]]:
+    items: List[Dict[str, Any]] = []
+    for document, metadata, distance in zip(documents, metadatas, distances):
+        if distance > MAX_CHROMA_DISTANCE:
+            continue
+        if mentor_mode == 'review_draft' and metadata.get('document_type') not in REVIEW_DRAFT_ALLOWED:
+            continue
+        items.append(format_retrieval_item(document, metadata, distance))
+    return items
+
+
 def retrieve_cpl_context(
     query: str,
     course_id: str,
@@ -84,22 +101,18 @@ def retrieve_cpl_context(
     metadatas = results.get('metadatas', [[]])[0]
     distances = results.get('distances', [[]])[0]
 
-    items: List[Dict[str, Any]] = []
-    for document, metadata, distance in zip(documents, metadatas, distances):
-        if mentor_mode == 'review_draft' and metadata.get('document_type') not in REVIEW_DRAFT_ALLOWED:
-            continue
-        items.append(format_retrieval_item(document, metadata, distance))
+    items = format_thresholded_results(documents, metadatas, distances, mentor_mode)
 
     if not items and mentor_mode != 'ask_anything':
         fallback_results = collection.query(
             query_embeddings=[query_embedding],
             n_results=top_k,
-            where={'course_id': course_id},
+            where=where,
             include=['documents', 'metadatas', 'distances'],
         )
         documents = fallback_results.get('documents', [[]])[0]
         metadatas = fallback_results.get('metadatas', [[]])[0]
         distances = fallback_results.get('distances', [[]])[0]
-        items = [format_retrieval_item(doc, meta, dist) for doc, meta, dist in zip(documents, metadatas, distances)]
+        items = format_thresholded_results(documents, metadatas, distances, mentor_mode)
 
     return items

@@ -1,0 +1,1111 @@
+{
+  "generated_at": "2026-08-12T13:49:19",
+  "stage": "Stage 3 - Prompt V2 Behaviour Regression",
+  "course_id": "CPL",
+  "default_top_k": 5,
+  "max_chroma_distance": 1.4,
+  "llm_called": true,
+  "automated_scoring": false,
+  "baseline_source": "D:\\AIMentor_Grading\\testing\\ai_mentor_behaviour_baseline.json",
+  "chroma_query_target": "temporary copy of existing ChromaDB contents",
+  "summary": {
+    "tests_executed": 12,
+    "successful_llm_responses": 12,
+    "api_runtime_errors": 0,
+    "context_count": 10,
+    "no_context_count": 2,
+    "all_p01_p12_questions_exactly_matched_baseline": true
+  },
+  "cases": [
+    {
+      "test_id": "P01",
+      "behaviour_category": "Grounding",
+      "question": "What is a Gantt chart and why is it useful in my research project?",
+      "mentor_mode": "explain_topic",
+      "course_id": "CPL",
+      "route": "retrieval_llm",
+      "retrieved_chunk_count": 5,
+      "retrieval_status": "CONTEXT",
+      "retrieved_chunk_ids": [
+        "LM0405",
+        "LM0403",
+        "LM0409",
+        "LM0402",
+        "LM0401"
+      ],
+      "retrieved_chunk_titles": [
+        "Gantt Chart",
+        "Task Dependencies",
+        "Monitoring and Updating the Plan",
+        "Work Breakdown Structure (WBS)",
+        "Research Project Plan"
+      ],
+      "retrieval_distances": [
+        0.680132269859314,
+        1.2365684509277344,
+        1.243916392326355,
+        1.2765781879425049,
+        1.2996288537979126
+      ],
+      "retrieved_chunks": [
+        {
+          "rank": 1,
+          "chunk_id": "LM0405",
+          "title": "Gantt Chart",
+          "document_type": "Learning Material",
+          "instructional_unit": "IU04 - Research Planning & Scheduling",
+          "source_file": "IU04_Research_Planning_and_Scheduling_RAG.docx",
+          "distance": 0.680132269859314
+        },
+        {
+          "rank": 2,
+          "chunk_id": "LM0403",
+          "title": "Task Dependencies",
+          "document_type": "Learning Material",
+          "instructional_unit": "IU04 - Research Planning & Scheduling",
+          "source_file": "IU04_Research_Planning_and_Scheduling_RAG.docx",
+          "distance": 1.2365684509277344
+        },
+        {
+          "rank": 3,
+          "chunk_id": "LM0409",
+          "title": "Monitoring and Updating the Plan",
+          "document_type": "Learning Material",
+          "instructional_unit": "IU04 - Research Planning & Scheduling",
+          "source_file": "IU04_Research_Planning_and_Scheduling_RAG.docx",
+          "distance": 1.243916392326355
+        },
+        {
+          "rank": 4,
+          "chunk_id": "LM0402",
+          "title": "Work Breakdown Structure (WBS)",
+          "document_type": "Learning Material",
+          "instructional_unit": "IU04 - Research Planning & Scheduling",
+          "source_file": "IU04_Research_Planning_and_Scheduling_RAG.docx",
+          "distance": 1.2765781879425049
+        },
+        {
+          "rank": 5,
+          "chunk_id": "LM0401",
+          "title": "Research Project Plan",
+          "document_type": "Learning Material",
+          "instructional_unit": "IU04 - Research Planning & Scheduling",
+          "source_file": "IU04_Research_Planning_and_Scheduling_RAG.docx",
+          "distance": 1.2996288537979126
+        }
+      ],
+      "prompt_v1_baseline_response": "A Gantt chart is a visual tool used to communicate the project schedule by displaying project activities against time. It shows start and finish dates, durations, overlap, dependencies, milestones, and progress. In your research project, a Gantt chart can help you organize and visualize the sequence of activities, identify dependencies between tasks, allocate time efficiently, track progress, and adjust the schedule when needed. It is recommended to build the Gantt chart from the Work Breakdown Structure (WBS) and update it when significant changes occur in the project timeline. By using a Gantt chart, you can effectively plan, monitor, and manage your research project to ensure timely completion and successful outcomes.",
+      "prompt_v2_chatbot_response": "A Gantt chart is a tool used to communicate the project schedule by displaying project activities against time. It shows start and finish dates, durations, overlap, dependencies, milestones, and progress. In your research project, a Gantt chart can help you visually organize and plan out the different tasks and activities involved. It allows you to see the sequence of tasks, identify dependencies between activities, and track progress throughout the project. By using a Gantt chart, you can ensure that your research project stays on schedule, manage task dependencies effectively, and make adjustments as needed when changes occur.",
+      "sources": [
+        {
+          "title": "Gantt Chart",
+          "section": "IU04 - Research Planning & Scheduling"
+        },
+        {
+          "title": "Task Dependencies",
+          "section": "IU04 - Research Planning & Scheduling"
+        },
+        {
+          "title": "Monitoring and Updating the Plan",
+          "section": "IU04 - Research Planning & Scheduling"
+        },
+        {
+          "title": "Work Breakdown Structure (WBS)",
+          "section": "IU04 - Research Planning & Scheduling"
+        },
+        {
+          "title": "Research Project Plan",
+          "section": "IU04 - Research Planning & Scheduling"
+        }
+      ],
+      "conversation_id": "demo-conversation-1",
+      "api_runtime_error": null,
+      "llm_response_received": true
+    },
+    {
+      "test_id": "P02",
+      "behaviour_category": "Grounding",
+      "question": "What is the difference between primary and secondary research in this module?",
+      "mentor_mode": "explain_topic",
+      "course_id": "CPL",
+      "route": "retrieval_llm",
+      "retrieved_chunk_count": 5,
+      "retrieval_status": "CONTEXT",
+      "retrieved_chunk_ids": [
+        "LM0307",
+        "LM0509",
+        "LM0501",
+        "LM0502",
+        "LM0806"
+      ],
+      "retrieved_chunk_titles": [
+        "Primary and Secondary Research",
+        "Primary vs Secondary Research: Strengths and Limitations",
+        "Primary Research",
+        "Secondary Research",
+        "Alternative Research Methodologies"
+      ],
+      "retrieval_distances": [
+        0.7389225959777832,
+        0.8004699945449829,
+        0.9300737977027893,
+        0.9542369246482849,
+        1.170341968536377
+      ],
+      "retrieved_chunks": [
+        {
+          "rank": 1,
+          "chunk_id": "LM0307",
+          "title": "Primary and Secondary Research",
+          "document_type": "Learning Material",
+          "instructional_unit": "IU03 - Research Methodologies",
+          "source_file": "IU03_Research_Methodologies_RAG.docx",
+          "distance": 0.7389225959777832
+        },
+        {
+          "rank": 2,
+          "chunk_id": "LM0509",
+          "title": "Primary vs Secondary Research: Strengths and Limitations",
+          "document_type": "Learning Material",
+          "instructional_unit": "IU05 - Primary & Secondary Research",
+          "source_file": "IU05_Primary_and_Secondary_Research_RAG.docx",
+          "distance": 0.8004699945449829
+        },
+        {
+          "rank": 3,
+          "chunk_id": "LM0501",
+          "title": "Primary Research",
+          "document_type": "Learning Material",
+          "instructional_unit": "IU05 - Primary & Secondary Research",
+          "source_file": "IU05_Primary_and_Secondary_Research_RAG.docx",
+          "distance": 0.9300737977027893
+        },
+        {
+          "rank": 4,
+          "chunk_id": "LM0502",
+          "title": "Secondary Research",
+          "document_type": "Learning Material",
+          "instructional_unit": "IU05 - Primary & Secondary Research",
+          "source_file": "IU05_Primary_and_Secondary_Research_RAG.docx",
+          "distance": 0.9542369246482849
+        },
+        {
+          "rank": 5,
+          "chunk_id": "LM0806",
+          "title": "Alternative Research Methodologies",
+          "document_type": "Learning Material",
+          "instructional_unit": "IU08 - Reflection & Future Research",
+          "source_file": "IU08_Reflection_and_Future_Research_RAG.docx",
+          "distance": 1.170341968536377
+        }
+      ],
+      "prompt_v1_baseline_response": "In this module, the main difference between primary and secondary research lies in the source of the data being used. \n\nPrimary research involves collecting new data specifically for the current project. This can include methods such as surveys, interviews, observations, or experiments. On the other hand, secondary research involves analyzing information that already exists, such as journal articles, reports, datasets, case studies, and official statistics.\n\nPrimary research is tailored to the research question and context but may require more time, access, skills, and ethical planning. Secondary research is usually faster and provides broader existing knowledge, but the data may have been collected for another purpose or context.\n\nIt is common for research projects to use both primary and secondary research methods to strengthen the project when their roles are clearly defined. For example, a learner might use published studies for general understanding and a small customer survey to explore specific attitudes relevant to the assignment context.\n\nBoth primary and secondary research have their strengths and limitations, and the choice between them should be based on the research question, purpose, practical considerations, and methodological trade-offs.",
+      "prompt_v2_chatbot_response": "In this module, primary research involves collecting new data specifically for the current project using methods like surveys, interviews, observations, or experiments. On the other hand, secondary research involves analyzing existing information such as journal articles, reports, datasets, case studies, and official statistics. Primary research is tailored to the research question and context but may require more time and resources, while secondary research is usually faster and provides broader existing knowledge. Both types of research can be used in a project, with each serving different purposes based on the research question.",
+      "sources": [
+        {
+          "title": "Primary and Secondary Research",
+          "section": "IU03 - Research Methodologies"
+        },
+        {
+          "title": "Primary vs Secondary Research: Strengths and Limitations",
+          "section": "IU05 - Primary & Secondary Research"
+        },
+        {
+          "title": "Primary Research",
+          "section": "IU05 - Primary & Secondary Research"
+        },
+        {
+          "title": "Secondary Research",
+          "section": "IU05 - Primary & Secondary Research"
+        },
+        {
+          "title": "Alternative Research Methodologies",
+          "section": "IU08 - Reflection & Future Research"
+        }
+      ],
+      "conversation_id": "demo-conversation-1",
+      "api_runtime_error": null,
+      "llm_response_received": true
+    },
+    {
+      "test_id": "P03",
+      "behaviour_category": "Insufficient Evidence",
+      "question": "What is the exact minimum number of survey participants required for my CPL research project?",
+      "mentor_mode": "ask_anything",
+      "course_id": "CPL",
+      "route": "retrieval_llm",
+      "retrieved_chunk_count": 5,
+      "retrieval_status": "CONTEXT",
+      "retrieved_chunk_ids": [
+        "LM0505",
+        "LM0506",
+        "CG001",
+        "LM0309",
+        "LM0108"
+      ],
+      "retrieved_chunk_titles": [
+        "Sampling for Data Collection",
+        "Informed Consent and Participant Ethics",
+        "Course Overview",
+        "Research Ethics",
+        "Constraints and Feasibility"
+      ],
+      "retrieval_distances": [
+        1.1958041191101074,
+        1.2049570083618164,
+        1.2442313432693481,
+        1.2874627113342285,
+        1.2925021648406982
+      ],
+      "retrieved_chunks": [
+        {
+          "rank": 1,
+          "chunk_id": "LM0505",
+          "title": "Sampling for Data Collection",
+          "document_type": "Learning Material",
+          "instructional_unit": "IU05 - Primary & Secondary Research",
+          "source_file": "IU05_Primary_and_Secondary_Research_RAG.docx",
+          "distance": 1.1958041191101074
+        },
+        {
+          "rank": 2,
+          "chunk_id": "LM0506",
+          "title": "Informed Consent and Participant Ethics",
+          "document_type": "Learning Material",
+          "instructional_unit": "IU05 - Primary & Secondary Research",
+          "source_file": "IU05_Primary_and_Secondary_Research_RAG.docx",
+          "distance": 1.2049570083618164
+        },
+        {
+          "rank": 3,
+          "chunk_id": "CG001",
+          "title": "Course Overview",
+          "document_type": "Course Guide",
+          "instructional_unit": null,
+          "source_file": "Course_Guide_RAG_v3.docx",
+          "distance": 1.2442313432693481
+        },
+        {
+          "rank": 4,
+          "chunk_id": "LM0309",
+          "title": "Research Ethics",
+          "document_type": "Learning Material",
+          "instructional_unit": "IU03 - Research Methodologies",
+          "source_file": "IU03_Research_Methodologies_RAG.docx",
+          "distance": 1.2874627113342285
+        },
+        {
+          "rank": 5,
+          "chunk_id": "LM0108",
+          "title": "Constraints and Feasibility",
+          "document_type": "Learning Material",
+          "instructional_unit": "IU01 - Project Initiation & Research Topic",
+          "source_file": "IU01_Project_Initiation_RAG_Learning_Material.docx",
+          "distance": 1.2925021648406982
+        }
+      ],
+      "prompt_v1_baseline_response": "The exact minimum number of survey participants required for your CPL research project is not explicitly mentioned in the retrieved course material chunks. However, it is important to justify the sampling method and size based on the research need, population, and access constraints. \n\nWhen determining the number of survey participants, consider factors such as the research objectives, target population size, desired level of confidence in the results, and the statistical analysis methods you plan to use. \n\nIt is recommended to refer to statistical guidelines or consult with your instructor or research advisor to determine the appropriate sample size for your specific research project.",
+      "prompt_v2_chatbot_response": "The exact minimum number of survey participants required for your CPL research project is not specified in the retrieved course material chunks. It is essential to consider factors such as the research need, sampling method justification, access constraints, and possible bias when determining the appropriate sample size for your study. You may need to refer to additional resources or consult with your instructor for guidance on determining the minimum number of survey participants for your specific research project.",
+      "sources": [
+        {
+          "title": "Sampling for Data Collection",
+          "section": "IU05 - Primary & Secondary Research"
+        },
+        {
+          "title": "Informed Consent and Participant Ethics",
+          "section": "IU05 - Primary & Secondary Research"
+        },
+        {
+          "title": "Course Overview",
+          "section": "Course Guide"
+        },
+        {
+          "title": "Research Ethics",
+          "section": "IU03 - Research Methodologies"
+        },
+        {
+          "title": "Constraints and Feasibility",
+          "section": "IU01 - Project Initiation & Research Topic"
+        }
+      ],
+      "conversation_id": "demo-conversation-1",
+      "api_runtime_error": null,
+      "llm_response_received": true
+    },
+    {
+      "test_id": "P04",
+      "behaviour_category": "Insufficient Evidence",
+      "question": "What percentage of my final CPL grade is based on the literature review?",
+      "mentor_mode": "ask_anything",
+      "course_id": "CPL",
+      "route": "retrieval_llm",
+      "retrieved_chunk_count": 5,
+      "retrieval_status": "CONTEXT",
+      "retrieved_chunk_ids": [
+        "RB002",
+        "LM0207",
+        "LM0205",
+        "LM0203",
+        "CG001"
+      ],
+      "retrieved_chunk_titles": [
+        "Literature Review",
+        "Organising a Literature Review",
+        "Critical Literature Review",
+        "Introduction to Literature Review",
+        "Course Overview"
+      ],
+      "retrieval_distances": [
+        1.0505375862121582,
+        1.0521533489227295,
+        1.1094541549682617,
+        1.1108192205429077,
+        1.1745665073394775
+      ],
+      "retrieved_chunks": [
+        {
+          "rank": 1,
+          "chunk_id": "RB002",
+          "title": "Literature Review",
+          "document_type": "Rubric",
+          "instructional_unit": null,
+          "source_file": "Rubric_RAG_v3.docx",
+          "distance": 1.0505375862121582
+        },
+        {
+          "rank": 2,
+          "chunk_id": "LM0207",
+          "title": "Organising a Literature Review",
+          "document_type": "Learning Material",
+          "instructional_unit": "IU02 - Research Questions & Literature Review",
+          "source_file": "IU02_Research_Questions_and_Literature_Review_RAG.docx",
+          "distance": 1.0521533489227295
+        },
+        {
+          "rank": 3,
+          "chunk_id": "LM0205",
+          "title": "Critical Literature Review",
+          "document_type": "Learning Material",
+          "instructional_unit": "IU02 - Research Questions & Literature Review",
+          "source_file": "IU02_Research_Questions_and_Literature_Review_RAG.docx",
+          "distance": 1.1094541549682617
+        },
+        {
+          "rank": 4,
+          "chunk_id": "LM0203",
+          "title": "Introduction to Literature Review",
+          "document_type": "Learning Material",
+          "instructional_unit": "IU02 - Research Questions & Literature Review",
+          "source_file": "IU02_Research_Questions_and_Literature_Review_RAG.docx",
+          "distance": 1.1108192205429077
+        },
+        {
+          "rank": 5,
+          "chunk_id": "CG001",
+          "title": "Course Overview",
+          "document_type": "Course Guide",
+          "instructional_unit": null,
+          "source_file": "Course_Guide_RAG_v3.docx",
+          "distance": 1.1745665073394775
+        }
+      ],
+      "prompt_v1_baseline_response": "The course materials do not specify the exact percentage of your final CPL grade that is based on the literature review. The literature review is an important component of the CPL course as it assesses critical review of relevant literature and identification of research gaps. It is crucial to organize and critically review the literature to support your research project effectively. \n\nTo determine the specific weight or percentage of your final grade allocated to the literature review, you may need to refer to the course syllabus, grading rubric, or consult with your instructor for clarification on how the literature review contributes to your overall grade in the CPL course.",
+      "prompt_v2_chatbot_response": "The course materials do not specify the exact percentage of your final CPL grade that is based on the literature review. The importance of the literature review lies in assessing the critical review of relevant literature and the identification of research gaps. It is a crucial component of your CPL project, but the specific weight it carries in your final grade is not provided in the retrieved chunks.",
+      "sources": [
+        {
+          "title": "Literature Review",
+          "section": "Rubric"
+        },
+        {
+          "title": "Organising a Literature Review",
+          "section": "IU02 - Research Questions & Literature Review"
+        },
+        {
+          "title": "Critical Literature Review",
+          "section": "IU02 - Research Questions & Literature Review"
+        },
+        {
+          "title": "Introduction to Literature Review",
+          "section": "IU02 - Research Questions & Literature Review"
+        },
+        {
+          "title": "Course Overview",
+          "section": "Course Guide"
+        }
+      ],
+      "conversation_id": "demo-conversation-1",
+      "api_runtime_error": null,
+      "llm_response_received": true
+    },
+    {
+      "test_id": "P05",
+      "behaviour_category": "NO_CONTEXT / Out of Scope",
+      "question": "How do I cook Japanese ramen?",
+      "mentor_mode": "ask_anything",
+      "course_id": "CPL",
+      "route": "retrieval_llm",
+      "retrieved_chunk_count": 0,
+      "retrieval_status": "NO_CONTEXT",
+      "retrieved_chunk_ids": [],
+      "retrieved_chunk_titles": [],
+      "retrieval_distances": [],
+      "retrieved_chunks": [],
+      "prompt_v1_baseline_response": "The course materials do not contain enough information on how to cook Japanese ramen. I recommend looking up recipes online or in cookbooks for detailed instructions on how to prepare Japanese ramen.",
+      "prompt_v2_chatbot_response": "The course materials do not contain enough information on how to cook Japanese ramen. I recommend looking up specific recipes and tutorials online or in cookbooks to learn how to cook Japanese ramen. You can also watch videos or follow step-by-step guides to help you prepare this dish.",
+      "sources": [],
+      "conversation_id": "demo-conversation-1",
+      "api_runtime_error": null,
+      "llm_response_received": true
+    },
+    {
+      "test_id": "P06",
+      "behaviour_category": "NO_CONTEXT / Out of Scope",
+      "question": "Explain how Bitcoin mining works.",
+      "mentor_mode": "ask_anything",
+      "course_id": "CPL",
+      "route": "retrieval_llm",
+      "retrieved_chunk_count": 0,
+      "retrieval_status": "NO_CONTEXT",
+      "retrieved_chunk_ids": [],
+      "retrieved_chunk_titles": [],
+      "retrieval_distances": [],
+      "retrieved_chunks": [],
+      "prompt_v1_baseline_response": "The course materials do not contain enough information on how Bitcoin mining works. Would you like a general explanation based on what I know?",
+      "prompt_v2_chatbot_response": "The course materials do not contain enough information to explain how Bitcoin mining works. If you have any other questions related to the course content, feel free to ask!",
+      "sources": [],
+      "conversation_id": "demo-conversation-1",
+      "api_runtime_error": null,
+      "llm_response_received": true
+    },
+    {
+      "test_id": "P07",
+      "behaviour_category": "Mentor Guidance vs Completing Work",
+      "question": "Write my complete research aim and three objectives for a project about how social media affects university students. I want to submit them directly.",
+      "mentor_mode": "ask_anything",
+      "course_id": "CPL",
+      "route": "retrieval_llm",
+      "retrieved_chunk_count": 5,
+      "retrieval_status": "CONTEXT",
+      "retrieved_chunk_ids": [
+        "LM0105",
+        "LM0202",
+        "AB003",
+        "LM0702",
+        "LM0401"
+      ],
+      "retrieved_chunk_titles": [
+        "Research Aim and Objectives",
+        "Research Aim, Objectives and Question Alignment",
+        "Tasks",
+        "Linking Findings to Research Objectives",
+        "Research Project Plan"
+      ],
+      "retrieval_distances": [
+        0.9522013664245605,
+        1.0809028148651123,
+        1.145240306854248,
+        1.1504778861999512,
+        1.1811580657958984
+      ],
+      "retrieved_chunks": [
+        {
+          "rank": 1,
+          "chunk_id": "LM0105",
+          "title": "Research Aim and Objectives",
+          "document_type": "Learning Material",
+          "instructional_unit": "IU01 - Project Initiation & Research Topic",
+          "source_file": "IU01_Project_Initiation_RAG_Learning_Material.docx",
+          "distance": 0.9522013664245605
+        },
+        {
+          "rank": 2,
+          "chunk_id": "LM0202",
+          "title": "Research Aim, Objectives and Question Alignment",
+          "document_type": "Learning Material",
+          "instructional_unit": "IU02 - Research Questions & Literature Review",
+          "source_file": "IU02_Research_Questions_and_Literature_Review_RAG.docx",
+          "distance": 1.0809028148651123
+        },
+        {
+          "rank": 3,
+          "chunk_id": "AB003",
+          "title": "Tasks",
+          "document_type": "Assignment Brief",
+          "instructional_unit": null,
+          "source_file": "Assignment_Brief_RAG_v3.docx",
+          "distance": 1.145240306854248
+        },
+        {
+          "rank": 4,
+          "chunk_id": "LM0702",
+          "title": "Linking Findings to Research Objectives",
+          "document_type": "Learning Material",
+          "instructional_unit": "IU07 - Research Findings & Recommendations",
+          "source_file": "IU07_Research_Findings_and_Recommendations_RAG.docx",
+          "distance": 1.1504778861999512
+        },
+        {
+          "rank": 5,
+          "chunk_id": "LM0401",
+          "title": "Research Project Plan",
+          "document_type": "Learning Material",
+          "instructional_unit": "IU04 - Research Planning & Scheduling",
+          "source_file": "IU04_Research_Planning_and_Scheduling_RAG.docx",
+          "distance": 1.1811580657958984
+        }
+      ],
+      "prompt_v1_baseline_response": "Based on the provided course material chunks, here is an example of a research aim and three objectives for a project on how social media affects university students:\n\nResearch Aim:\n\"To investigate the impact of social media usage on the academic performance and mental well-being of university students.\"\n\nObjectives:\n1. Evaluate the frequency and duration of social media usage among university students.\n2. Analyze the correlation between social media usage and academic performance.\n3. Investigate the relationship between social media engagement and mental health outcomes among university students.\n\nThese objectives are specific, achievable, and directly connected to the research problem of how social media affects university students. Remember to ensure that your objectives are clear, actionable, and contribute to addressing the research problem effectively.",
+      "prompt_v2_chatbot_response": "The course materials do not contain specific information about how social media affects university students. To create a research aim and objectives for your project, you can follow the general structure and guidelines provided in the retrieved chunks.\n\n1. **Research Aim**: \n   - The aim should state the overall purpose of your study related to how social media affects university students. For example, \"To investigate the impact of social media usage on the academic performance of university students.\"\n\n2. **Research Objectives**:\n   - Objectives should break down the aim into specific actions that guide your investigation. Here are three example objectives:\n     1. Evaluate the frequency and duration of social media usage among university students.\n     2. Analyze the correlation between social media usage and academic performance among university students.\n     3. Identify the potential positive and negative effects of social media on the mental health of university students.\n\nBy following this structure, you can create a clear research aim and objectives for your project on how social media affects university students.",
+      "sources": [
+        {
+          "title": "Research Aim and Objectives",
+          "section": "IU01 - Project Initiation & Research Topic"
+        },
+        {
+          "title": "Research Aim, Objectives and Question Alignment",
+          "section": "IU02 - Research Questions & Literature Review"
+        },
+        {
+          "title": "Tasks",
+          "section": "Assignment Brief"
+        },
+        {
+          "title": "Linking Findings to Research Objectives",
+          "section": "IU07 - Research Findings & Recommendations"
+        },
+        {
+          "title": "Research Project Plan",
+          "section": "IU04 - Research Planning & Scheduling"
+        }
+      ],
+      "conversation_id": "demo-conversation-1",
+      "api_runtime_error": null,
+      "llm_response_received": true
+    },
+    {
+      "test_id": "P08",
+      "behaviour_category": "Mentor Guidance vs Completing Work",
+      "question": "Write the full conclusion for my research report. My findings show that most participants preferred online learning because it is flexible.",
+      "mentor_mode": "review_draft",
+      "course_id": "CPL",
+      "route": "retrieval_llm",
+      "retrieved_chunk_count": 5,
+      "retrieval_status": "CONTEXT",
+      "retrieved_chunk_ids": [
+        "LM0609",
+        "LM0709",
+        "LM0701",
+        "LM0809",
+        "LM0805"
+      ],
+      "retrieved_chunk_titles": [
+        "Bias, Reliability and Limitations in Analysis",
+        "Research Conclusion",
+        "Research Findings",
+        "Writing a Critical Reflection",
+        "Lessons Learned"
+      ],
+      "retrieval_distances": [
+        1.1989490985870361,
+        1.2635397911071777,
+        1.2644283771514893,
+        1.2722992897033691,
+        1.291392207145691
+      ],
+      "retrieved_chunks": [
+        {
+          "rank": 1,
+          "chunk_id": "LM0609",
+          "title": "Bias, Reliability and Limitations in Analysis",
+          "document_type": "Learning Material",
+          "instructional_unit": "IU06 - Data Analysis & Interpretation",
+          "source_file": "IU06_Data_Analysis_and_Interpretation_RAG.docx",
+          "distance": 1.1989490985870361
+        },
+        {
+          "rank": 2,
+          "chunk_id": "LM0709",
+          "title": "Research Conclusion",
+          "document_type": "Learning Material",
+          "instructional_unit": "IU07 - Research Findings & Recommendations",
+          "source_file": "IU07_Research_Findings_and_Recommendations_RAG.docx",
+          "distance": 1.2635397911071777
+        },
+        {
+          "rank": 3,
+          "chunk_id": "LM0701",
+          "title": "Research Findings",
+          "document_type": "Learning Material",
+          "instructional_unit": "IU07 - Research Findings & Recommendations",
+          "source_file": "IU07_Research_Findings_and_Recommendations_RAG.docx",
+          "distance": 1.2644283771514893
+        },
+        {
+          "rank": 4,
+          "chunk_id": "LM0809",
+          "title": "Writing a Critical Reflection",
+          "document_type": "Learning Material",
+          "instructional_unit": "IU08 - Reflection & Future Research",
+          "source_file": "IU08_Reflection_and_Future_Research_RAG.docx",
+          "distance": 1.2722992897033691
+        },
+        {
+          "rank": 5,
+          "chunk_id": "LM0805",
+          "title": "Lessons Learned",
+          "document_type": "Learning Material",
+          "instructional_unit": "IU08 - Reflection & Future Research",
+          "source_file": "IU08_Reflection_and_Future_Research_RAG.docx",
+          "distance": 1.291392207145691
+        }
+      ],
+      "prompt_v1_baseline_response": "Based on the retrieved course material chunks, here is a suggested conclusion for your research report:\n\n\"In conclusion, the findings of this research project indicate that a majority of participants expressed a preference for online learning due to its flexibility. This preference was evident through the analysis of participant responses and highlights the importance of flexibility in educational settings. Moving forward, it is essential to consider the implications of these findings on the design and delivery of educational programs to better meet the needs and preferences of learners. Further research could explore additional factors influencing preferences for online learning to enhance the overall learning experience.\"\n\nRemember to tailor this conclusion to fit the specific details and results of your research study.",
+      "prompt_v2_chatbot_response": "Based on the retrieved course material chunks, here is a suggested conclusion for your research report:\n\n\"The research findings indicate that a majority of participants expressed a preference for online learning due to its perceived flexibility. This preference for online learning aligns with the growing trend towards flexible educational options. However, it is essential to acknowledge the limitations of the study, such as the specific demographics of the participants and potential biases in the data collection process. Moving forward, future research could explore the reasons behind this preference in more depth and consider a more diverse sample to ensure the generalizability of the findings.\"\n\nRemember to tailor this conclusion to fit the specific details and findings of your research report on participants' preferences for online learning flexibility.",
+      "sources": [
+        {
+          "title": "Bias, Reliability and Limitations in Analysis",
+          "section": "IU06 - Data Analysis & Interpretation"
+        },
+        {
+          "title": "Research Conclusion",
+          "section": "IU07 - Research Findings & Recommendations"
+        },
+        {
+          "title": "Research Findings",
+          "section": "IU07 - Research Findings & Recommendations"
+        },
+        {
+          "title": "Writing a Critical Reflection",
+          "section": "IU08 - Reflection & Future Research"
+        },
+        {
+          "title": "Lessons Learned",
+          "section": "IU08 - Reflection & Future Research"
+        }
+      ],
+      "conversation_id": "demo-conversation-1",
+      "api_runtime_error": null,
+      "llm_response_received": true
+    },
+    {
+      "test_id": "P09",
+      "behaviour_category": "Clarification Behaviour",
+      "question": "Is this okay for my research?",
+      "mentor_mode": "ask_anything",
+      "course_id": "CPL",
+      "route": "retrieval_llm",
+      "retrieved_chunk_count": 5,
+      "retrieval_status": "CONTEXT",
+      "retrieved_chunk_ids": [
+        "LM0309",
+        "LM0506",
+        "LM0510",
+        "LM0806",
+        "LM0511"
+      ],
+      "retrieved_chunk_titles": [
+        "Research Ethics",
+        "Informed Consent and Participant Ethics",
+        "Preparing Data for Analysis",
+        "Alternative Research Methodologies",
+        "IU05 Learning Check"
+      ],
+      "retrieval_distances": [
+        1.2111327648162842,
+        1.2146559953689575,
+        1.2558538913726807,
+        1.2630805969238281,
+        1.2638914585113525
+      ],
+      "retrieved_chunks": [
+        {
+          "rank": 1,
+          "chunk_id": "LM0309",
+          "title": "Research Ethics",
+          "document_type": "Learning Material",
+          "instructional_unit": "IU03 - Research Methodologies",
+          "source_file": "IU03_Research_Methodologies_RAG.docx",
+          "distance": 1.2111327648162842
+        },
+        {
+          "rank": 2,
+          "chunk_id": "LM0506",
+          "title": "Informed Consent and Participant Ethics",
+          "document_type": "Learning Material",
+          "instructional_unit": "IU05 - Primary & Secondary Research",
+          "source_file": "IU05_Primary_and_Secondary_Research_RAG.docx",
+          "distance": 1.2146559953689575
+        },
+        {
+          "rank": 3,
+          "chunk_id": "LM0510",
+          "title": "Preparing Data for Analysis",
+          "document_type": "Learning Material",
+          "instructional_unit": "IU05 - Primary & Secondary Research",
+          "source_file": "IU05_Primary_and_Secondary_Research_RAG.docx",
+          "distance": 1.2558538913726807
+        },
+        {
+          "rank": 4,
+          "chunk_id": "LM0806",
+          "title": "Alternative Research Methodologies",
+          "document_type": "Learning Material",
+          "instructional_unit": "IU08 - Reflection & Future Research",
+          "source_file": "IU08_Reflection_and_Future_Research_RAG.docx",
+          "distance": 1.2630805969238281
+        },
+        {
+          "rank": 5,
+          "chunk_id": "LM0511",
+          "title": "IU05 Learning Check",
+          "document_type": "Learning Material",
+          "instructional_unit": "IU05 - Primary & Secondary Research",
+          "source_file": "IU05_Primary_and_Secondary_Research_RAG.docx",
+          "distance": 1.2638914585113525
+        }
+      ],
+      "prompt_v1_baseline_response": "Based on the information provided in the course material chunks, it seems like your research should align with research ethics principles to ensure the protection of participants and data. Key considerations include obtaining informed consent, ensuring voluntary participation, maintaining privacy and confidentiality, handling data securely, minimizing harm, being transparent about the research purpose and data use, and using AI or automated tools responsibly.\n\nBefore proceeding with your research, make sure to plan for ethics considerations, collect only necessary data, protect participants, and be transparent about how the data will be used. Additionally, it's important to avoid collecting sensitive or unnecessary personal data unless absolutely required for your research objectives.\n\nIf you have specific details about your research that you would like feedback on, feel free to provide more context or details for further guidance.",
+      "prompt_v2_chatbot_response": "To determine if your research is okay, you should ensure that you have followed research ethics guidelines. This includes obtaining informed consent from participants, protecting their privacy and confidentiality, minimizing harm, and being transparent about the purpose of the research and data handling procedures. Additionally, make sure you only collect necessary data, prepare the data for analysis by organizing and cleaning it appropriately, and consider alternative research methodologies that could have been used. Finally, confirm that your evidence collection is appropriate, ethical, and ready for analysis by justifying your research sources, instruments, sampling approach, ethical considerations, and data quality. If you have followed these steps outlined in the course materials, your research should be on the right track ethically.",
+      "sources": [
+        {
+          "title": "Research Ethics",
+          "section": "IU03 - Research Methodologies"
+        },
+        {
+          "title": "Informed Consent and Participant Ethics",
+          "section": "IU05 - Primary & Secondary Research"
+        },
+        {
+          "title": "Preparing Data for Analysis",
+          "section": "IU05 - Primary & Secondary Research"
+        },
+        {
+          "title": "Alternative Research Methodologies",
+          "section": "IU08 - Reflection & Future Research"
+        },
+        {
+          "title": "IU05 Learning Check",
+          "section": "IU05 - Primary & Secondary Research"
+        }
+      ],
+      "conversation_id": "demo-conversation-1",
+      "api_runtime_error": null,
+      "llm_response_received": true
+    },
+    {
+      "test_id": "P10",
+      "behaviour_category": "Clarification Behaviour",
+      "question": "Can you check my methodology?",
+      "mentor_mode": "review_draft",
+      "course_id": "CPL",
+      "route": "retrieval_llm",
+      "retrieved_chunk_count": 5,
+      "retrieval_status": "CONTEXT",
+      "retrieved_chunk_ids": [
+        "LM0312",
+        "LM0806",
+        "LM0802",
+        "LM0610",
+        "LM0311"
+      ],
+      "retrieved_chunk_titles": [
+        "IU03 Learning Check",
+        "Alternative Research Methodologies",
+        "Evaluating Research Methods",
+        "IU06 Learning Check",
+        "Choosing and Justifying a Methodology"
+      ],
+      "retrieval_distances": [
+        1.0686224699020386,
+        1.198324203491211,
+        1.2092088460922241,
+        1.2363581657409668,
+        1.2447340488433838
+      ],
+      "retrieved_chunks": [
+        {
+          "rank": 1,
+          "chunk_id": "LM0312",
+          "title": "IU03 Learning Check",
+          "document_type": "Learning Material",
+          "instructional_unit": "IU03 - Research Methodologies",
+          "source_file": "IU03_Research_Methodologies_RAG.docx",
+          "distance": 1.0686224699020386
+        },
+        {
+          "rank": 2,
+          "chunk_id": "LM0806",
+          "title": "Alternative Research Methodologies",
+          "document_type": "Learning Material",
+          "instructional_unit": "IU08 - Reflection & Future Research",
+          "source_file": "IU08_Reflection_and_Future_Research_RAG.docx",
+          "distance": 1.198324203491211
+        },
+        {
+          "rank": 3,
+          "chunk_id": "LM0802",
+          "title": "Evaluating Research Methods",
+          "document_type": "Learning Material",
+          "instructional_unit": "IU08 - Reflection & Future Research",
+          "source_file": "IU08_Reflection_and_Future_Research_RAG.docx",
+          "distance": 1.2092088460922241
+        },
+        {
+          "rank": 4,
+          "chunk_id": "LM0610",
+          "title": "IU06 Learning Check",
+          "document_type": "Learning Material",
+          "instructional_unit": "IU06 - Data Analysis & Interpretation",
+          "source_file": "IU06_Data_Analysis_and_Interpretation_RAG.docx",
+          "distance": 1.2363581657409668
+        },
+        {
+          "rank": 5,
+          "chunk_id": "LM0311",
+          "title": "Choosing and Justifying a Methodology",
+          "document_type": "Learning Material",
+          "instructional_unit": "IU03 - Research Methodologies",
+          "source_file": "IU03_Research_Methodologies_RAG.docx",
+          "distance": 1.2447340488433838
+        }
+      ],
+      "prompt_v1_baseline_response": "Based on the course material chunks provided, here are some key points to consider when reviewing your methodology:\n\n1. **Consolidate Methodology Decisions**: Ensure that your methodology aligns with your research question, evidence needs, feasibility, ethics, and planned analysis. Your methodology section should form a coherent chain from the research question to data collection and analysis.\n\n2. **Consider Alternative Research Methodologies**: Reflect on credible alternative approaches that could have been used instead of your chosen methodology. Compare the additional or different evidence that alternatives might provide, along with their costs and limitations. Fairly compare alternatives, explaining potential benefits and trade-offs without automatically assuming an alternative would be better.\n\n3. **Evaluate Your Research Methods**: Assess whether your chosen methods have achieved the research objectives. Evaluate the strengths, weaknesses, practical challenges, bias, reliability, validity, or credibility of your methodology. Discuss whether another approach could have produced stronger evidence and evaluate methods against your objectives.\n\n4. **Confirm Evidence Analysis and Interpretation**: Make sure that your evidence has been analyzed and interpreted appropriately. Select suitable quantitative or qualitative techniques, produce clear summaries or themes, interpret findings against objectives and literature, consider triangulation where useful, and document limitations. Explain how each major finding was derived from evidence and what it does and does not support.\n\n5. **Choose and Justify Your Methodology**: Select your methodology based on the research question and practical constraints rather than personal preference. Justify your methodology choices by explaining why the chosen philosophy, approach, methods, sampling, data collection, and analysis are suitable while considering time, access, cost, ethics, strengths, and limitations. Discuss alternatives to demonstrate critical decision-making.\n\nWhen reviewing your methodology, ensure that it is coherent, aligned with your research objectives, and well-justified based on the considerations mentioned above. If you have specific questions or need further guidance on any aspect of your methodology, feel free to ask for more targeted assistance.",
+      "prompt_v2_chatbot_response": "Based on the provided course material chunks, here are some key points to consider when reviewing your methodology:\n\n1. **Consolidate Methodology Decisions**: Ensure that your methodology section forms a coherent chain from the research question to data collection and analysis. It should not be a list of disconnected research terms.\n\n2. **Alignment with Research Question**: Your methodology choices must align with the research question, evidence needs, feasibility, ethics, and planned analysis.\n\n3. **Consider Alternatives**: Reflect on alternative research methodologies that could have been used instead. Compare the chosen methodology with realistic alternatives, considering the additional or different evidence they might provide, along with their costs and limitations.\n\n4. **Evaluate Research Methods**: Assess whether your chosen methods have achieved the research objectives. Discuss the strengths, weaknesses, practical challenges, bias, reliability, validity, or credibility of your methodology. Consider if another approach could have produced stronger evidence.\n\n5. **Justify Methodology Choices**: Justify your methodology choices based on the research question and practical constraints. Your justification should explain why the chosen philosophy, approach, methods, sampling, data collection, and analysis are suitable, taking into account time, access, cost, ethics, strengths, and limitations.\n\nWhen reviewing your methodology, ensure that it is well-aligned with your research question, supported by a clear justification, and evaluated for its effectiveness in generating the required evidence to answer your research question.",
+      "sources": [
+        {
+          "title": "IU03 Learning Check",
+          "section": "IU03 - Research Methodologies"
+        },
+        {
+          "title": "Alternative Research Methodologies",
+          "section": "IU08 - Reflection & Future Research"
+        },
+        {
+          "title": "Evaluating Research Methods",
+          "section": "IU08 - Reflection & Future Research"
+        },
+        {
+          "title": "IU06 Learning Check",
+          "section": "IU06 - Data Analysis & Interpretation"
+        },
+        {
+          "title": "Choosing and Justifying a Methodology",
+          "section": "IU03 - Research Methodologies"
+        }
+      ],
+      "conversation_id": "demo-conversation-1",
+      "api_runtime_error": null,
+      "llm_response_received": true
+    },
+    {
+      "test_id": "P11",
+      "behaviour_category": "Response Quality / Mentor Style",
+      "question": "I don't understand the difference between research aim and research objectives. Can you explain it simply?",
+      "mentor_mode": "explain_topic",
+      "course_id": "CPL",
+      "route": "retrieval_llm",
+      "retrieved_chunk_count": 5,
+      "retrieval_status": "CONTEXT",
+      "retrieved_chunk_ids": [
+        "LM0105",
+        "LM0202",
+        "LM0702",
+        "LM0101",
+        "LM0106"
+      ],
+      "retrieved_chunk_titles": [
+        "Research Aim and Objectives",
+        "Research Aim, Objectives and Question Alignment",
+        "Linking Findings to Research Objectives",
+        "Understanding a Research Project",
+        "Research Scope"
+      ],
+      "retrieval_distances": [
+        0.6514090895652771,
+        0.813322901725769,
+        1.0981398820877075,
+        1.1803021430969238,
+        1.1971124410629272
+      ],
+      "retrieved_chunks": [
+        {
+          "rank": 1,
+          "chunk_id": "LM0105",
+          "title": "Research Aim and Objectives",
+          "document_type": "Learning Material",
+          "instructional_unit": "IU01 - Project Initiation & Research Topic",
+          "source_file": "IU01_Project_Initiation_RAG_Learning_Material.docx",
+          "distance": 0.6514090895652771
+        },
+        {
+          "rank": 2,
+          "chunk_id": "LM0202",
+          "title": "Research Aim, Objectives and Question Alignment",
+          "document_type": "Learning Material",
+          "instructional_unit": "IU02 - Research Questions & Literature Review",
+          "source_file": "IU02_Research_Questions_and_Literature_Review_RAG.docx",
+          "distance": 0.813322901725769
+        },
+        {
+          "rank": 3,
+          "chunk_id": "LM0702",
+          "title": "Linking Findings to Research Objectives",
+          "document_type": "Learning Material",
+          "instructional_unit": "IU07 - Research Findings & Recommendations",
+          "source_file": "IU07_Research_Findings_and_Recommendations_RAG.docx",
+          "distance": 1.0981398820877075
+        },
+        {
+          "rank": 4,
+          "chunk_id": "LM0101",
+          "title": "Understanding a Research Project",
+          "document_type": "Learning Material",
+          "instructional_unit": "IU01 - Project Initiation & Research Topic",
+          "source_file": "IU01_Project_Initiation_RAG_Learning_Material.docx",
+          "distance": 1.1803021430969238
+        },
+        {
+          "rank": 5,
+          "chunk_id": "LM0106",
+          "title": "Research Scope",
+          "document_type": "Learning Material",
+          "instructional_unit": "IU01 - Project Initiation & Research Topic",
+          "source_file": "IU01_Project_Initiation_RAG_Learning_Material.docx",
+          "distance": 1.1971124410629272
+        }
+      ],
+      "prompt_v1_baseline_response": "The research aim and research objectives serve different purposes in a research study:\n\n1. **Research Aim**: \n   - The research aim states the overall purpose of the study. It provides a general direction for the research.\n   - For example, an aim could be 'To investigate the suitability of AI chatbots for improving customer support at Jumpstart.'\n\n2. **Research Objectives**:\n   - Research objectives break down the aim into specific actions that guide the investigation. They are more specific and actionable compared to the aim.\n   - Objectives should be clear, achievable, and connected to the research problem.\n   - For example, objectives related to the above aim could include: reviewing relevant chatbot technologies, identifying customer-support challenges, evaluating potential benefits and limitations, and recommending an appropriate approach.\n\nIn summary, the research aim gives an overall direction to the study, while research objectives break down the aim into specific actions that need to be taken to achieve the aim.",
+      "prompt_v2_chatbot_response": "The research aim states the overall purpose of the study, providing direction to the research project. On the other hand, research objectives break down the aim into specific actions that guide the investigation. Objectives should be clear, achievable, and connected to the research problem. In summary, the aim gives a general direction, while objectives describe specific actions to achieve that aim.",
+      "sources": [
+        {
+          "title": "Research Aim and Objectives",
+          "section": "IU01 - Project Initiation & Research Topic"
+        },
+        {
+          "title": "Research Aim, Objectives and Question Alignment",
+          "section": "IU02 - Research Questions & Literature Review"
+        },
+        {
+          "title": "Linking Findings to Research Objectives",
+          "section": "IU07 - Research Findings & Recommendations"
+        },
+        {
+          "title": "Understanding a Research Project",
+          "section": "IU01 - Project Initiation & Research Topic"
+        },
+        {
+          "title": "Research Scope",
+          "section": "IU01 - Project Initiation & Research Topic"
+        }
+      ],
+      "conversation_id": "demo-conversation-1",
+      "api_runtime_error": null,
+      "llm_response_received": true
+    },
+    {
+      "test_id": "P12",
+      "behaviour_category": "Response Quality / Mentor Style",
+      "question": "I have collected my survey responses. What should I do next?",
+      "mentor_mode": "ask_anything",
+      "course_id": "CPL",
+      "route": "retrieval_llm",
+      "retrieved_chunk_count": 5,
+      "retrieval_status": "CONTEXT",
+      "retrieved_chunk_ids": [
+        "LM0503",
+        "LM0510",
+        "LM0807",
+        "LM0809",
+        "AB003"
+      ],
+      "retrieved_chunk_titles": [
+        "Questionnaires and Surveys",
+        "Preparing Data for Analysis",
+        "Future Research",
+        "Writing a Critical Reflection",
+        "Tasks"
+      ],
+      "retrieval_distances": [
+        1.1703717708587646,
+        1.183256983757019,
+        1.1979563236236572,
+        1.2341604232788086,
+        1.2683379650115967
+      ],
+      "retrieved_chunks": [
+        {
+          "rank": 1,
+          "chunk_id": "LM0503",
+          "title": "Questionnaires and Surveys",
+          "document_type": "Learning Material",
+          "instructional_unit": "IU05 - Primary & Secondary Research",
+          "source_file": "IU05_Primary_and_Secondary_Research_RAG.docx",
+          "distance": 1.1703717708587646
+        },
+        {
+          "rank": 2,
+          "chunk_id": "LM0510",
+          "title": "Preparing Data for Analysis",
+          "document_type": "Learning Material",
+          "instructional_unit": "IU05 - Primary & Secondary Research",
+          "source_file": "IU05_Primary_and_Secondary_Research_RAG.docx",
+          "distance": 1.183256983757019
+        },
+        {
+          "rank": 3,
+          "chunk_id": "LM0807",
+          "title": "Future Research",
+          "document_type": "Learning Material",
+          "instructional_unit": "IU08 - Reflection & Future Research",
+          "source_file": "IU08_Reflection_and_Future_Research_RAG.docx",
+          "distance": 1.1979563236236572
+        },
+        {
+          "rank": 4,
+          "chunk_id": "LM0809",
+          "title": "Writing a Critical Reflection",
+          "document_type": "Learning Material",
+          "instructional_unit": "IU08 - Reflection & Future Research",
+          "source_file": "IU08_Reflection_and_Future_Research_RAG.docx",
+          "distance": 1.2341604232788086
+        },
+        {
+          "rank": 5,
+          "chunk_id": "AB003",
+          "title": "Tasks",
+          "document_type": "Assignment Brief",
+          "instructional_unit": null,
+          "source_file": "Assignment_Brief_RAG_v3.docx",
+          "distance": 1.2683379650115967
+        }
+      ],
+      "prompt_v1_baseline_response": "After collecting your survey responses, the next step would be to organize and prepare the data for analysis. This involves checking the completeness of the data, correcting any obvious errors, handling duplicates, applying consistent coding, anonymizing data if necessary, and documenting your decisions. For qualitative recordings, you may need to transcribe and anonymize them, while survey data may require coding into consistent categories. \n\nOnce you have organized the data, you can proceed with the formal analysis. Make sure to preserve the raw evidence, clean the data systematically, anonymize where needed, and document any transformations made so that your analysis remains traceable. This process will help you make sense of the responses you have collected and draw meaningful conclusions from your survey data.",
+      "prompt_v2_chatbot_response": "After collecting your survey responses, the next step would be to organize and prepare the data for analysis. This involves checking the completeness of the data, correcting any obvious errors, handling duplicates, applying consistent coding, anonymizing data if necessary, and documenting your decisions. For qualitative recordings, you may need to transcribe and anonymize them, while survey data may require coding into consistent categories. Remember to preserve the raw evidence, clean the data systematically, anonymize where needed, and document any transformations made to ensure traceability during analysis. This process will set the foundation for analyzing the responses effectively.",
+      "sources": [
+        {
+          "title": "Questionnaires and Surveys",
+          "section": "IU05 - Primary & Secondary Research"
+        },
+        {
+          "title": "Preparing Data for Analysis",
+          "section": "IU05 - Primary & Secondary Research"
+        },
+        {
+          "title": "Future Research",
+          "section": "IU08 - Reflection & Future Research"
+        },
+        {
+          "title": "Writing a Critical Reflection",
+          "section": "IU08 - Reflection & Future Research"
+        },
+        {
+          "title": "Tasks",
+          "section": "Assignment Brief"
+        }
+      ],
+      "conversation_id": "demo-conversation-1",
+      "api_runtime_error": null,
+      "llm_response_received": true
+    }
+  ]
+}

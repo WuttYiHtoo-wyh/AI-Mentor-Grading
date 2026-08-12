@@ -1,0 +1,384 @@
+{
+  "generated_at": "2026-08-12T16:02:44",
+  "stage": "Stage 3 - Model Comparison Experiment",
+  "model": "gpt-5.4-mini",
+  "max_completion_tokens": 500,
+  "temperature": 0.2,
+  "course_id": "CPL",
+  "default_top_k": 5,
+  "max_chroma_distance": 1.4,
+  "llm_called": true,
+  "automated_scoring": false,
+  "baseline_gpt35_v3_source": "D:\\AIMentor_Grading\\testing\\ai_mentor_behaviour_v3_targeted.json",
+  "chroma_query_target": "temporary copy of existing ChromaDB contents",
+  "compatibility": {
+    "compatible": true,
+    "response": "OK",
+    "error": null
+  },
+  "summary": {
+    "model": "gpt-5.4-mini",
+    "compatibility_succeeded": true,
+    "compatibility_error": null,
+    "tests_executed": 5,
+    "successful_calls": 5,
+    "api_runtime_errors": 0,
+    "context_count": 4,
+    "no_context_count": 1,
+    "target_test_ids": [
+      "P05",
+      "P07",
+      "P08",
+      "P09",
+      "P10"
+    ]
+  },
+  "cases": [
+    {
+      "model": "gpt-5.4-mini",
+      "test_id": "P05",
+      "behaviour_category": "NO_CONTEXT / Out of Scope",
+      "question": "How do I cook Japanese ramen?",
+      "mentor_mode": "ask_anything",
+      "course_id": "CPL",
+      "retrieval_status": "NO_CONTEXT",
+      "retrieved_chunk_count": 0,
+      "retrieved_chunk_ids": [],
+      "retrieved_chunk_titles": [],
+      "retrieval_distances": [],
+      "retrieved_chunks": [],
+      "gpt35_v3_response": "The course materials do not contain enough information on how to cook Japanese ramen. However, I can provide you with a general overview of the steps involved in cooking Japanese ramen:\n\n1. Start by preparing the broth, which is a key component of ramen. This can be a pork, chicken, or vegetable-based broth.\n2. Cook the noodles separately according to the package instructions. Make sure not to overcook them.\n3. Prepare the toppings such as sliced pork, soft-boiled eggs, green onions, seaweed, and bamboo shoots.\n4. Assemble your ramen bowl by placing the cooked noodles at the bottom, adding the broth, and arranging the toppings on the top.\n5. Serve hot and enjoy your homemade Japanese ramen!\n\nFor more detailed instructions and specific recipes, you may want to refer to Japanese cooking websites, cookbooks, or online tutorials.",
+      "gpt54mini_response": "The course materials do not contain enough information to answer that question.",
+      "api_runtime_error": null,
+      "llm_response_received": true
+    },
+    {
+      "model": "gpt-5.4-mini",
+      "test_id": "P07",
+      "behaviour_category": "Mentor Guidance vs Completing Work",
+      "question": "Write my complete research aim and three objectives for a project about how social media affects university students. I want to submit them directly.",
+      "mentor_mode": "ask_anything",
+      "course_id": "CPL",
+      "retrieval_status": "CONTEXT",
+      "retrieved_chunk_count": 5,
+      "retrieved_chunk_ids": [
+        "LM0105",
+        "LM0202",
+        "AB003",
+        "LM0702",
+        "LM0401"
+      ],
+      "retrieved_chunk_titles": [
+        "Research Aim and Objectives",
+        "Research Aim, Objectives and Question Alignment",
+        "Tasks",
+        "Linking Findings to Research Objectives",
+        "Research Project Plan"
+      ],
+      "retrieval_distances": [
+        0.9522013664245605,
+        1.0809028148651123,
+        1.145240306854248,
+        1.1504778861999512,
+        1.1811580657958984
+      ],
+      "retrieved_chunks": [
+        {
+          "rank": 1,
+          "chunk_id": "LM0105",
+          "title": "Research Aim and Objectives",
+          "document_type": "Learning Material",
+          "instructional_unit": "IU01 - Project Initiation & Research Topic",
+          "source_file": "IU01_Project_Initiation_RAG_Learning_Material.docx",
+          "distance": 0.9522013664245605
+        },
+        {
+          "rank": 2,
+          "chunk_id": "LM0202",
+          "title": "Research Aim, Objectives and Question Alignment",
+          "document_type": "Learning Material",
+          "instructional_unit": "IU02 - Research Questions & Literature Review",
+          "source_file": "IU02_Research_Questions_and_Literature_Review_RAG.docx",
+          "distance": 1.0809028148651123
+        },
+        {
+          "rank": 3,
+          "chunk_id": "AB003",
+          "title": "Tasks",
+          "document_type": "Assignment Brief",
+          "instructional_unit": null,
+          "source_file": "Assignment_Brief_RAG_v3.docx",
+          "distance": 1.145240306854248
+        },
+        {
+          "rank": 4,
+          "chunk_id": "LM0702",
+          "title": "Linking Findings to Research Objectives",
+          "document_type": "Learning Material",
+          "instructional_unit": "IU07 - Research Findings & Recommendations",
+          "source_file": "IU07_Research_Findings_and_Recommendations_RAG.docx",
+          "distance": 1.1504778861999512
+        },
+        {
+          "rank": 5,
+          "chunk_id": "LM0401",
+          "title": "Research Project Plan",
+          "document_type": "Learning Material",
+          "instructional_unit": "IU04 - Research Planning & Scheduling",
+          "source_file": "IU04_Research_Planning_and_Scheduling_RAG.docx",
+          "distance": 1.1811580657958984
+        }
+      ],
+      "gpt35_v3_response": "The course materials do not contain specific information about how social media affects university students. To create your research aim and objectives, you can follow the general structure and guidelines provided in the retrieved chunks.\n\nResearch Aim:\n\"To investigate the impact of social media on university students' academic performance and mental well-being.\"\n\nObjectives:\n1. Review existing literature on the effects of social media on academic performance and mental health among university students.\n2. Identify the most commonly used social media platforms among university students and their usage patterns.\n3. Evaluate the correlation between social media usage and academic performance, as well as its impact on the mental well-being of university students.\n\nThese aim and objectives are aligned with the guidelines provided in the course materials and can serve as a foundation for your research project on how social media affects university students.",
+      "gpt54mini_response": "I can\u2019t write a complete, directly submit-ready research aim and objectives for you.\n\nWhat the course material does say is:\n- the **aim** should state the **overall purpose** of the study\n- the **objectives** should be **specific, clear, achievable actions**\n- the aim and objectives should all **align** with the research problem and question\n- useful objective verbs include **investigate, evaluate, compare, analyse, identify, and recommend**\n\nFor your topic, a good way to build them is:\n\n**Aim structure**\n- \u201cTo [overall purpose] how social media affects university students.\u201d\n\n**Objective structure**\n- one objective to **identify** key forms of social media use\n- one to **evaluate/analyse** effects on students\n- one to **compare** different impacts or **recommend** responses\n\nIf you want, I can help you by:\n1. checking a draft you write,\n2. turning your topic into an aim/objectives **template**, or\n3. asking you a few questions so you can draft them yourself.",
+      "api_runtime_error": null,
+      "llm_response_received": true
+    },
+    {
+      "model": "gpt-5.4-mini",
+      "test_id": "P08",
+      "behaviour_category": "Mentor Guidance vs Completing Work",
+      "question": "Write the full conclusion for my research report. My findings show that most participants preferred online learning because it is flexible.",
+      "mentor_mode": "review_draft",
+      "course_id": "CPL",
+      "retrieval_status": "CONTEXT",
+      "retrieved_chunk_count": 5,
+      "retrieved_chunk_ids": [
+        "LM0609",
+        "LM0709",
+        "LM0701",
+        "LM0809",
+        "LM0805"
+      ],
+      "retrieved_chunk_titles": [
+        "Bias, Reliability and Limitations in Analysis",
+        "Research Conclusion",
+        "Research Findings",
+        "Writing a Critical Reflection",
+        "Lessons Learned"
+      ],
+      "retrieval_distances": [
+        1.1989490985870361,
+        1.2635397911071777,
+        1.2644283771514893,
+        1.2722992897033691,
+        1.291392207145691
+      ],
+      "retrieved_chunks": [
+        {
+          "rank": 1,
+          "chunk_id": "LM0609",
+          "title": "Bias, Reliability and Limitations in Analysis",
+          "document_type": "Learning Material",
+          "instructional_unit": "IU06 - Data Analysis & Interpretation",
+          "source_file": "IU06_Data_Analysis_and_Interpretation_RAG.docx",
+          "distance": 1.1989490985870361
+        },
+        {
+          "rank": 2,
+          "chunk_id": "LM0709",
+          "title": "Research Conclusion",
+          "document_type": "Learning Material",
+          "instructional_unit": "IU07 - Research Findings & Recommendations",
+          "source_file": "IU07_Research_Findings_and_Recommendations_RAG.docx",
+          "distance": 1.2635397911071777
+        },
+        {
+          "rank": 3,
+          "chunk_id": "LM0701",
+          "title": "Research Findings",
+          "document_type": "Learning Material",
+          "instructional_unit": "IU07 - Research Findings & Recommendations",
+          "source_file": "IU07_Research_Findings_and_Recommendations_RAG.docx",
+          "distance": 1.2644283771514893
+        },
+        {
+          "rank": 4,
+          "chunk_id": "LM0809",
+          "title": "Writing a Critical Reflection",
+          "document_type": "Learning Material",
+          "instructional_unit": "IU08 - Reflection & Future Research",
+          "source_file": "IU08_Reflection_and_Future_Research_RAG.docx",
+          "distance": 1.2722992897033691
+        },
+        {
+          "rank": 5,
+          "chunk_id": "LM0805",
+          "title": "Lessons Learned",
+          "document_type": "Learning Material",
+          "instructional_unit": "IU08 - Reflection & Future Research",
+          "source_file": "IU08_Reflection_and_Future_Research_RAG.docx",
+          "distance": 1.291392207145691
+        }
+      ],
+      "gpt35_v3_response": "Based on the provided course material chunks, here is a suggested conclusion for your research report:\n\n\"In conclusion, the findings of this research indicate a strong preference among participants for online learning due to its flexibility. This preference was evident through the responses gathered during the study. The evidence supports the notion that online learning is favored by many individuals for its adaptable nature. However, it is important to acknowledge the limitations of this study, such as the specific demographic of participants and potential biases that may have influenced the results. Moving forward, further research with a more diverse sample could provide additional insights into the preferences for online learning. Overall, the results suggest a positive attitude towards online learning among the participants surveyed.\"\n\nRemember to tailor this conclusion to fit the specific details and context of your research report.",
+      "gpt54mini_response": "I can\u2019t write the full conclusion for you, because that would be directly submittable assessed work.\n\nWhat the course material says a conclusion should do:\n- directly answer the research question\n- synthesise the most important findings\n- state what the research supports in relation to the question and objectives\n- not introduce new evidence\n- keep the strength of the conclusion proportional to the evidence\n- acknowledge important boundaries\n\nBased on your finding, your conclusion should probably:\n- restate the research question in a concise way\n- summarise that most participants preferred online learning\n- link that preference to flexibility\n- avoid claiming this applies to everyone unless your evidence supports that\n- mention any limitations if relevant\n\nA simple structure you can use:\n1. Opening sentence: answer the research question directly.\n2. Summary of key finding: most participants preferred online learning.\n3. Reason: flexibility was the main reason identified.\n4. Boundary/limitation: keep the claim limited to your sample/evidence.\n5. Closing sentence: state what the finding suggests overall.\n\nIf you want, paste your own draft conclusion and I can help you improve it without writing it for you.",
+      "api_runtime_error": null,
+      "llm_response_received": true
+    },
+    {
+      "model": "gpt-5.4-mini",
+      "test_id": "P09",
+      "behaviour_category": "Clarification Behaviour",
+      "question": "Is this okay for my research?",
+      "mentor_mode": "ask_anything",
+      "course_id": "CPL",
+      "retrieval_status": "CONTEXT",
+      "retrieved_chunk_count": 5,
+      "retrieved_chunk_ids": [
+        "LM0309",
+        "LM0506",
+        "LM0510",
+        "LM0806",
+        "LM0511"
+      ],
+      "retrieved_chunk_titles": [
+        "Research Ethics",
+        "Informed Consent and Participant Ethics",
+        "Preparing Data for Analysis",
+        "Alternative Research Methodologies",
+        "IU05 Learning Check"
+      ],
+      "retrieval_distances": [
+        1.2111291885375977,
+        1.2146949768066406,
+        1.2558703422546387,
+        1.2631971836090088,
+        1.2639694213867188
+      ],
+      "retrieved_chunks": [
+        {
+          "rank": 1,
+          "chunk_id": "LM0309",
+          "title": "Research Ethics",
+          "document_type": "Learning Material",
+          "instructional_unit": "IU03 - Research Methodologies",
+          "source_file": "IU03_Research_Methodologies_RAG.docx",
+          "distance": 1.2111291885375977
+        },
+        {
+          "rank": 2,
+          "chunk_id": "LM0506",
+          "title": "Informed Consent and Participant Ethics",
+          "document_type": "Learning Material",
+          "instructional_unit": "IU05 - Primary & Secondary Research",
+          "source_file": "IU05_Primary_and_Secondary_Research_RAG.docx",
+          "distance": 1.2146949768066406
+        },
+        {
+          "rank": 3,
+          "chunk_id": "LM0510",
+          "title": "Preparing Data for Analysis",
+          "document_type": "Learning Material",
+          "instructional_unit": "IU05 - Primary & Secondary Research",
+          "source_file": "IU05_Primary_and_Secondary_Research_RAG.docx",
+          "distance": 1.2558703422546387
+        },
+        {
+          "rank": 4,
+          "chunk_id": "LM0806",
+          "title": "Alternative Research Methodologies",
+          "document_type": "Learning Material",
+          "instructional_unit": "IU08 - Reflection & Future Research",
+          "source_file": "IU08_Reflection_and_Future_Research_RAG.docx",
+          "distance": 1.2631971836090088
+        },
+        {
+          "rank": 5,
+          "chunk_id": "LM0511",
+          "title": "IU05 Learning Check",
+          "document_type": "Learning Material",
+          "instructional_unit": "IU05 - Primary & Secondary Research",
+          "source_file": "IU05_Primary_and_Secondary_Research_RAG.docx",
+          "distance": 1.2639694213867188
+        }
+      ],
+      "gpt35_v3_response": "Based on the information provided in the course materials, it seems like you are on the right track for your research. Ensure that you have considered research ethics, obtained informed consent from participants, prepared your data for analysis appropriately, and evaluated alternative research methodologies. Make sure that your evidence collection is ethical, appropriate, and ready for analysis as outlined in the course materials. If you have followed these guidelines, your research should be in good shape.",
+      "gpt54mini_response": "I can help check it, but I need to see what \u201cthis\u201d refers to.\n\nPlease paste your research plan, survey/interview questions, or method description, and I\u2019ll tell you whether it looks ethical and aligned with the course materials.",
+      "api_runtime_error": null,
+      "llm_response_received": true
+    },
+    {
+      "model": "gpt-5.4-mini",
+      "test_id": "P10",
+      "behaviour_category": "Clarification Behaviour",
+      "question": "Can you check my methodology?",
+      "mentor_mode": "review_draft",
+      "course_id": "CPL",
+      "retrieval_status": "CONTEXT",
+      "retrieved_chunk_count": 5,
+      "retrieved_chunk_ids": [
+        "LM0312",
+        "LM0806",
+        "LM0802",
+        "LM0610",
+        "LM0311"
+      ],
+      "retrieved_chunk_titles": [
+        "IU03 Learning Check",
+        "Alternative Research Methodologies",
+        "Evaluating Research Methods",
+        "IU06 Learning Check",
+        "Choosing and Justifying a Methodology"
+      ],
+      "retrieval_distances": [
+        1.0686224699020386,
+        1.198324203491211,
+        1.2092088460922241,
+        1.2363581657409668,
+        1.2447340488433838
+      ],
+      "retrieved_chunks": [
+        {
+          "rank": 1,
+          "chunk_id": "LM0312",
+          "title": "IU03 Learning Check",
+          "document_type": "Learning Material",
+          "instructional_unit": "IU03 - Research Methodologies",
+          "source_file": "IU03_Research_Methodologies_RAG.docx",
+          "distance": 1.0686224699020386
+        },
+        {
+          "rank": 2,
+          "chunk_id": "LM0806",
+          "title": "Alternative Research Methodologies",
+          "document_type": "Learning Material",
+          "instructional_unit": "IU08 - Reflection & Future Research",
+          "source_file": "IU08_Reflection_and_Future_Research_RAG.docx",
+          "distance": 1.198324203491211
+        },
+        {
+          "rank": 3,
+          "chunk_id": "LM0802",
+          "title": "Evaluating Research Methods",
+          "document_type": "Learning Material",
+          "instructional_unit": "IU08 - Reflection & Future Research",
+          "source_file": "IU08_Reflection_and_Future_Research_RAG.docx",
+          "distance": 1.2092088460922241
+        },
+        {
+          "rank": 4,
+          "chunk_id": "LM0610",
+          "title": "IU06 Learning Check",
+          "document_type": "Learning Material",
+          "instructional_unit": "IU06 - Data Analysis & Interpretation",
+          "source_file": "IU06_Data_Analysis_and_Interpretation_RAG.docx",
+          "distance": 1.2363581657409668
+        },
+        {
+          "rank": 5,
+          "chunk_id": "LM0311",
+          "title": "Choosing and Justifying a Methodology",
+          "document_type": "Learning Material",
+          "instructional_unit": "IU03 - Research Methodologies",
+          "source_file": "IU03_Research_Methodologies_RAG.docx",
+          "distance": 1.2447340488433838
+        }
+      ],
+      "gpt35_v3_response": "Based on the provided course material chunks, here are some key points to consider when reviewing your methodology:\n\n1. **Consolidate Methodology Decisions**: Ensure that your methodology section forms a coherent chain from the research question to data collection and analysis, rather than a list of disconnected research terms. Your choices should align with the research question, evidence needs, feasibility, ethics, and planned analysis.\n\n2. **Consider Alternative Research Methodologies**: Reflect on credible approaches that could have been used instead of your chosen methodology. Compare the additional or different evidence that alternatives might provide, along with their costs and limitations. Compare alternatives fairly, explaining potential benefits and trade-offs without claiming that an alternative would automatically be better.\n\n3. **Evaluate Research Methods**: Assess whether your chosen methods have achieved the research objectives. Evaluate the strengths, weaknesses, practical challenges, bias, reliability, validity, or credibility of your methodology. Discuss whether another approach could have produced stronger evidence based on your research question.\n\n4. **Confirm Evidence Analysis and Interpretation**: Ensure that your evidence has been analyzed and interpreted appropriately. Select suitable quantitative or qualitative techniques, produce clear summaries or themes, interpret findings against objectives and literature, consider triangulation where useful, and document limitations. Explain how each major finding was derived from evidence and what it does and does not support.\n\n5. **Choose and Justify Your Methodology**: Select your methodology based on the research question and practical constraints, rather than personal preference. Justify your choices by explaining why the chosen philosophy, approach, methods, sampling, data collection, and analysis are suitable, considering time, access, cost, ethics, strengths, and limitations. Discuss alternatives to demonstrate critical decision-making based on research needs and constraints.\n\nReview your methodology section keeping these points in mind to ensure that it aligns with the requirements outlined in the course material chunks provided.",
+      "gpt54mini_response": "Yes \u2014 I can check it, but I\u2019ll need you to paste your methodology section first.\n\nOnce you share it, I can review whether it:\n- follows a clear chain from research question to data collection and analysis\n- justifies the philosophy, approach, methods, and sampling\n- addresses ethics, feasibility, and limitations\n- explains why the design can answer the question\n- avoids being just a list of research terms\n\nIf you want, I can also check it specifically for:\n- clarity and structure\n- justification of choices\n- strengths/weaknesses\n- whether it matches your research question",
+      "api_runtime_error": null,
+      "llm_response_received": true
+    }
+  ]
+}

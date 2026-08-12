@@ -1,0 +1,1934 @@
+{
+  "generated_at": "2026-08-12T11:05:35",
+  "course_id": "CPL",
+  "top_k": 5,
+  "distance_threshold": 1.4,
+  "threshold_rule": "retain when distance <= 1.4",
+  "llm_called": false,
+  "relevance_classification": "none",
+  "embedding_model": "text-embedding-3-small",
+  "chroma_collection": "cpl_documents",
+  "summary": {
+    "question_count": 15,
+    "baseline": {
+      "configuration": "Top 5 + no threshold",
+      "average_chunks_before_filtering": 5
+    },
+    "experiment": {
+      "configuration": "Top 5 + distance <= 1.4",
+      "average_chunks_after_filtering": 4.466666666666667,
+      "tests_where_all_5_remain": [
+        "T02",
+        "T03",
+        "T04",
+        "T05",
+        "T06",
+        "T07",
+        "T08",
+        "T09",
+        "T10",
+        "T11",
+        "T12",
+        "T13",
+        "T15"
+      ],
+      "tests_where_1_or_more_chunks_removed": [
+        "T01",
+        "T14"
+      ],
+      "tests_producing_no_context": [
+        "T14"
+      ],
+      "removed_chunks_by_test": [
+        {
+          "test_id": "T01",
+          "removed_chunks": [
+            {
+              "rank": 3,
+              "chunk_id": "LM0409",
+              "title": "Monitoring and Updating the Plan",
+              "instructional_unit": "IU04 - Research Planning & Scheduling",
+              "document_type": "Learning Material",
+              "distance": 1.4235684871673584
+            },
+            {
+              "rank": 4,
+              "chunk_id": "LM0403",
+              "title": "Task Dependencies",
+              "instructional_unit": "IU04 - Research Planning & Scheduling",
+              "document_type": "Learning Material",
+              "distance": 1.4841307401657104
+            },
+            {
+              "rank": 5,
+              "chunk_id": "LM0410",
+              "title": "IU04 Learning Check",
+              "instructional_unit": "IU04 - Research Planning & Scheduling",
+              "document_type": "Learning Material",
+              "distance": 1.516059398651123
+            }
+          ]
+        },
+        {
+          "test_id": "T14",
+          "removed_chunks": [
+            {
+              "rank": 1,
+              "chunk_id": "LM0401",
+              "title": "Research Project Plan",
+              "instructional_unit": "IU04 - Research Planning & Scheduling",
+              "document_type": "Learning Material",
+              "distance": 1.5088512897491455
+            },
+            {
+              "rank": 2,
+              "chunk_id": "AB002",
+              "title": "Assignment Objective",
+              "instructional_unit": null,
+              "document_type": "Assignment Brief",
+              "distance": 1.5700223445892334
+            },
+            {
+              "rank": 3,
+              "chunk_id": "LM0601",
+              "title": "Purpose of Data Analysis",
+              "instructional_unit": "IU06 - Data Analysis & Interpretation",
+              "document_type": "Learning Material",
+              "distance": 1.5738954544067383
+            },
+            {
+              "rank": 4,
+              "chunk_id": "LM0101",
+              "title": "Understanding a Research Project",
+              "instructional_unit": "IU01 - Project Initiation & Research Topic",
+              "document_type": "Learning Material",
+              "distance": 1.5977177619934082
+            },
+            {
+              "rank": 5,
+              "chunk_id": "LM0110",
+              "title": "IU01 Learning Check",
+              "instructional_unit": "IU01 - Project Initiation & Research Topic",
+              "document_type": "Learning Material",
+              "distance": 1.6048495769500732
+            }
+          ]
+        }
+      ],
+      "t14_produces_no_context": true,
+      "t04": {
+        "remaining_count": 5,
+        "context_status": "CONTEXT",
+        "removed_chunks": []
+      },
+      "t15": {
+        "remaining_count": 5,
+        "context_status": "CONTEXT",
+        "removed_chunks": []
+      }
+    }
+  },
+  "cases": [
+    {
+      "test_id": "T01",
+      "question_type": "Factual",
+      "cpl_area": "IU04",
+      "question": "What is a Gantt chart?",
+      "expected_source_topic": "IU04 \u2013 Gantt Chart",
+      "mentor_mode_label": "Explain Topic",
+      "mentor_mode": "explain_topic",
+      "baseline_note": "Correct Gantt chunk ranked first, but lower-ranked results included weak/unnecessary context such as Data Visualisation.",
+      "top_k": 5,
+      "distance_threshold": 1.4,
+      "original_count": 5,
+      "remaining_count": 2,
+      "context_status": "CONTEXT",
+      "retrieved_chunks": [
+        {
+          "rank": 1,
+          "chunk_id": "LM0405",
+          "title": "Gantt Chart",
+          "instructional_unit": "IU04 - Research Planning & Scheduling",
+          "document_type": "Learning Material",
+          "source_file": "IU04_Research_Planning_and_Scheduling_RAG.docx",
+          "distance": 0.7945544123649597,
+          "threshold_decision": "retained"
+        },
+        {
+          "rank": 2,
+          "chunk_id": "LM0606",
+          "title": "Data Visualisation",
+          "instructional_unit": "IU06 - Data Analysis & Interpretation",
+          "document_type": "Learning Material",
+          "source_file": "IU06_Data_Analysis_and_Interpretation_RAG.docx",
+          "distance": 1.3915166854858398,
+          "threshold_decision": "retained"
+        },
+        {
+          "rank": 3,
+          "chunk_id": "LM0409",
+          "title": "Monitoring and Updating the Plan",
+          "instructional_unit": "IU04 - Research Planning & Scheduling",
+          "document_type": "Learning Material",
+          "source_file": "IU04_Research_Planning_and_Scheduling_RAG.docx",
+          "distance": 1.4235684871673584,
+          "threshold_decision": "discarded"
+        },
+        {
+          "rank": 4,
+          "chunk_id": "LM0403",
+          "title": "Task Dependencies",
+          "instructional_unit": "IU04 - Research Planning & Scheduling",
+          "document_type": "Learning Material",
+          "source_file": "IU04_Research_Planning_and_Scheduling_RAG.docx",
+          "distance": 1.4841307401657104,
+          "threshold_decision": "discarded"
+        },
+        {
+          "rank": 5,
+          "chunk_id": "LM0410",
+          "title": "IU04 Learning Check",
+          "instructional_unit": "IU04 - Research Planning & Scheduling",
+          "document_type": "Learning Material",
+          "source_file": "IU04_Research_Planning_and_Scheduling_RAG.docx",
+          "distance": 1.516059398651123,
+          "threshold_decision": "discarded"
+        }
+      ],
+      "retained_chunks": [
+        {
+          "rank": 1,
+          "chunk_id": "LM0405",
+          "title": "Gantt Chart",
+          "instructional_unit": "IU04 - Research Planning & Scheduling",
+          "document_type": "Learning Material",
+          "source_file": "IU04_Research_Planning_and_Scheduling_RAG.docx",
+          "distance": 0.7945544123649597,
+          "threshold_decision": "retained"
+        },
+        {
+          "rank": 2,
+          "chunk_id": "LM0606",
+          "title": "Data Visualisation",
+          "instructional_unit": "IU06 - Data Analysis & Interpretation",
+          "document_type": "Learning Material",
+          "source_file": "IU06_Data_Analysis_and_Interpretation_RAG.docx",
+          "distance": 1.3915166854858398,
+          "threshold_decision": "retained"
+        }
+      ],
+      "discarded_chunks": [
+        {
+          "rank": 3,
+          "chunk_id": "LM0409",
+          "title": "Monitoring and Updating the Plan",
+          "instructional_unit": "IU04 - Research Planning & Scheduling",
+          "document_type": "Learning Material",
+          "source_file": "IU04_Research_Planning_and_Scheduling_RAG.docx",
+          "distance": 1.4235684871673584,
+          "threshold_decision": "discarded"
+        },
+        {
+          "rank": 4,
+          "chunk_id": "LM0403",
+          "title": "Task Dependencies",
+          "instructional_unit": "IU04 - Research Planning & Scheduling",
+          "document_type": "Learning Material",
+          "source_file": "IU04_Research_Planning_and_Scheduling_RAG.docx",
+          "distance": 1.4841307401657104,
+          "threshold_decision": "discarded"
+        },
+        {
+          "rank": 5,
+          "chunk_id": "LM0410",
+          "title": "IU04 Learning Check",
+          "instructional_unit": "IU04 - Research Planning & Scheduling",
+          "document_type": "Learning Material",
+          "source_file": "IU04_Research_Planning_and_Scheduling_RAG.docx",
+          "distance": 1.516059398651123,
+          "threshold_decision": "discarded"
+        }
+      ]
+    },
+    {
+      "test_id": "T02",
+      "question_type": "Explanation / Cross-concept",
+      "cpl_area": "IU04",
+      "question": "Why should I create my Gantt chart from the Work Breakdown Structure instead of just listing my project activities?",
+      "expected_source_topic": "IU04 \u2013 WBS, Gantt Chart, Task Dependencies",
+      "mentor_mode_label": "Explain Topic",
+      "mentor_mode": "explain_topic",
+      "baseline_note": "Initial run returned OpenAI API 500; retry succeeded.",
+      "top_k": 5,
+      "distance_threshold": 1.4,
+      "original_count": 5,
+      "remaining_count": 5,
+      "context_status": "CONTEXT",
+      "retrieved_chunks": [
+        {
+          "rank": 1,
+          "chunk_id": "LM0405",
+          "title": "Gantt Chart",
+          "instructional_unit": "IU04 - Research Planning & Scheduling",
+          "document_type": "Learning Material",
+          "source_file": "IU04_Research_Planning_and_Scheduling_RAG.docx",
+          "distance": 0.8839482665061951,
+          "threshold_decision": "retained"
+        },
+        {
+          "rank": 2,
+          "chunk_id": "LM0402",
+          "title": "Work Breakdown Structure (WBS)",
+          "instructional_unit": "IU04 - Research Planning & Scheduling",
+          "document_type": "Learning Material",
+          "source_file": "IU04_Research_Planning_and_Scheduling_RAG.docx",
+          "distance": 0.9194244742393494,
+          "threshold_decision": "retained"
+        },
+        {
+          "rank": 3,
+          "chunk_id": "LM0410",
+          "title": "IU04 Learning Check",
+          "instructional_unit": "IU04 - Research Planning & Scheduling",
+          "document_type": "Learning Material",
+          "source_file": "IU04_Research_Planning_and_Scheduling_RAG.docx",
+          "distance": 1.2050713300704956,
+          "threshold_decision": "retained"
+        },
+        {
+          "rank": 4,
+          "chunk_id": "LM0403",
+          "title": "Task Dependencies",
+          "instructional_unit": "IU04 - Research Planning & Scheduling",
+          "document_type": "Learning Material",
+          "source_file": "IU04_Research_Planning_and_Scheduling_RAG.docx",
+          "distance": 1.2465741634368896,
+          "threshold_decision": "retained"
+        },
+        {
+          "rank": 5,
+          "chunk_id": "LM0409",
+          "title": "Monitoring and Updating the Plan",
+          "instructional_unit": "IU04 - Research Planning & Scheduling",
+          "document_type": "Learning Material",
+          "source_file": "IU04_Research_Planning_and_Scheduling_RAG.docx",
+          "distance": 1.3036946058273315,
+          "threshold_decision": "retained"
+        }
+      ],
+      "retained_chunks": [
+        {
+          "rank": 1,
+          "chunk_id": "LM0405",
+          "title": "Gantt Chart",
+          "instructional_unit": "IU04 - Research Planning & Scheduling",
+          "document_type": "Learning Material",
+          "source_file": "IU04_Research_Planning_and_Scheduling_RAG.docx",
+          "distance": 0.8839482665061951,
+          "threshold_decision": "retained"
+        },
+        {
+          "rank": 2,
+          "chunk_id": "LM0402",
+          "title": "Work Breakdown Structure (WBS)",
+          "instructional_unit": "IU04 - Research Planning & Scheduling",
+          "document_type": "Learning Material",
+          "source_file": "IU04_Research_Planning_and_Scheduling_RAG.docx",
+          "distance": 0.9194244742393494,
+          "threshold_decision": "retained"
+        },
+        {
+          "rank": 3,
+          "chunk_id": "LM0410",
+          "title": "IU04 Learning Check",
+          "instructional_unit": "IU04 - Research Planning & Scheduling",
+          "document_type": "Learning Material",
+          "source_file": "IU04_Research_Planning_and_Scheduling_RAG.docx",
+          "distance": 1.2050713300704956,
+          "threshold_decision": "retained"
+        },
+        {
+          "rank": 4,
+          "chunk_id": "LM0403",
+          "title": "Task Dependencies",
+          "instructional_unit": "IU04 - Research Planning & Scheduling",
+          "document_type": "Learning Material",
+          "source_file": "IU04_Research_Planning_and_Scheduling_RAG.docx",
+          "distance": 1.2465741634368896,
+          "threshold_decision": "retained"
+        },
+        {
+          "rank": 5,
+          "chunk_id": "LM0409",
+          "title": "Monitoring and Updating the Plan",
+          "instructional_unit": "IU04 - Research Planning & Scheduling",
+          "document_type": "Learning Material",
+          "source_file": "IU04_Research_Planning_and_Scheduling_RAG.docx",
+          "distance": 1.3036946058273315,
+          "threshold_decision": "retained"
+        }
+      ],
+      "discarded_chunks": []
+    },
+    {
+      "test_id": "T03",
+      "question_type": "Explanation / Guidance",
+      "cpl_area": "IU02 / IU01",
+      "question": "What makes a good research question, and how can I tell if mine is too broad?",
+      "expected_source_topic": "IU02 \u2013 Research Questions; IU01 \u2013 Research Scope",
+      "mentor_mode_label": "Explain Topic",
+      "mentor_mode": "explain_topic",
+      "baseline_note": "Initial run returned OpenAI API 500; retry succeeded.",
+      "top_k": 5,
+      "distance_threshold": 1.4,
+      "original_count": 5,
+      "remaining_count": 5,
+      "context_status": "CONTEXT",
+      "retrieved_chunks": [
+        {
+          "rank": 1,
+          "chunk_id": "LM0201",
+          "title": "Research Questions",
+          "instructional_unit": "IU02 - Research Questions & Literature Review",
+          "document_type": "Learning Material",
+          "source_file": "IU02_Research_Questions_and_Literature_Review_RAG.docx",
+          "distance": 1.0539922714233398,
+          "threshold_decision": "retained"
+        },
+        {
+          "rank": 2,
+          "chunk_id": "LM0202",
+          "title": "Research Aim, Objectives and Question Alignment",
+          "instructional_unit": "IU02 - Research Questions & Literature Review",
+          "document_type": "Learning Material",
+          "source_file": "IU02_Research_Questions_and_Literature_Review_RAG.docx",
+          "distance": 1.1084747314453125,
+          "threshold_decision": "retained"
+        },
+        {
+          "rank": 3,
+          "chunk_id": "LM0103",
+          "title": "Selecting a Research Topic",
+          "instructional_unit": "IU01 - Project Initiation & Research Topic",
+          "document_type": "Learning Material",
+          "source_file": "IU01_Project_Initiation_RAG_Learning_Material.docx",
+          "distance": 1.118632435798645,
+          "threshold_decision": "retained"
+        },
+        {
+          "rank": 4,
+          "chunk_id": "LM0106",
+          "title": "Research Scope",
+          "instructional_unit": "IU01 - Project Initiation & Research Topic",
+          "document_type": "Learning Material",
+          "source_file": "IU01_Project_Initiation_RAG_Learning_Material.docx",
+          "distance": 1.1265008449554443,
+          "threshold_decision": "retained"
+        },
+        {
+          "rank": 5,
+          "chunk_id": "LM0209",
+          "title": "IU02 Learning Check",
+          "instructional_unit": "IU02 - Research Questions & Literature Review",
+          "document_type": "Learning Material",
+          "source_file": "IU02_Research_Questions_and_Literature_Review_RAG.docx",
+          "distance": 1.1700830459594727,
+          "threshold_decision": "retained"
+        }
+      ],
+      "retained_chunks": [
+        {
+          "rank": 1,
+          "chunk_id": "LM0201",
+          "title": "Research Questions",
+          "instructional_unit": "IU02 - Research Questions & Literature Review",
+          "document_type": "Learning Material",
+          "source_file": "IU02_Research_Questions_and_Literature_Review_RAG.docx",
+          "distance": 1.0539922714233398,
+          "threshold_decision": "retained"
+        },
+        {
+          "rank": 2,
+          "chunk_id": "LM0202",
+          "title": "Research Aim, Objectives and Question Alignment",
+          "instructional_unit": "IU02 - Research Questions & Literature Review",
+          "document_type": "Learning Material",
+          "source_file": "IU02_Research_Questions_and_Literature_Review_RAG.docx",
+          "distance": 1.1084747314453125,
+          "threshold_decision": "retained"
+        },
+        {
+          "rank": 3,
+          "chunk_id": "LM0103",
+          "title": "Selecting a Research Topic",
+          "instructional_unit": "IU01 - Project Initiation & Research Topic",
+          "document_type": "Learning Material",
+          "source_file": "IU01_Project_Initiation_RAG_Learning_Material.docx",
+          "distance": 1.118632435798645,
+          "threshold_decision": "retained"
+        },
+        {
+          "rank": 4,
+          "chunk_id": "LM0106",
+          "title": "Research Scope",
+          "instructional_unit": "IU01 - Project Initiation & Research Topic",
+          "document_type": "Learning Material",
+          "source_file": "IU01_Project_Initiation_RAG_Learning_Material.docx",
+          "distance": 1.1265008449554443,
+          "threshold_decision": "retained"
+        },
+        {
+          "rank": 5,
+          "chunk_id": "LM0209",
+          "title": "IU02 Learning Check",
+          "instructional_unit": "IU02 - Research Questions & Literature Review",
+          "document_type": "Learning Material",
+          "source_file": "IU02_Research_Questions_and_Literature_Review_RAG.docx",
+          "distance": 1.1700830459594727,
+          "threshold_decision": "retained"
+        }
+      ],
+      "discarded_chunks": []
+    },
+    {
+      "test_id": "T04",
+      "question_type": "Scenario / Application",
+      "cpl_area": "IU03 / IU05",
+      "question": "I only have 20 people answering my survey. Is that enough for my research?",
+      "expected_source_topic": "Research methodology, sampling, limitations",
+      "mentor_mode_label": "Ask Anything",
+      "mentor_mode": "ask_anything",
+      "baseline_note": "Retrieval was good, but the answer was slightly too certain about whether 20 survey responses are sufficient.",
+      "top_k": 5,
+      "distance_threshold": 1.4,
+      "original_count": 5,
+      "remaining_count": 5,
+      "context_status": "CONTEXT",
+      "retrieved_chunks": [
+        {
+          "rank": 1,
+          "chunk_id": "LM0503",
+          "title": "Questionnaires and Surveys",
+          "instructional_unit": "IU05 - Primary & Secondary Research",
+          "document_type": "Learning Material",
+          "source_file": "IU05_Primary_and_Secondary_Research_RAG.docx",
+          "distance": 1.236278772354126,
+          "threshold_decision": "retained"
+        },
+        {
+          "rank": 2,
+          "chunk_id": "LM0505",
+          "title": "Sampling for Data Collection",
+          "instructional_unit": "IU05 - Primary & Secondary Research",
+          "document_type": "Learning Material",
+          "source_file": "IU05_Primary_and_Secondary_Research_RAG.docx",
+          "distance": 1.2367193698883057,
+          "threshold_decision": "retained"
+        },
+        {
+          "rank": 3,
+          "chunk_id": "LM0602",
+          "title": "Quantitative Data Analysis",
+          "instructional_unit": "IU06 - Data Analysis & Interpretation",
+          "document_type": "Learning Material",
+          "source_file": "IU06_Data_Analysis_and_Interpretation_RAG.docx",
+          "distance": 1.2755565643310547,
+          "threshold_decision": "retained"
+        },
+        {
+          "rank": 4,
+          "chunk_id": "LM0305",
+          "title": "Quantitative Research",
+          "instructional_unit": "IU03 - Research Methodologies",
+          "document_type": "Learning Material",
+          "source_file": "IU03_Research_Methodologies_RAG.docx",
+          "distance": 1.304844856262207,
+          "threshold_decision": "retained"
+        },
+        {
+          "rank": 5,
+          "chunk_id": "LM0804",
+          "title": "Limitations",
+          "instructional_unit": "IU08 - Reflection & Future Research",
+          "document_type": "Learning Material",
+          "source_file": "IU08_Reflection_and_Future_Research_RAG.docx",
+          "distance": 1.3191087245941162,
+          "threshold_decision": "retained"
+        }
+      ],
+      "retained_chunks": [
+        {
+          "rank": 1,
+          "chunk_id": "LM0503",
+          "title": "Questionnaires and Surveys",
+          "instructional_unit": "IU05 - Primary & Secondary Research",
+          "document_type": "Learning Material",
+          "source_file": "IU05_Primary_and_Secondary_Research_RAG.docx",
+          "distance": 1.236278772354126,
+          "threshold_decision": "retained"
+        },
+        {
+          "rank": 2,
+          "chunk_id": "LM0505",
+          "title": "Sampling for Data Collection",
+          "instructional_unit": "IU05 - Primary & Secondary Research",
+          "document_type": "Learning Material",
+          "source_file": "IU05_Primary_and_Secondary_Research_RAG.docx",
+          "distance": 1.2367193698883057,
+          "threshold_decision": "retained"
+        },
+        {
+          "rank": 3,
+          "chunk_id": "LM0602",
+          "title": "Quantitative Data Analysis",
+          "instructional_unit": "IU06 - Data Analysis & Interpretation",
+          "document_type": "Learning Material",
+          "source_file": "IU06_Data_Analysis_and_Interpretation_RAG.docx",
+          "distance": 1.2755565643310547,
+          "threshold_decision": "retained"
+        },
+        {
+          "rank": 4,
+          "chunk_id": "LM0305",
+          "title": "Quantitative Research",
+          "instructional_unit": "IU03 - Research Methodologies",
+          "document_type": "Learning Material",
+          "source_file": "IU03_Research_Methodologies_RAG.docx",
+          "distance": 1.304844856262207,
+          "threshold_decision": "retained"
+        },
+        {
+          "rank": 5,
+          "chunk_id": "LM0804",
+          "title": "Limitations",
+          "instructional_unit": "IU08 - Reflection & Future Research",
+          "document_type": "Learning Material",
+          "source_file": "IU08_Reflection_and_Future_Research_RAG.docx",
+          "distance": 1.3191087245941162,
+          "threshold_decision": "retained"
+        }
+      ],
+      "discarded_chunks": []
+    },
+    {
+      "test_id": "T05",
+      "question_type": "Factual",
+      "cpl_area": "IU01",
+      "question": "What should I consider when selecting a research topic for my project?",
+      "expected_source_topic": "IU01 \u2013 Selecting a Research Topic / Scope",
+      "mentor_mode_label": "Explain Topic",
+      "mentor_mode": "explain_topic",
+      "baseline_note": "Initial run returned OpenAI API 500; retry succeeded.",
+      "top_k": 5,
+      "distance_threshold": 1.4,
+      "original_count": 5,
+      "remaining_count": 5,
+      "context_status": "CONTEXT",
+      "retrieved_chunks": [
+        {
+          "rank": 1,
+          "chunk_id": "LM0103",
+          "title": "Selecting a Research Topic",
+          "instructional_unit": "IU01 - Project Initiation & Research Topic",
+          "document_type": "Learning Material",
+          "source_file": "IU01_Project_Initiation_RAG_Learning_Material.docx",
+          "distance": 0.8597279787063599,
+          "threshold_decision": "retained"
+        },
+        {
+          "rank": 2,
+          "chunk_id": "LM0101",
+          "title": "Understanding a Research Project",
+          "instructional_unit": "IU01 - Project Initiation & Research Topic",
+          "document_type": "Learning Material",
+          "source_file": "IU01_Project_Initiation_RAG_Learning_Material.docx",
+          "distance": 0.9376848936080933,
+          "threshold_decision": "retained"
+        },
+        {
+          "rank": 3,
+          "chunk_id": "LM0110",
+          "title": "IU01 Learning Check",
+          "instructional_unit": "IU01 - Project Initiation & Research Topic",
+          "document_type": "Learning Material",
+          "source_file": "IU01_Project_Initiation_RAG_Learning_Material.docx",
+          "distance": 0.9981439113616943,
+          "threshold_decision": "retained"
+        },
+        {
+          "rank": 4,
+          "chunk_id": "LM0106",
+          "title": "Research Scope",
+          "instructional_unit": "IU01 - Project Initiation & Research Topic",
+          "document_type": "Learning Material",
+          "source_file": "IU01_Project_Initiation_RAG_Learning_Material.docx",
+          "distance": 1.0051679611206055,
+          "threshold_decision": "retained"
+        },
+        {
+          "rank": 5,
+          "chunk_id": "LM0807",
+          "title": "Future Research",
+          "instructional_unit": "IU08 - Reflection & Future Research",
+          "document_type": "Learning Material",
+          "source_file": "IU08_Reflection_and_Future_Research_RAG.docx",
+          "distance": 1.0723440647125244,
+          "threshold_decision": "retained"
+        }
+      ],
+      "retained_chunks": [
+        {
+          "rank": 1,
+          "chunk_id": "LM0103",
+          "title": "Selecting a Research Topic",
+          "instructional_unit": "IU01 - Project Initiation & Research Topic",
+          "document_type": "Learning Material",
+          "source_file": "IU01_Project_Initiation_RAG_Learning_Material.docx",
+          "distance": 0.8597279787063599,
+          "threshold_decision": "retained"
+        },
+        {
+          "rank": 2,
+          "chunk_id": "LM0101",
+          "title": "Understanding a Research Project",
+          "instructional_unit": "IU01 - Project Initiation & Research Topic",
+          "document_type": "Learning Material",
+          "source_file": "IU01_Project_Initiation_RAG_Learning_Material.docx",
+          "distance": 0.9376848936080933,
+          "threshold_decision": "retained"
+        },
+        {
+          "rank": 3,
+          "chunk_id": "LM0110",
+          "title": "IU01 Learning Check",
+          "instructional_unit": "IU01 - Project Initiation & Research Topic",
+          "document_type": "Learning Material",
+          "source_file": "IU01_Project_Initiation_RAG_Learning_Material.docx",
+          "distance": 0.9981439113616943,
+          "threshold_decision": "retained"
+        },
+        {
+          "rank": 4,
+          "chunk_id": "LM0106",
+          "title": "Research Scope",
+          "instructional_unit": "IU01 - Project Initiation & Research Topic",
+          "document_type": "Learning Material",
+          "source_file": "IU01_Project_Initiation_RAG_Learning_Material.docx",
+          "distance": 1.0051679611206055,
+          "threshold_decision": "retained"
+        },
+        {
+          "rank": 5,
+          "chunk_id": "LM0807",
+          "title": "Future Research",
+          "instructional_unit": "IU08 - Reflection & Future Research",
+          "document_type": "Learning Material",
+          "source_file": "IU08_Reflection_and_Future_Research_RAG.docx",
+          "distance": 1.0723440647125244,
+          "threshold_decision": "retained"
+        }
+      ],
+      "discarded_chunks": []
+    },
+    {
+      "test_id": "T06",
+      "question_type": "Explanation",
+      "cpl_area": "IU02",
+      "question": "Why do I need a literature review before carrying out my research?",
+      "expected_source_topic": "IU02 \u2013 Literature Review",
+      "mentor_mode_label": "Explain Topic",
+      "mentor_mode": "explain_topic",
+      "baseline_note": null,
+      "top_k": 5,
+      "distance_threshold": 1.4,
+      "original_count": 5,
+      "remaining_count": 5,
+      "context_status": "CONTEXT",
+      "retrieved_chunks": [
+        {
+          "rank": 1,
+          "chunk_id": "LM0203",
+          "title": "Introduction to Literature Review",
+          "instructional_unit": "IU02 - Research Questions & Literature Review",
+          "document_type": "Learning Material",
+          "source_file": "IU02_Research_Questions_and_Literature_Review_RAG.docx",
+          "distance": 0.6864103674888611,
+          "threshold_decision": "retained"
+        },
+        {
+          "rank": 2,
+          "chunk_id": "LM0207",
+          "title": "Organising a Literature Review",
+          "instructional_unit": "IU02 - Research Questions & Literature Review",
+          "document_type": "Learning Material",
+          "source_file": "IU02_Research_Questions_and_Literature_Review_RAG.docx",
+          "distance": 0.8507423400878906,
+          "threshold_decision": "retained"
+        },
+        {
+          "rank": 3,
+          "chunk_id": "LM0205",
+          "title": "Critical Literature Review",
+          "instructional_unit": "IU02 - Research Questions & Literature Review",
+          "document_type": "Learning Material",
+          "source_file": "IU02_Research_Questions_and_Literature_Review_RAG.docx",
+          "distance": 0.9181921482086182,
+          "threshold_decision": "retained"
+        },
+        {
+          "rank": 4,
+          "chunk_id": "LM0204",
+          "title": "Finding Credible Sources",
+          "instructional_unit": "IU02 - Research Questions & Literature Review",
+          "document_type": "Learning Material",
+          "source_file": "IU02_Research_Questions_and_Literature_Review_RAG.docx",
+          "distance": 1.089065432548523,
+          "threshold_decision": "retained"
+        },
+        {
+          "rank": 5,
+          "chunk_id": "LM0209",
+          "title": "IU02 Learning Check",
+          "instructional_unit": "IU02 - Research Questions & Literature Review",
+          "document_type": "Learning Material",
+          "source_file": "IU02_Research_Questions_and_Literature_Review_RAG.docx",
+          "distance": 1.108184576034546,
+          "threshold_decision": "retained"
+        }
+      ],
+      "retained_chunks": [
+        {
+          "rank": 1,
+          "chunk_id": "LM0203",
+          "title": "Introduction to Literature Review",
+          "instructional_unit": "IU02 - Research Questions & Literature Review",
+          "document_type": "Learning Material",
+          "source_file": "IU02_Research_Questions_and_Literature_Review_RAG.docx",
+          "distance": 0.6864103674888611,
+          "threshold_decision": "retained"
+        },
+        {
+          "rank": 2,
+          "chunk_id": "LM0207",
+          "title": "Organising a Literature Review",
+          "instructional_unit": "IU02 - Research Questions & Literature Review",
+          "document_type": "Learning Material",
+          "source_file": "IU02_Research_Questions_and_Literature_Review_RAG.docx",
+          "distance": 0.8507423400878906,
+          "threshold_decision": "retained"
+        },
+        {
+          "rank": 3,
+          "chunk_id": "LM0205",
+          "title": "Critical Literature Review",
+          "instructional_unit": "IU02 - Research Questions & Literature Review",
+          "document_type": "Learning Material",
+          "source_file": "IU02_Research_Questions_and_Literature_Review_RAG.docx",
+          "distance": 0.9181921482086182,
+          "threshold_decision": "retained"
+        },
+        {
+          "rank": 4,
+          "chunk_id": "LM0204",
+          "title": "Finding Credible Sources",
+          "instructional_unit": "IU02 - Research Questions & Literature Review",
+          "document_type": "Learning Material",
+          "source_file": "IU02_Research_Questions_and_Literature_Review_RAG.docx",
+          "distance": 1.089065432548523,
+          "threshold_decision": "retained"
+        },
+        {
+          "rank": 5,
+          "chunk_id": "LM0209",
+          "title": "IU02 Learning Check",
+          "instructional_unit": "IU02 - Research Questions & Literature Review",
+          "document_type": "Learning Material",
+          "source_file": "IU02_Research_Questions_and_Literature_Review_RAG.docx",
+          "distance": 1.108184576034546,
+          "threshold_decision": "retained"
+        }
+      ],
+      "discarded_chunks": []
+    },
+    {
+      "test_id": "T07",
+      "question_type": "Scenario / Application",
+      "cpl_area": "IU03",
+      "question": "I want to understand learners' experiences in detail. Should I use quantitative or qualitative research, and why?",
+      "expected_source_topic": "IU03 \u2013 Research Methodologies",
+      "mentor_mode_label": "Ask Anything",
+      "mentor_mode": "ask_anything",
+      "baseline_note": null,
+      "top_k": 5,
+      "distance_threshold": 1.4,
+      "original_count": 5,
+      "remaining_count": 5,
+      "context_status": "CONTEXT",
+      "retrieved_chunks": [
+        {
+          "rank": 1,
+          "chunk_id": "LM0306",
+          "title": "Mixed Methods Research",
+          "instructional_unit": "IU03 - Research Methodologies",
+          "document_type": "Learning Material",
+          "source_file": "IU03_Research_Methodologies_RAG.docx",
+          "distance": 0.8643321990966797,
+          "threshold_decision": "retained"
+        },
+        {
+          "rank": 2,
+          "chunk_id": "LM0304",
+          "title": "Qualitative Research",
+          "instructional_unit": "IU03 - Research Methodologies",
+          "document_type": "Learning Material",
+          "source_file": "IU03_Research_Methodologies_RAG.docx",
+          "distance": 0.9079411029815674,
+          "threshold_decision": "retained"
+        },
+        {
+          "rank": 3,
+          "chunk_id": "LM0305",
+          "title": "Quantitative Research",
+          "instructional_unit": "IU03 - Research Methodologies",
+          "document_type": "Learning Material",
+          "source_file": "IU03_Research_Methodologies_RAG.docx",
+          "distance": 0.9129035472869873,
+          "threshold_decision": "retained"
+        },
+        {
+          "rank": 4,
+          "chunk_id": "LM0602",
+          "title": "Quantitative Data Analysis",
+          "instructional_unit": "IU06 - Data Analysis & Interpretation",
+          "document_type": "Learning Material",
+          "source_file": "IU06_Data_Analysis_and_Interpretation_RAG.docx",
+          "distance": 0.9655202031135559,
+          "threshold_decision": "retained"
+        },
+        {
+          "rank": 5,
+          "chunk_id": "LM0501",
+          "title": "Primary Research",
+          "instructional_unit": "IU05 - Primary & Secondary Research",
+          "document_type": "Learning Material",
+          "source_file": "IU05_Primary_and_Secondary_Research_RAG.docx",
+          "distance": 1.0049844980239868,
+          "threshold_decision": "retained"
+        }
+      ],
+      "retained_chunks": [
+        {
+          "rank": 1,
+          "chunk_id": "LM0306",
+          "title": "Mixed Methods Research",
+          "instructional_unit": "IU03 - Research Methodologies",
+          "document_type": "Learning Material",
+          "source_file": "IU03_Research_Methodologies_RAG.docx",
+          "distance": 0.8643321990966797,
+          "threshold_decision": "retained"
+        },
+        {
+          "rank": 2,
+          "chunk_id": "LM0304",
+          "title": "Qualitative Research",
+          "instructional_unit": "IU03 - Research Methodologies",
+          "document_type": "Learning Material",
+          "source_file": "IU03_Research_Methodologies_RAG.docx",
+          "distance": 0.9079411029815674,
+          "threshold_decision": "retained"
+        },
+        {
+          "rank": 3,
+          "chunk_id": "LM0305",
+          "title": "Quantitative Research",
+          "instructional_unit": "IU03 - Research Methodologies",
+          "document_type": "Learning Material",
+          "source_file": "IU03_Research_Methodologies_RAG.docx",
+          "distance": 0.9129035472869873,
+          "threshold_decision": "retained"
+        },
+        {
+          "rank": 4,
+          "chunk_id": "LM0602",
+          "title": "Quantitative Data Analysis",
+          "instructional_unit": "IU06 - Data Analysis & Interpretation",
+          "document_type": "Learning Material",
+          "source_file": "IU06_Data_Analysis_and_Interpretation_RAG.docx",
+          "distance": 0.9655202031135559,
+          "threshold_decision": "retained"
+        },
+        {
+          "rank": 5,
+          "chunk_id": "LM0501",
+          "title": "Primary Research",
+          "instructional_unit": "IU05 - Primary & Secondary Research",
+          "document_type": "Learning Material",
+          "source_file": "IU05_Primary_and_Secondary_Research_RAG.docx",
+          "distance": 1.0049844980239868,
+          "threshold_decision": "retained"
+        }
+      ],
+      "discarded_chunks": []
+    },
+    {
+      "test_id": "T08",
+      "question_type": "Scenario / Application",
+      "cpl_area": "IU05",
+      "question": "I collected survey responses and also used websites and reports. Which is primary research and which is secondary research?",
+      "expected_source_topic": "IU05 \u2013 Primary & Secondary Research",
+      "mentor_mode_label": "Explain Topic",
+      "mentor_mode": "explain_topic",
+      "baseline_note": null,
+      "top_k": 5,
+      "distance_threshold": 1.4,
+      "original_count": 5,
+      "remaining_count": 5,
+      "context_status": "CONTEXT",
+      "retrieved_chunks": [
+        {
+          "rank": 1,
+          "chunk_id": "LM0307",
+          "title": "Primary and Secondary Research",
+          "instructional_unit": "IU03 - Research Methodologies",
+          "document_type": "Learning Material",
+          "source_file": "IU03_Research_Methodologies_RAG.docx",
+          "distance": 0.6099729537963867,
+          "threshold_decision": "retained"
+        },
+        {
+          "rank": 2,
+          "chunk_id": "LM0509",
+          "title": "Primary vs Secondary Research: Strengths and Limitations",
+          "instructional_unit": "IU05 - Primary & Secondary Research",
+          "document_type": "Learning Material",
+          "source_file": "IU05_Primary_and_Secondary_Research_RAG.docx",
+          "distance": 0.8014640808105469,
+          "threshold_decision": "retained"
+        },
+        {
+          "rank": 3,
+          "chunk_id": "LM0502",
+          "title": "Secondary Research",
+          "instructional_unit": "IU05 - Primary & Secondary Research",
+          "document_type": "Learning Material",
+          "source_file": "IU05_Primary_and_Secondary_Research_RAG.docx",
+          "distance": 0.8284510970115662,
+          "threshold_decision": "retained"
+        },
+        {
+          "rank": 4,
+          "chunk_id": "LM0501",
+          "title": "Primary Research",
+          "instructional_unit": "IU05 - Primary & Secondary Research",
+          "document_type": "Learning Material",
+          "source_file": "IU05_Primary_and_Secondary_Research_RAG.docx",
+          "distance": 0.8385112881660461,
+          "threshold_decision": "retained"
+        },
+        {
+          "rank": 5,
+          "chunk_id": "LM0806",
+          "title": "Alternative Research Methodologies",
+          "instructional_unit": "IU08 - Reflection & Future Research",
+          "document_type": "Learning Material",
+          "source_file": "IU08_Reflection_and_Future_Research_RAG.docx",
+          "distance": 1.0903499126434326,
+          "threshold_decision": "retained"
+        }
+      ],
+      "retained_chunks": [
+        {
+          "rank": 1,
+          "chunk_id": "LM0307",
+          "title": "Primary and Secondary Research",
+          "instructional_unit": "IU03 - Research Methodologies",
+          "document_type": "Learning Material",
+          "source_file": "IU03_Research_Methodologies_RAG.docx",
+          "distance": 0.6099729537963867,
+          "threshold_decision": "retained"
+        },
+        {
+          "rank": 2,
+          "chunk_id": "LM0509",
+          "title": "Primary vs Secondary Research: Strengths and Limitations",
+          "instructional_unit": "IU05 - Primary & Secondary Research",
+          "document_type": "Learning Material",
+          "source_file": "IU05_Primary_and_Secondary_Research_RAG.docx",
+          "distance": 0.8014640808105469,
+          "threshold_decision": "retained"
+        },
+        {
+          "rank": 3,
+          "chunk_id": "LM0502",
+          "title": "Secondary Research",
+          "instructional_unit": "IU05 - Primary & Secondary Research",
+          "document_type": "Learning Material",
+          "source_file": "IU05_Primary_and_Secondary_Research_RAG.docx",
+          "distance": 0.8284510970115662,
+          "threshold_decision": "retained"
+        },
+        {
+          "rank": 4,
+          "chunk_id": "LM0501",
+          "title": "Primary Research",
+          "instructional_unit": "IU05 - Primary & Secondary Research",
+          "document_type": "Learning Material",
+          "source_file": "IU05_Primary_and_Secondary_Research_RAG.docx",
+          "distance": 0.8385112881660461,
+          "threshold_decision": "retained"
+        },
+        {
+          "rank": 5,
+          "chunk_id": "LM0806",
+          "title": "Alternative Research Methodologies",
+          "instructional_unit": "IU08 - Reflection & Future Research",
+          "document_type": "Learning Material",
+          "source_file": "IU08_Reflection_and_Future_Research_RAG.docx",
+          "distance": 1.0903499126434326,
+          "threshold_decision": "retained"
+        }
+      ],
+      "discarded_chunks": []
+    },
+    {
+      "test_id": "T09",
+      "question_type": "Scenario / Application",
+      "cpl_area": "IU06",
+      "question": "I have collected my survey data. What should I do before I start writing my findings?",
+      "expected_source_topic": "IU06 \u2013 Data Analysis & Interpretation",
+      "mentor_mode_label": "Ask Anything",
+      "mentor_mode": "ask_anything",
+      "baseline_note": "Initial run returned OpenAI API 500; retry succeeded.",
+      "top_k": 5,
+      "distance_threshold": 1.4,
+      "original_count": 5,
+      "remaining_count": 5,
+      "context_status": "CONTEXT",
+      "retrieved_chunks": [
+        {
+          "rank": 1,
+          "chunk_id": "LM0510",
+          "title": "Preparing Data for Analysis",
+          "instructional_unit": "IU05 - Primary & Secondary Research",
+          "document_type": "Learning Material",
+          "source_file": "IU05_Primary_and_Secondary_Research_RAG.docx",
+          "distance": 0.8524363040924072,
+          "threshold_decision": "retained"
+        },
+        {
+          "rank": 2,
+          "chunk_id": "LM0701",
+          "title": "Research Findings",
+          "instructional_unit": "IU07 - Research Findings & Recommendations",
+          "document_type": "Learning Material",
+          "source_file": "IU07_Research_Findings_and_Recommendations_RAG.docx",
+          "distance": 0.9787955284118652,
+          "threshold_decision": "retained"
+        },
+        {
+          "rank": 3,
+          "chunk_id": "LM0703",
+          "title": "Discussion of Findings",
+          "instructional_unit": "IU07 - Research Findings & Recommendations",
+          "document_type": "Learning Material",
+          "source_file": "IU07_Research_Findings_and_Recommendations_RAG.docx",
+          "distance": 1.0729790925979614,
+          "threshold_decision": "retained"
+        },
+        {
+          "rank": 4,
+          "chunk_id": "LM0602",
+          "title": "Quantitative Data Analysis",
+          "instructional_unit": "IU06 - Data Analysis & Interpretation",
+          "document_type": "Learning Material",
+          "source_file": "IU06_Data_Analysis_and_Interpretation_RAG.docx",
+          "distance": 1.136266827583313,
+          "threshold_decision": "retained"
+        },
+        {
+          "rank": 5,
+          "chunk_id": "LM0506",
+          "title": "Informed Consent and Participant Ethics",
+          "instructional_unit": "IU05 - Primary & Secondary Research",
+          "document_type": "Learning Material",
+          "source_file": "IU05_Primary_and_Secondary_Research_RAG.docx",
+          "distance": 1.1379640102386475,
+          "threshold_decision": "retained"
+        }
+      ],
+      "retained_chunks": [
+        {
+          "rank": 1,
+          "chunk_id": "LM0510",
+          "title": "Preparing Data for Analysis",
+          "instructional_unit": "IU05 - Primary & Secondary Research",
+          "document_type": "Learning Material",
+          "source_file": "IU05_Primary_and_Secondary_Research_RAG.docx",
+          "distance": 0.8524363040924072,
+          "threshold_decision": "retained"
+        },
+        {
+          "rank": 2,
+          "chunk_id": "LM0701",
+          "title": "Research Findings",
+          "instructional_unit": "IU07 - Research Findings & Recommendations",
+          "document_type": "Learning Material",
+          "source_file": "IU07_Research_Findings_and_Recommendations_RAG.docx",
+          "distance": 0.9787955284118652,
+          "threshold_decision": "retained"
+        },
+        {
+          "rank": 3,
+          "chunk_id": "LM0703",
+          "title": "Discussion of Findings",
+          "instructional_unit": "IU07 - Research Findings & Recommendations",
+          "document_type": "Learning Material",
+          "source_file": "IU07_Research_Findings_and_Recommendations_RAG.docx",
+          "distance": 1.0729790925979614,
+          "threshold_decision": "retained"
+        },
+        {
+          "rank": 4,
+          "chunk_id": "LM0602",
+          "title": "Quantitative Data Analysis",
+          "instructional_unit": "IU06 - Data Analysis & Interpretation",
+          "document_type": "Learning Material",
+          "source_file": "IU06_Data_Analysis_and_Interpretation_RAG.docx",
+          "distance": 1.136266827583313,
+          "threshold_decision": "retained"
+        },
+        {
+          "rank": 5,
+          "chunk_id": "LM0506",
+          "title": "Informed Consent and Participant Ethics",
+          "instructional_unit": "IU05 - Primary & Secondary Research",
+          "document_type": "Learning Material",
+          "source_file": "IU05_Primary_and_Secondary_Research_RAG.docx",
+          "distance": 1.1379640102386475,
+          "threshold_decision": "retained"
+        }
+      ],
+      "discarded_chunks": []
+    },
+    {
+      "test_id": "T10",
+      "question_type": "Explanation / Application",
+      "cpl_area": "IU07",
+      "question": "What is the difference between a research finding and a recommendation?",
+      "expected_source_topic": "IU07 \u2013 Findings & Recommendations",
+      "mentor_mode_label": "Explain Topic",
+      "mentor_mode": "explain_topic",
+      "baseline_note": "Retrieval found relevant Findings and Recommendations chunks, but response generation failed because of an OpenAI 500 server error.",
+      "top_k": 5,
+      "distance_threshold": 1.4,
+      "original_count": 5,
+      "remaining_count": 5,
+      "context_status": "CONTEXT",
+      "retrieved_chunks": [
+        {
+          "rank": 1,
+          "chunk_id": "LM0705",
+          "title": "Evidence-Based Recommendations",
+          "instructional_unit": "IU07 - Research Findings & Recommendations",
+          "document_type": "Learning Material",
+          "source_file": "IU07_Research_Findings_and_Recommendations_RAG.docx",
+          "distance": 0.9087706804275513,
+          "threshold_decision": "retained"
+        },
+        {
+          "rank": 2,
+          "chunk_id": "LM0701",
+          "title": "Research Findings",
+          "instructional_unit": "IU07 - Research Findings & Recommendations",
+          "document_type": "Learning Material",
+          "source_file": "IU07_Research_Findings_and_Recommendations_RAG.docx",
+          "distance": 0.9417657256126404,
+          "threshold_decision": "retained"
+        },
+        {
+          "rank": 3,
+          "chunk_id": "LM0101",
+          "title": "Understanding a Research Project",
+          "instructional_unit": "IU01 - Project Initiation & Research Topic",
+          "document_type": "Learning Material",
+          "source_file": "IU01_Project_Initiation_RAG_Learning_Material.docx",
+          "distance": 0.9747481346130371,
+          "threshold_decision": "retained"
+        },
+        {
+          "rank": 4,
+          "chunk_id": "LM0307",
+          "title": "Primary and Secondary Research",
+          "instructional_unit": "IU03 - Research Methodologies",
+          "document_type": "Learning Material",
+          "source_file": "IU03_Research_Methodologies_RAG.docx",
+          "distance": 1.1005090475082397,
+          "threshold_decision": "retained"
+        },
+        {
+          "rank": 5,
+          "chunk_id": "LM0709",
+          "title": "Research Conclusion",
+          "instructional_unit": "IU07 - Research Findings & Recommendations",
+          "document_type": "Learning Material",
+          "source_file": "IU07_Research_Findings_and_Recommendations_RAG.docx",
+          "distance": 1.1163702011108398,
+          "threshold_decision": "retained"
+        }
+      ],
+      "retained_chunks": [
+        {
+          "rank": 1,
+          "chunk_id": "LM0705",
+          "title": "Evidence-Based Recommendations",
+          "instructional_unit": "IU07 - Research Findings & Recommendations",
+          "document_type": "Learning Material",
+          "source_file": "IU07_Research_Findings_and_Recommendations_RAG.docx",
+          "distance": 0.9087706804275513,
+          "threshold_decision": "retained"
+        },
+        {
+          "rank": 2,
+          "chunk_id": "LM0701",
+          "title": "Research Findings",
+          "instructional_unit": "IU07 - Research Findings & Recommendations",
+          "document_type": "Learning Material",
+          "source_file": "IU07_Research_Findings_and_Recommendations_RAG.docx",
+          "distance": 0.9417657256126404,
+          "threshold_decision": "retained"
+        },
+        {
+          "rank": 3,
+          "chunk_id": "LM0101",
+          "title": "Understanding a Research Project",
+          "instructional_unit": "IU01 - Project Initiation & Research Topic",
+          "document_type": "Learning Material",
+          "source_file": "IU01_Project_Initiation_RAG_Learning_Material.docx",
+          "distance": 0.9747481346130371,
+          "threshold_decision": "retained"
+        },
+        {
+          "rank": 4,
+          "chunk_id": "LM0307",
+          "title": "Primary and Secondary Research",
+          "instructional_unit": "IU03 - Research Methodologies",
+          "document_type": "Learning Material",
+          "source_file": "IU03_Research_Methodologies_RAG.docx",
+          "distance": 1.1005090475082397,
+          "threshold_decision": "retained"
+        },
+        {
+          "rank": 5,
+          "chunk_id": "LM0709",
+          "title": "Research Conclusion",
+          "instructional_unit": "IU07 - Research Findings & Recommendations",
+          "document_type": "Learning Material",
+          "source_file": "IU07_Research_Findings_and_Recommendations_RAG.docx",
+          "distance": 1.1163702011108398,
+          "threshold_decision": "retained"
+        }
+      ],
+      "discarded_chunks": []
+    },
+    {
+      "test_id": "T11",
+      "question_type": "Reflection",
+      "cpl_area": "IU08",
+      "question": "What should I discuss in my reflection after completing the research project?",
+      "expected_source_topic": "IU08 \u2013 Reflection & Future Research",
+      "mentor_mode_label": "Explain Topic",
+      "mentor_mode": "explain_topic",
+      "baseline_note": null,
+      "top_k": 5,
+      "distance_threshold": 1.4,
+      "original_count": 5,
+      "remaining_count": 5,
+      "context_status": "CONTEXT",
+      "retrieved_chunks": [
+        {
+          "rank": 1,
+          "chunk_id": "LM0801",
+          "title": "Purpose of Research Reflection",
+          "instructional_unit": "IU08 - Reflection & Future Research",
+          "document_type": "Learning Material",
+          "source_file": "IU08_Reflection_and_Future_Research_RAG.docx",
+          "distance": 0.6504339575767517,
+          "threshold_decision": "retained"
+        },
+        {
+          "rank": 2,
+          "chunk_id": "LM0809",
+          "title": "Writing a Critical Reflection",
+          "instructional_unit": "IU08 - Reflection & Future Research",
+          "document_type": "Learning Material",
+          "source_file": "IU08_Reflection_and_Future_Research_RAG.docx",
+          "distance": 0.6957664489746094,
+          "threshold_decision": "retained"
+        },
+        {
+          "rank": 3,
+          "chunk_id": "LM0808",
+          "title": "Personal and Professional Development",
+          "instructional_unit": "IU08 - Reflection & Future Research",
+          "document_type": "Learning Material",
+          "source_file": "IU08_Reflection_and_Future_Research_RAG.docx",
+          "distance": 0.7272406816482544,
+          "threshold_decision": "retained"
+        },
+        {
+          "rank": 4,
+          "chunk_id": "LM0810",
+          "title": "IU08 Final Learning Check",
+          "instructional_unit": "IU08 - Reflection & Future Research",
+          "document_type": "Learning Material",
+          "source_file": "IU08_Reflection_and_Future_Research_RAG.docx",
+          "distance": 0.735593855381012,
+          "threshold_decision": "retained"
+        },
+        {
+          "rank": 5,
+          "chunk_id": "LM0803",
+          "title": "Evaluating the Research Process",
+          "instructional_unit": "IU08 - Reflection & Future Research",
+          "document_type": "Learning Material",
+          "source_file": "IU08_Reflection_and_Future_Research_RAG.docx",
+          "distance": 0.7996045351028442,
+          "threshold_decision": "retained"
+        }
+      ],
+      "retained_chunks": [
+        {
+          "rank": 1,
+          "chunk_id": "LM0801",
+          "title": "Purpose of Research Reflection",
+          "instructional_unit": "IU08 - Reflection & Future Research",
+          "document_type": "Learning Material",
+          "source_file": "IU08_Reflection_and_Future_Research_RAG.docx",
+          "distance": 0.6504339575767517,
+          "threshold_decision": "retained"
+        },
+        {
+          "rank": 2,
+          "chunk_id": "LM0809",
+          "title": "Writing a Critical Reflection",
+          "instructional_unit": "IU08 - Reflection & Future Research",
+          "document_type": "Learning Material",
+          "source_file": "IU08_Reflection_and_Future_Research_RAG.docx",
+          "distance": 0.6957664489746094,
+          "threshold_decision": "retained"
+        },
+        {
+          "rank": 3,
+          "chunk_id": "LM0808",
+          "title": "Personal and Professional Development",
+          "instructional_unit": "IU08 - Reflection & Future Research",
+          "document_type": "Learning Material",
+          "source_file": "IU08_Reflection_and_Future_Research_RAG.docx",
+          "distance": 0.7272406816482544,
+          "threshold_decision": "retained"
+        },
+        {
+          "rank": 4,
+          "chunk_id": "LM0810",
+          "title": "IU08 Final Learning Check",
+          "instructional_unit": "IU08 - Reflection & Future Research",
+          "document_type": "Learning Material",
+          "source_file": "IU08_Reflection_and_Future_Research_RAG.docx",
+          "distance": 0.735593855381012,
+          "threshold_decision": "retained"
+        },
+        {
+          "rank": 5,
+          "chunk_id": "LM0803",
+          "title": "Evaluating the Research Process",
+          "instructional_unit": "IU08 - Reflection & Future Research",
+          "document_type": "Learning Material",
+          "source_file": "IU08_Reflection_and_Future_Research_RAG.docx",
+          "distance": 0.7996045351028442,
+          "threshold_decision": "retained"
+        }
+      ],
+      "discarded_chunks": []
+    },
+    {
+      "test_id": "T12",
+      "question_type": "Cross-topic Scenario",
+      "cpl_area": "IU02\u2013IU07",
+      "question": "My research question, survey questions, findings and recommendations do not seem to connect well. What should I check?",
+      "expected_source_topic": "Alignment across research question, methodology, findings and recommendations",
+      "mentor_mode_label": "Ask Anything",
+      "mentor_mode": "ask_anything",
+      "baseline_note": "Retrieval was good, but the answer did not fully connect survey questions, findings, and recommendations.",
+      "top_k": 5,
+      "distance_threshold": 1.4,
+      "original_count": 5,
+      "remaining_count": 5,
+      "context_status": "CONTEXT",
+      "retrieved_chunks": [
+        {
+          "rank": 1,
+          "chunk_id": "LM0202",
+          "title": "Research Aim, Objectives and Question Alignment",
+          "instructional_unit": "IU02 - Research Questions & Literature Review",
+          "document_type": "Learning Material",
+          "source_file": "IU02_Research_Questions_and_Literature_Review_RAG.docx",
+          "distance": 0.9687126278877258,
+          "threshold_decision": "retained"
+        },
+        {
+          "rank": 2,
+          "chunk_id": "LM0702",
+          "title": "Linking Findings to Research Objectives",
+          "instructional_unit": "IU07 - Research Findings & Recommendations",
+          "document_type": "Learning Material",
+          "source_file": "IU07_Research_Findings_and_Recommendations_RAG.docx",
+          "distance": 1.0428617000579834,
+          "threshold_decision": "retained"
+        },
+        {
+          "rank": 3,
+          "chunk_id": "LM0209",
+          "title": "IU02 Learning Check",
+          "instructional_unit": "IU02 - Research Questions & Literature Review",
+          "document_type": "Learning Material",
+          "source_file": "IU02_Research_Questions_and_Literature_Review_RAG.docx",
+          "distance": 1.0476959943771362,
+          "threshold_decision": "retained"
+        },
+        {
+          "rank": 4,
+          "chunk_id": "LM0703",
+          "title": "Discussion of Findings",
+          "instructional_unit": "IU07 - Research Findings & Recommendations",
+          "document_type": "Learning Material",
+          "source_file": "IU07_Research_Findings_and_Recommendations_RAG.docx",
+          "distance": 1.053749918937683,
+          "threshold_decision": "retained"
+        },
+        {
+          "rank": 5,
+          "chunk_id": "LM0701",
+          "title": "Research Findings",
+          "instructional_unit": "IU07 - Research Findings & Recommendations",
+          "document_type": "Learning Material",
+          "source_file": "IU07_Research_Findings_and_Recommendations_RAG.docx",
+          "distance": 1.0548049211502075,
+          "threshold_decision": "retained"
+        }
+      ],
+      "retained_chunks": [
+        {
+          "rank": 1,
+          "chunk_id": "LM0202",
+          "title": "Research Aim, Objectives and Question Alignment",
+          "instructional_unit": "IU02 - Research Questions & Literature Review",
+          "document_type": "Learning Material",
+          "source_file": "IU02_Research_Questions_and_Literature_Review_RAG.docx",
+          "distance": 0.9687126278877258,
+          "threshold_decision": "retained"
+        },
+        {
+          "rank": 2,
+          "chunk_id": "LM0702",
+          "title": "Linking Findings to Research Objectives",
+          "instructional_unit": "IU07 - Research Findings & Recommendations",
+          "document_type": "Learning Material",
+          "source_file": "IU07_Research_Findings_and_Recommendations_RAG.docx",
+          "distance": 1.0428617000579834,
+          "threshold_decision": "retained"
+        },
+        {
+          "rank": 3,
+          "chunk_id": "LM0209",
+          "title": "IU02 Learning Check",
+          "instructional_unit": "IU02 - Research Questions & Literature Review",
+          "document_type": "Learning Material",
+          "source_file": "IU02_Research_Questions_and_Literature_Review_RAG.docx",
+          "distance": 1.0476959943771362,
+          "threshold_decision": "retained"
+        },
+        {
+          "rank": 4,
+          "chunk_id": "LM0703",
+          "title": "Discussion of Findings",
+          "instructional_unit": "IU07 - Research Findings & Recommendations",
+          "document_type": "Learning Material",
+          "source_file": "IU07_Research_Findings_and_Recommendations_RAG.docx",
+          "distance": 1.053749918937683,
+          "threshold_decision": "retained"
+        },
+        {
+          "rank": 5,
+          "chunk_id": "LM0701",
+          "title": "Research Findings",
+          "instructional_unit": "IU07 - Research Findings & Recommendations",
+          "document_type": "Learning Material",
+          "source_file": "IU07_Research_Findings_and_Recommendations_RAG.docx",
+          "distance": 1.0548049211502075,
+          "threshold_decision": "retained"
+        }
+      ],
+      "discarded_chunks": []
+    },
+    {
+      "test_id": "T13",
+      "question_type": "Vague Learner Question",
+      "cpl_area": "IU04",
+      "question": "I don't understand project planning. What am I supposed to do?",
+      "expected_source_topic": "IU04 \u2013 Planning; should clarify or guide",
+      "mentor_mode_label": "Ask Anything",
+      "mentor_mode": "ask_anything",
+      "baseline_note": "Useful answer, but one lower-ranked retrieved chunk was weak and the mentor could have asked a clarifying follow-up question.",
+      "top_k": 5,
+      "distance_threshold": 1.4,
+      "original_count": 5,
+      "remaining_count": 5,
+      "context_status": "CONTEXT",
+      "retrieved_chunks": [
+        {
+          "rank": 1,
+          "chunk_id": "LM0409",
+          "title": "Monitoring and Updating the Plan",
+          "instructional_unit": "IU04 - Research Planning & Scheduling",
+          "document_type": "Learning Material",
+          "source_file": "IU04_Research_Planning_and_Scheduling_RAG.docx",
+          "distance": 0.9940666556358337,
+          "threshold_decision": "retained"
+        },
+        {
+          "rank": 2,
+          "chunk_id": "LM0401",
+          "title": "Research Project Plan",
+          "instructional_unit": "IU04 - Research Planning & Scheduling",
+          "document_type": "Learning Material",
+          "source_file": "IU04_Research_Planning_and_Scheduling_RAG.docx",
+          "distance": 1.0719184875488281,
+          "threshold_decision": "retained"
+        },
+        {
+          "rank": 3,
+          "chunk_id": "RB003",
+          "title": "Research Plan",
+          "instructional_unit": null,
+          "document_type": "Rubric",
+          "source_file": "Rubric_RAG_v3.docx",
+          "distance": 1.097080111503601,
+          "threshold_decision": "retained"
+        },
+        {
+          "rank": 4,
+          "chunk_id": "LM0410",
+          "title": "IU04 Learning Check",
+          "instructional_unit": "IU04 - Research Planning & Scheduling",
+          "document_type": "Learning Material",
+          "source_file": "IU04_Research_Planning_and_Scheduling_RAG.docx",
+          "distance": 1.0980494022369385,
+          "threshold_decision": "retained"
+        },
+        {
+          "rank": 5,
+          "chunk_id": "LM0803",
+          "title": "Evaluating the Research Process",
+          "instructional_unit": "IU08 - Reflection & Future Research",
+          "document_type": "Learning Material",
+          "source_file": "IU08_Reflection_and_Future_Research_RAG.docx",
+          "distance": 1.1180835962295532,
+          "threshold_decision": "retained"
+        }
+      ],
+      "retained_chunks": [
+        {
+          "rank": 1,
+          "chunk_id": "LM0409",
+          "title": "Monitoring and Updating the Plan",
+          "instructional_unit": "IU04 - Research Planning & Scheduling",
+          "document_type": "Learning Material",
+          "source_file": "IU04_Research_Planning_and_Scheduling_RAG.docx",
+          "distance": 0.9940666556358337,
+          "threshold_decision": "retained"
+        },
+        {
+          "rank": 2,
+          "chunk_id": "LM0401",
+          "title": "Research Project Plan",
+          "instructional_unit": "IU04 - Research Planning & Scheduling",
+          "document_type": "Learning Material",
+          "source_file": "IU04_Research_Planning_and_Scheduling_RAG.docx",
+          "distance": 1.0719184875488281,
+          "threshold_decision": "retained"
+        },
+        {
+          "rank": 3,
+          "chunk_id": "RB003",
+          "title": "Research Plan",
+          "instructional_unit": null,
+          "document_type": "Rubric",
+          "source_file": "Rubric_RAG_v3.docx",
+          "distance": 1.097080111503601,
+          "threshold_decision": "retained"
+        },
+        {
+          "rank": 4,
+          "chunk_id": "LM0410",
+          "title": "IU04 Learning Check",
+          "instructional_unit": "IU04 - Research Planning & Scheduling",
+          "document_type": "Learning Material",
+          "source_file": "IU04_Research_Planning_and_Scheduling_RAG.docx",
+          "distance": 1.0980494022369385,
+          "threshold_decision": "retained"
+        },
+        {
+          "rank": 5,
+          "chunk_id": "LM0803",
+          "title": "Evaluating the Research Process",
+          "instructional_unit": "IU08 - Reflection & Future Research",
+          "document_type": "Learning Material",
+          "source_file": "IU08_Reflection_and_Future_Research_RAG.docx",
+          "distance": 1.1180835962295532,
+          "threshold_decision": "retained"
+        }
+      ],
+      "discarded_chunks": []
+    },
+    {
+      "test_id": "T14",
+      "question_type": "Out-of-scope",
+      "cpl_area": "Out of CPL",
+      "question": "Can you explain how to build a neural network in Python for image recognition?",
+      "expected_source_topic": "No sufficient CPL evidence expected",
+      "mentor_mode_label": "Ask Anything",
+      "mentor_mode": "ask_anything",
+      "baseline_note": "Out-of-scope neural-network question retrieved weak unrelated CPL chunks; the model acknowledged insufficient course information but then answered using unsupported general knowledge, violating grounding instructions.",
+      "top_k": 5,
+      "distance_threshold": 1.4,
+      "original_count": 5,
+      "remaining_count": 0,
+      "context_status": "NO_CONTEXT",
+      "retrieved_chunks": [
+        {
+          "rank": 1,
+          "chunk_id": "LM0401",
+          "title": "Research Project Plan",
+          "instructional_unit": "IU04 - Research Planning & Scheduling",
+          "document_type": "Learning Material",
+          "source_file": "IU04_Research_Planning_and_Scheduling_RAG.docx",
+          "distance": 1.5088512897491455,
+          "threshold_decision": "discarded"
+        },
+        {
+          "rank": 2,
+          "chunk_id": "AB002",
+          "title": "Assignment Objective",
+          "instructional_unit": null,
+          "document_type": "Assignment Brief",
+          "source_file": "Assignment_Brief_RAG_v3.docx",
+          "distance": 1.5700223445892334,
+          "threshold_decision": "discarded"
+        },
+        {
+          "rank": 3,
+          "chunk_id": "LM0601",
+          "title": "Purpose of Data Analysis",
+          "instructional_unit": "IU06 - Data Analysis & Interpretation",
+          "document_type": "Learning Material",
+          "source_file": "IU06_Data_Analysis_and_Interpretation_RAG.docx",
+          "distance": 1.5738954544067383,
+          "threshold_decision": "discarded"
+        },
+        {
+          "rank": 4,
+          "chunk_id": "LM0101",
+          "title": "Understanding a Research Project",
+          "instructional_unit": "IU01 - Project Initiation & Research Topic",
+          "document_type": "Learning Material",
+          "source_file": "IU01_Project_Initiation_RAG_Learning_Material.docx",
+          "distance": 1.5977177619934082,
+          "threshold_decision": "discarded"
+        },
+        {
+          "rank": 5,
+          "chunk_id": "LM0110",
+          "title": "IU01 Learning Check",
+          "instructional_unit": "IU01 - Project Initiation & Research Topic",
+          "document_type": "Learning Material",
+          "source_file": "IU01_Project_Initiation_RAG_Learning_Material.docx",
+          "distance": 1.6048495769500732,
+          "threshold_decision": "discarded"
+        }
+      ],
+      "retained_chunks": [],
+      "discarded_chunks": [
+        {
+          "rank": 1,
+          "chunk_id": "LM0401",
+          "title": "Research Project Plan",
+          "instructional_unit": "IU04 - Research Planning & Scheduling",
+          "document_type": "Learning Material",
+          "source_file": "IU04_Research_Planning_and_Scheduling_RAG.docx",
+          "distance": 1.5088512897491455,
+          "threshold_decision": "discarded"
+        },
+        {
+          "rank": 2,
+          "chunk_id": "AB002",
+          "title": "Assignment Objective",
+          "instructional_unit": null,
+          "document_type": "Assignment Brief",
+          "source_file": "Assignment_Brief_RAG_v3.docx",
+          "distance": 1.5700223445892334,
+          "threshold_decision": "discarded"
+        },
+        {
+          "rank": 3,
+          "chunk_id": "LM0601",
+          "title": "Purpose of Data Analysis",
+          "instructional_unit": "IU06 - Data Analysis & Interpretation",
+          "document_type": "Learning Material",
+          "source_file": "IU06_Data_Analysis_and_Interpretation_RAG.docx",
+          "distance": 1.5738954544067383,
+          "threshold_decision": "discarded"
+        },
+        {
+          "rank": 4,
+          "chunk_id": "LM0101",
+          "title": "Understanding a Research Project",
+          "instructional_unit": "IU01 - Project Initiation & Research Topic",
+          "document_type": "Learning Material",
+          "source_file": "IU01_Project_Initiation_RAG_Learning_Material.docx",
+          "distance": 1.5977177619934082,
+          "threshold_decision": "discarded"
+        },
+        {
+          "rank": 5,
+          "chunk_id": "LM0110",
+          "title": "IU01 Learning Check",
+          "instructional_unit": "IU01 - Project Initiation & Research Topic",
+          "document_type": "Learning Material",
+          "source_file": "IU01_Project_Initiation_RAG_Learning_Material.docx",
+          "distance": 1.6048495769500732,
+          "threshold_decision": "discarded"
+        }
+      ]
+    },
+    {
+      "test_id": "T15",
+      "question_type": "Out-of-scope / Hallucination",
+      "cpl_area": "Out of CPL",
+      "question": "According to the CPL course materials, what is the exact minimum number of survey participants required to pass the assignment?",
+      "expected_source_topic": "Only state an exact number if CPL materials explicitly provide one",
+      "mentor_mode_label": "Ask Anything",
+      "mentor_mode": "ask_anything",
+      "baseline_note": "Retrieved context did not establish an exact minimum survey-participant requirement; generation could not be evaluated because of an OpenAI 500 server error.",
+      "top_k": 5,
+      "distance_threshold": 1.4,
+      "original_count": 5,
+      "remaining_count": 5,
+      "context_status": "CONTEXT",
+      "retrieved_chunks": [
+        {
+          "rank": 1,
+          "chunk_id": "CG001",
+          "title": "Course Overview",
+          "instructional_unit": null,
+          "document_type": "Course Guide",
+          "source_file": "Course_Guide_RAG_v3.docx",
+          "distance": 1.1244096755981445,
+          "threshold_decision": "retained"
+        },
+        {
+          "rank": 2,
+          "chunk_id": "LM0410",
+          "title": "IU04 Learning Check",
+          "instructional_unit": "IU04 - Research Planning & Scheduling",
+          "document_type": "Learning Material",
+          "source_file": "IU04_Research_Planning_and_Scheduling_RAG.docx",
+          "distance": 1.3546303510665894,
+          "threshold_decision": "retained"
+        },
+        {
+          "rank": 3,
+          "chunk_id": "LM0511",
+          "title": "IU05 Learning Check",
+          "instructional_unit": "IU05 - Primary & Secondary Research",
+          "document_type": "Learning Material",
+          "source_file": "IU05_Primary_and_Secondary_Research_RAG.docx",
+          "distance": 1.3699045181274414,
+          "threshold_decision": "retained"
+        },
+        {
+          "rank": 4,
+          "chunk_id": "LM0109",
+          "title": "Risks and Assumptions",
+          "instructional_unit": "IU01 - Project Initiation & Research Topic",
+          "document_type": "Learning Material",
+          "source_file": "IU01_Project_Initiation_RAG_Learning_Material.docx",
+          "distance": 1.3993321657180786,
+          "threshold_decision": "retained"
+        },
+        {
+          "rank": 5,
+          "chunk_id": "LM0810",
+          "title": "IU08 Final Learning Check",
+          "instructional_unit": "IU08 - Reflection & Future Research",
+          "document_type": "Learning Material",
+          "source_file": "IU08_Reflection_and_Future_Research_RAG.docx",
+          "distance": 1.399901032447815,
+          "threshold_decision": "retained"
+        }
+      ],
+      "retained_chunks": [
+        {
+          "rank": 1,
+          "chunk_id": "CG001",
+          "title": "Course Overview",
+          "instructional_unit": null,
+          "document_type": "Course Guide",
+          "source_file": "Course_Guide_RAG_v3.docx",
+          "distance": 1.1244096755981445,
+          "threshold_decision": "retained"
+        },
+        {
+          "rank": 2,
+          "chunk_id": "LM0410",
+          "title": "IU04 Learning Check",
+          "instructional_unit": "IU04 - Research Planning & Scheduling",
+          "document_type": "Learning Material",
+          "source_file": "IU04_Research_Planning_and_Scheduling_RAG.docx",
+          "distance": 1.3546303510665894,
+          "threshold_decision": "retained"
+        },
+        {
+          "rank": 3,
+          "chunk_id": "LM0511",
+          "title": "IU05 Learning Check",
+          "instructional_unit": "IU05 - Primary & Secondary Research",
+          "document_type": "Learning Material",
+          "source_file": "IU05_Primary_and_Secondary_Research_RAG.docx",
+          "distance": 1.3699045181274414,
+          "threshold_decision": "retained"
+        },
+        {
+          "rank": 4,
+          "chunk_id": "LM0109",
+          "title": "Risks and Assumptions",
+          "instructional_unit": "IU01 - Project Initiation & Research Topic",
+          "document_type": "Learning Material",
+          "source_file": "IU01_Project_Initiation_RAG_Learning_Material.docx",
+          "distance": 1.3993321657180786,
+          "threshold_decision": "retained"
+        },
+        {
+          "rank": 5,
+          "chunk_id": "LM0810",
+          "title": "IU08 Final Learning Check",
+          "instructional_unit": "IU08 - Reflection & Future Research",
+          "document_type": "Learning Material",
+          "source_file": "IU08_Reflection_and_Future_Research_RAG.docx",
+          "distance": 1.399901032447815,
+          "threshold_decision": "retained"
+        }
+      ],
+      "discarded_chunks": []
+    }
+  ]
+}

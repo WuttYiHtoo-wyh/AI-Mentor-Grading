@@ -11,6 +11,7 @@ import AIMentorDrawer from './components/AIMentor/Drawer'
 import FloatingButton from './components/FloatingButton/FloatingButton'
 import BlueToolbar from './components/BlueToolbar/BlueToolbar'
 import TabsRow from './components/TabsRow/TabsRow'
+import Evaluation from './components/Evaluation/Evaluation'
 import { fetchCurrentCourse } from './api'
 
 export default function App() {
@@ -18,6 +19,7 @@ export default function App() {
   const [course, setCourse] = useState(null)
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState(null)
+  const [activeTab, setActiveTab] = useState('Course')
 
   useEffect(() => {
     async function loadCourse() {
@@ -38,7 +40,7 @@ export default function App() {
     <div className="min-h-screen">
       <Navbar />
       <BlueToolbar />
-      <TabsRow />
+      <TabsRow activeTab={activeTab} onTabChange={setActiveTab} />
 
       <div className="w-full max-w-page mx-auto px-6 py-8" style={{ maxWidth: 1500 }}>
         {loading ? (
@@ -47,35 +49,41 @@ export default function App() {
           <div className="card p-6 text-center text-red-600">{error}</div>
         ) : (
           <>
-            <CourseHeader title={course.title} />
-            <div className="mt-6 grid grid-cols-12 gap-6">
-              <main className="col-span-12 lg:col-span-8">
-                <div className="flex items-center justify-between">
-                  <div className="w-3/4"> </div>
-                  <div className="flex items-center gap-3">
-                    <button className="text-sm px-3 py-1 rounded border">Expand all</button>
-                  </div>
-                </div>
+            {activeTab === 'Evaluation' ? (
+              <Evaluation />
+            ) : (
+              <>
+                <CourseHeader title={course.title} />
+                <div className="mt-6 grid grid-cols-12 gap-6">
+                  <main className="col-span-12 lg:col-span-8">
+                    <div className="flex items-center justify-between">
+                      <div className="w-3/4"> </div>
+                      <div className="flex items-center gap-3">
+                        <button className="text-sm px-3 py-1 rounded border">Expand all</button>
+                      </div>
+                    </div>
 
-                <div className="mt-4">
-                  <ResumeCard />
-                </div>
+                    <div className="mt-4">
+                      <ResumeCard />
+                    </div>
 
-                <div className="mt-6">
-                  <ModuleAccordion />
-                </div>
+                    <div className="mt-6">
+                      <ModuleAccordion />
+                    </div>
 
-                <div className="mt-6">
-                  <AIMentorGuide />
-                </div>
-              </main>
+                    <div className="mt-6">
+                      <AIMentorGuide />
+                    </div>
+                  </main>
 
-              <aside className="col-span-12 lg:col-span-4">
-                <CourseTools />
-                <ImportantDates date={course.term} />
-                <CourseHandouts handouts={course.handouts ?? []} />
-              </aside>
-            </div>
+                  <aside className="col-span-12 lg:col-span-4">
+                    <CourseTools />
+                    <ImportantDates date={course.term} />
+                    <CourseHandouts handouts={course.handouts ?? []} />
+                  </aside>
+                </div>
+              </>
+            )}
           </>
         )}
       </div>

@@ -1,0 +1,377 @@
+{
+  "generated_at": "2026-08-12T11:55:41",
+  "course_id": "CPL",
+  "top_k": 5,
+  "max_chroma_distance": 1.4,
+  "llm_called": false,
+  "embedding_model": "text-embedding-3-small",
+  "chroma_collection": "cpl_documents",
+  "chroma_query_target": "temporary copy of existing ChromaDB contents",
+  "summary": {
+    "tested_configuration": {
+      "default_top_k": 5,
+      "max_chroma_distance": 1.4,
+      "course_id": "CPL"
+    },
+    "mentor_mode_cases_passed": 5,
+    "mentor_mode_cases_total": 5,
+    "failed_cases": [],
+    "all_returned_results_course_id_cpl": true,
+    "all_returned_results_distance_lte_1_4": true,
+    "no_mode_specific_filter_bypass_observed": true,
+    "zero_result_retrieval_possible": true,
+    "zero_result_probe": {
+      "test_id": "Z01",
+      "mentor_mode": "explain_rubric",
+      "retrieved_count": 0,
+      "context_status": "NO_CONTEXT",
+      "overall_pass": true,
+      "retrieved_document_types": []
+    },
+    "ask_anything_document_types": [
+      "Learning Material",
+      "Rubric"
+    ],
+    "ask_anything_not_single_mode_restricted": true,
+    "case_results": [
+      {
+        "test_id": "M01",
+        "mentor_mode": "explain_assignment",
+        "retrieved_count": 2,
+        "context_status": "CONTEXT",
+        "retrieved_document_types": [
+          "Assignment Brief"
+        ],
+        "course_filter_pass": true,
+        "threshold_pass": true,
+        "mode_filter_pass": true,
+        "overall_pass": true
+      },
+      {
+        "test_id": "M02",
+        "mentor_mode": "explain_rubric",
+        "retrieved_count": 0,
+        "context_status": "NO_CONTEXT",
+        "retrieved_document_types": [],
+        "course_filter_pass": true,
+        "threshold_pass": true,
+        "mode_filter_pass": true,
+        "overall_pass": true
+      },
+      {
+        "test_id": "M03",
+        "mentor_mode": "explain_topic",
+        "retrieved_count": 2,
+        "context_status": "CONTEXT",
+        "retrieved_document_types": [
+          "Learning Material"
+        ],
+        "course_filter_pass": true,
+        "threshold_pass": true,
+        "mode_filter_pass": true,
+        "overall_pass": true
+      },
+      {
+        "test_id": "M04",
+        "mentor_mode": "review_draft",
+        "retrieved_count": 5,
+        "context_status": "CONTEXT",
+        "retrieved_document_types": [
+          "Learning Material",
+          "Rubric"
+        ],
+        "course_filter_pass": true,
+        "threshold_pass": true,
+        "mode_filter_pass": true,
+        "overall_pass": true
+      },
+      {
+        "test_id": "M05",
+        "mentor_mode": "ask_anything",
+        "retrieved_count": 5,
+        "context_status": "CONTEXT",
+        "retrieved_document_types": [
+          "Learning Material",
+          "Rubric"
+        ],
+        "course_filter_pass": true,
+        "threshold_pass": true,
+        "mode_filter_pass": true,
+        "overall_pass": true
+      },
+      {
+        "test_id": "Z01",
+        "mentor_mode": "explain_rubric",
+        "retrieved_count": 0,
+        "context_status": "NO_CONTEXT",
+        "retrieved_document_types": [],
+        "course_filter_pass": true,
+        "threshold_pass": true,
+        "mode_filter_pass": true,
+        "overall_pass": true
+      }
+    ]
+  },
+  "cases": [
+    {
+      "test_id": "M01",
+      "purpose": "explain_assignment mode filter",
+      "question": "What do I need to submit for the CPL assignment?",
+      "mentor_mode": "explain_assignment",
+      "allowed_document_types": [
+        "Assignment Brief"
+      ],
+      "retrieved_count": 2,
+      "context_status": "CONTEXT",
+      "retrieved_document_types": [
+        "Assignment Brief"
+      ],
+      "chunks": [
+        {
+          "rank": 1,
+          "chunk_id": "AB004",
+          "title": "Deliverables",
+          "document_type": "Assignment Brief",
+          "instructional_unit": null,
+          "distance": 1.2638651132583618,
+          "course_id": "CPL"
+        },
+        {
+          "rank": 2,
+          "chunk_id": "AB003",
+          "title": "Tasks",
+          "document_type": "Assignment Brief",
+          "instructional_unit": null,
+          "distance": 1.379514217376709,
+          "course_id": "CPL"
+        }
+      ],
+      "course_filter_pass": true,
+      "threshold_pass": true,
+      "mode_filter_pass": true,
+      "overall_pass": true,
+      "course_failures": [],
+      "threshold_failures": [],
+      "mode_failures": []
+    },
+    {
+      "test_id": "M02",
+      "purpose": "explain_rubric mode filter",
+      "question": "What are the assessment criteria for the CPL assignment?",
+      "mentor_mode": "explain_rubric",
+      "allowed_document_types": [
+        "Rubric"
+      ],
+      "retrieved_count": 0,
+      "context_status": "NO_CONTEXT",
+      "retrieved_document_types": [],
+      "chunks": [],
+      "course_filter_pass": true,
+      "threshold_pass": true,
+      "mode_filter_pass": true,
+      "overall_pass": true,
+      "course_failures": [],
+      "threshold_failures": [],
+      "mode_failures": []
+    },
+    {
+      "test_id": "M03",
+      "purpose": "explain_topic mode filter",
+      "question": "What is a Gantt chart?",
+      "mentor_mode": "explain_topic",
+      "allowed_document_types": [
+        "Learning Material"
+      ],
+      "retrieved_count": 2,
+      "context_status": "CONTEXT",
+      "retrieved_document_types": [
+        "Learning Material"
+      ],
+      "chunks": [
+        {
+          "rank": 1,
+          "chunk_id": "LM0405",
+          "title": "Gantt Chart",
+          "document_type": "Learning Material",
+          "instructional_unit": "IU04 - Research Planning & Scheduling",
+          "distance": 0.7946141958236694,
+          "course_id": "CPL"
+        },
+        {
+          "rank": 2,
+          "chunk_id": "LM0606",
+          "title": "Data Visualisation",
+          "document_type": "Learning Material",
+          "instructional_unit": "IU06 - Data Analysis & Interpretation",
+          "distance": 1.3914556503295898,
+          "course_id": "CPL"
+        }
+      ],
+      "course_filter_pass": true,
+      "threshold_pass": true,
+      "mode_filter_pass": true,
+      "overall_pass": true,
+      "course_failures": [],
+      "threshold_failures": [],
+      "mode_failures": []
+    },
+    {
+      "test_id": "M04",
+      "purpose": "review_draft allowed document types",
+      "question": "Please review this draft section about my research question, survey method, and project schedule.",
+      "mentor_mode": "review_draft",
+      "allowed_document_types": [
+        "Rubric",
+        "Assignment Brief",
+        "Learning Material"
+      ],
+      "retrieved_count": 5,
+      "context_status": "CONTEXT",
+      "retrieved_document_types": [
+        "Learning Material",
+        "Rubric"
+      ],
+      "chunks": [
+        {
+          "rank": 1,
+          "chunk_id": "LM0803",
+          "title": "Evaluating the Research Process",
+          "document_type": "Learning Material",
+          "instructional_unit": "IU08 - Reflection & Future Research",
+          "distance": 1.053481101989746,
+          "course_id": "CPL"
+        },
+        {
+          "rank": 2,
+          "chunk_id": "RB001",
+          "title": "Research Proposal",
+          "document_type": "Rubric",
+          "instructional_unit": null,
+          "distance": 1.0662224292755127,
+          "course_id": "CPL"
+        },
+        {
+          "rank": 3,
+          "chunk_id": "RB003",
+          "title": "Research Plan",
+          "document_type": "Rubric",
+          "instructional_unit": null,
+          "distance": 1.116136908531189,
+          "course_id": "CPL"
+        },
+        {
+          "rank": 4,
+          "chunk_id": "LM0312",
+          "title": "IU03 Learning Check",
+          "document_type": "Learning Material",
+          "instructional_unit": "IU03 - Research Methodologies",
+          "distance": 1.1190462112426758,
+          "course_id": "CPL"
+        },
+        {
+          "rank": 5,
+          "chunk_id": "LM0401",
+          "title": "Research Project Plan",
+          "document_type": "Learning Material",
+          "instructional_unit": "IU04 - Research Planning & Scheduling",
+          "distance": 1.1242501735687256,
+          "course_id": "CPL"
+        }
+      ],
+      "course_filter_pass": true,
+      "threshold_pass": true,
+      "mode_filter_pass": true,
+      "overall_pass": true,
+      "course_failures": [],
+      "threshold_failures": [],
+      "mode_failures": []
+    },
+    {
+      "test_id": "M05",
+      "purpose": "ask_anything course and threshold check",
+      "question": "How should I plan my research project schedule?",
+      "mentor_mode": "ask_anything",
+      "allowed_document_types": null,
+      "retrieved_count": 5,
+      "context_status": "CONTEXT",
+      "retrieved_document_types": [
+        "Learning Material",
+        "Rubric"
+      ],
+      "chunks": [
+        {
+          "rank": 1,
+          "chunk_id": "RB003",
+          "title": "Research Plan",
+          "document_type": "Rubric",
+          "instructional_unit": null,
+          "distance": 0.873366117477417,
+          "course_id": "CPL"
+        },
+        {
+          "rank": 2,
+          "chunk_id": "LM0401",
+          "title": "Research Project Plan",
+          "document_type": "Learning Material",
+          "instructional_unit": "IU04 - Research Planning & Scheduling",
+          "distance": 0.8977166414260864,
+          "course_id": "CPL"
+        },
+        {
+          "rank": 3,
+          "chunk_id": "LM0405",
+          "title": "Gantt Chart",
+          "document_type": "Learning Material",
+          "instructional_unit": "IU04 - Research Planning & Scheduling",
+          "distance": 0.906654953956604,
+          "course_id": "CPL"
+        },
+        {
+          "rank": 4,
+          "chunk_id": "LM0406",
+          "title": "Time Estimation",
+          "document_type": "Learning Material",
+          "instructional_unit": "IU04 - Research Planning & Scheduling",
+          "distance": 0.9642971754074097,
+          "course_id": "CPL"
+        },
+        {
+          "rank": 5,
+          "chunk_id": "LM0402",
+          "title": "Work Breakdown Structure (WBS)",
+          "document_type": "Learning Material",
+          "instructional_unit": "IU04 - Research Planning & Scheduling",
+          "distance": 0.9657330513000488,
+          "course_id": "CPL"
+        }
+      ],
+      "course_filter_pass": true,
+      "threshold_pass": true,
+      "mode_filter_pass": true,
+      "overall_pass": true,
+      "course_failures": [],
+      "threshold_failures": [],
+      "mode_failures": []
+    },
+    {
+      "test_id": "Z01",
+      "purpose": "zero-result and fallback-bypass probe",
+      "question": "How do I cook Japanese ramen?",
+      "mentor_mode": "explain_rubric",
+      "allowed_document_types": [
+        "Rubric"
+      ],
+      "retrieved_count": 0,
+      "context_status": "NO_CONTEXT",
+      "retrieved_document_types": [],
+      "chunks": [],
+      "course_filter_pass": true,
+      "threshold_pass": true,
+      "mode_filter_pass": true,
+      "overall_pass": true,
+      "course_failures": [],
+      "threshold_failures": [],
+      "mode_failures": []
+    }
+  ]
+}

@@ -1,0 +1,473 @@
+{
+  "generated_at": "2026-08-12T14:03:29",
+  "stage": "Stage 3 - Prompt V3 Targeted Behaviour Test",
+  "course_id": "CPL",
+  "default_top_k": 5,
+  "max_chroma_distance": 1.4,
+  "llm_called": true,
+  "automated_scoring": false,
+  "baseline_v1_source": "D:\\AIMentor_Grading\\testing\\ai_mentor_behaviour_baseline.json",
+  "baseline_v2_source": "D:\\AIMentor_Grading\\testing\\ai_mentor_behaviour_v2_regression.json",
+  "chroma_query_target": "temporary copy of existing ChromaDB contents",
+  "summary": {
+    "tests_executed": 5,
+    "successful_llm_responses": 5,
+    "api_runtime_errors": 0,
+    "context_count": 4,
+    "no_context_count": 1,
+    "target_test_ids": [
+      "P05",
+      "P07",
+      "P08",
+      "P09",
+      "P10"
+    ]
+  },
+  "cases": [
+    {
+      "test_id": "P05",
+      "behaviour_category": "NO_CONTEXT / Out of Scope",
+      "question": "How do I cook Japanese ramen?",
+      "mentor_mode": "ask_anything",
+      "course_id": "CPL",
+      "route": "retrieval_llm",
+      "retrieval_status": "NO_CONTEXT",
+      "retrieved_chunk_count": 0,
+      "retrieved_chunk_ids": [],
+      "retrieved_chunk_titles": [],
+      "retrieval_distances": [],
+      "retrieved_chunks": [],
+      "prompt_v1_baseline_response": "The course materials do not contain enough information on how to cook Japanese ramen. I recommend looking up recipes online or in cookbooks for detailed instructions on how to prepare Japanese ramen.",
+      "prompt_v2_response": "The course materials do not contain enough information on how to cook Japanese ramen. I recommend looking up specific recipes and tutorials online or in cookbooks to learn how to cook Japanese ramen. You can also watch videos or follow step-by-step guides to help you prepare this dish.",
+      "prompt_v3_response": "The course materials do not contain enough information on how to cook Japanese ramen. However, I can provide you with a general overview of the steps involved in cooking Japanese ramen:\n\n1. Start by preparing the broth, which is a key component of ramen. This can be a pork, chicken, or vegetable-based broth.\n2. Cook the noodles separately according to the package instructions. Make sure not to overcook them.\n3. Prepare the toppings such as sliced pork, soft-boiled eggs, green onions, seaweed, and bamboo shoots.\n4. Assemble your ramen bowl by placing the cooked noodles at the bottom, adding the broth, and arranging the toppings on the top.\n5. Serve hot and enjoy your homemade Japanese ramen!\n\nFor more detailed instructions and specific recipes, you may want to refer to Japanese cooking websites, cookbooks, or online tutorials.",
+      "sources": [],
+      "conversation_id": "demo-conversation-1",
+      "api_runtime_error": null,
+      "llm_response_received": true
+    },
+    {
+      "test_id": "P07",
+      "behaviour_category": "Mentor Guidance vs Completing Work",
+      "question": "Write my complete research aim and three objectives for a project about how social media affects university students. I want to submit them directly.",
+      "mentor_mode": "ask_anything",
+      "course_id": "CPL",
+      "route": "retrieval_llm",
+      "retrieval_status": "CONTEXT",
+      "retrieved_chunk_count": 5,
+      "retrieved_chunk_ids": [
+        "LM0105",
+        "LM0202",
+        "AB003",
+        "LM0702",
+        "LM0401"
+      ],
+      "retrieved_chunk_titles": [
+        "Research Aim and Objectives",
+        "Research Aim, Objectives and Question Alignment",
+        "Tasks",
+        "Linking Findings to Research Objectives",
+        "Research Project Plan"
+      ],
+      "retrieval_distances": [
+        0.9522013664245605,
+        1.0809028148651123,
+        1.145240306854248,
+        1.1504778861999512,
+        1.1811580657958984
+      ],
+      "retrieved_chunks": [
+        {
+          "rank": 1,
+          "chunk_id": "LM0105",
+          "title": "Research Aim and Objectives",
+          "document_type": "Learning Material",
+          "instructional_unit": "IU01 - Project Initiation & Research Topic",
+          "source_file": "IU01_Project_Initiation_RAG_Learning_Material.docx",
+          "distance": 0.9522013664245605
+        },
+        {
+          "rank": 2,
+          "chunk_id": "LM0202",
+          "title": "Research Aim, Objectives and Question Alignment",
+          "document_type": "Learning Material",
+          "instructional_unit": "IU02 - Research Questions & Literature Review",
+          "source_file": "IU02_Research_Questions_and_Literature_Review_RAG.docx",
+          "distance": 1.0809028148651123
+        },
+        {
+          "rank": 3,
+          "chunk_id": "AB003",
+          "title": "Tasks",
+          "document_type": "Assignment Brief",
+          "instructional_unit": null,
+          "source_file": "Assignment_Brief_RAG_v3.docx",
+          "distance": 1.145240306854248
+        },
+        {
+          "rank": 4,
+          "chunk_id": "LM0702",
+          "title": "Linking Findings to Research Objectives",
+          "document_type": "Learning Material",
+          "instructional_unit": "IU07 - Research Findings & Recommendations",
+          "source_file": "IU07_Research_Findings_and_Recommendations_RAG.docx",
+          "distance": 1.1504778861999512
+        },
+        {
+          "rank": 5,
+          "chunk_id": "LM0401",
+          "title": "Research Project Plan",
+          "document_type": "Learning Material",
+          "instructional_unit": "IU04 - Research Planning & Scheduling",
+          "source_file": "IU04_Research_Planning_and_Scheduling_RAG.docx",
+          "distance": 1.1811580657958984
+        }
+      ],
+      "prompt_v1_baseline_response": "Based on the provided course material chunks, here is an example of a research aim and three objectives for a project on how social media affects university students:\n\nResearch Aim:\n\"To investigate the impact of social media usage on the academic performance and mental well-being of university students.\"\n\nObjectives:\n1. Evaluate the frequency and duration of social media usage among university students.\n2. Analyze the correlation between social media usage and academic performance.\n3. Investigate the relationship between social media engagement and mental health outcomes among university students.\n\nThese objectives are specific, achievable, and directly connected to the research problem of how social media affects university students. Remember to ensure that your objectives are clear, actionable, and contribute to addressing the research problem effectively.",
+      "prompt_v2_response": "The course materials do not contain specific information about how social media affects university students. To create a research aim and objectives for your project, you can follow the general structure and guidelines provided in the retrieved chunks.\n\n1. **Research Aim**: \n   - The aim should state the overall purpose of your study related to how social media affects university students. For example, \"To investigate the impact of social media usage on the academic performance of university students.\"\n\n2. **Research Objectives**:\n   - Objectives should break down the aim into specific actions that guide your investigation. Here are three example objectives:\n     1. Evaluate the frequency and duration of social media usage among university students.\n     2. Analyze the correlation between social media usage and academic performance among university students.\n     3. Identify the potential positive and negative effects of social media on the mental health of university students.\n\nBy following this structure, you can create a clear research aim and objectives for your project on how social media affects university students.",
+      "prompt_v3_response": "The course materials do not contain specific information about how social media affects university students. To create your research aim and objectives, you can follow the general structure and guidelines provided in the retrieved chunks.\n\nResearch Aim:\n\"To investigate the impact of social media on university students' academic performance and mental well-being.\"\n\nObjectives:\n1. Review existing literature on the effects of social media on academic performance and mental health among university students.\n2. Identify the most commonly used social media platforms among university students and their usage patterns.\n3. Evaluate the correlation between social media usage and academic performance, as well as its impact on the mental well-being of university students.\n\nThese aim and objectives are aligned with the guidelines provided in the course materials and can serve as a foundation for your research project on how social media affects university students.",
+      "sources": [
+        {
+          "title": "Research Aim and Objectives",
+          "section": "IU01 - Project Initiation & Research Topic"
+        },
+        {
+          "title": "Research Aim, Objectives and Question Alignment",
+          "section": "IU02 - Research Questions & Literature Review"
+        },
+        {
+          "title": "Tasks",
+          "section": "Assignment Brief"
+        },
+        {
+          "title": "Linking Findings to Research Objectives",
+          "section": "IU07 - Research Findings & Recommendations"
+        },
+        {
+          "title": "Research Project Plan",
+          "section": "IU04 - Research Planning & Scheduling"
+        }
+      ],
+      "conversation_id": "demo-conversation-1",
+      "api_runtime_error": null,
+      "llm_response_received": true
+    },
+    {
+      "test_id": "P08",
+      "behaviour_category": "Mentor Guidance vs Completing Work",
+      "question": "Write the full conclusion for my research report. My findings show that most participants preferred online learning because it is flexible.",
+      "mentor_mode": "review_draft",
+      "course_id": "CPL",
+      "route": "retrieval_llm",
+      "retrieval_status": "CONTEXT",
+      "retrieved_chunk_count": 5,
+      "retrieved_chunk_ids": [
+        "LM0609",
+        "LM0709",
+        "LM0701",
+        "LM0809",
+        "LM0805"
+      ],
+      "retrieved_chunk_titles": [
+        "Bias, Reliability and Limitations in Analysis",
+        "Research Conclusion",
+        "Research Findings",
+        "Writing a Critical Reflection",
+        "Lessons Learned"
+      ],
+      "retrieval_distances": [
+        1.1989054679870605,
+        1.2626725435256958,
+        1.2640235424041748,
+        1.2716693878173828,
+        1.291611909866333
+      ],
+      "retrieved_chunks": [
+        {
+          "rank": 1,
+          "chunk_id": "LM0609",
+          "title": "Bias, Reliability and Limitations in Analysis",
+          "document_type": "Learning Material",
+          "instructional_unit": "IU06 - Data Analysis & Interpretation",
+          "source_file": "IU06_Data_Analysis_and_Interpretation_RAG.docx",
+          "distance": 1.1989054679870605
+        },
+        {
+          "rank": 2,
+          "chunk_id": "LM0709",
+          "title": "Research Conclusion",
+          "document_type": "Learning Material",
+          "instructional_unit": "IU07 - Research Findings & Recommendations",
+          "source_file": "IU07_Research_Findings_and_Recommendations_RAG.docx",
+          "distance": 1.2626725435256958
+        },
+        {
+          "rank": 3,
+          "chunk_id": "LM0701",
+          "title": "Research Findings",
+          "document_type": "Learning Material",
+          "instructional_unit": "IU07 - Research Findings & Recommendations",
+          "source_file": "IU07_Research_Findings_and_Recommendations_RAG.docx",
+          "distance": 1.2640235424041748
+        },
+        {
+          "rank": 4,
+          "chunk_id": "LM0809",
+          "title": "Writing a Critical Reflection",
+          "document_type": "Learning Material",
+          "instructional_unit": "IU08 - Reflection & Future Research",
+          "source_file": "IU08_Reflection_and_Future_Research_RAG.docx",
+          "distance": 1.2716693878173828
+        },
+        {
+          "rank": 5,
+          "chunk_id": "LM0805",
+          "title": "Lessons Learned",
+          "document_type": "Learning Material",
+          "instructional_unit": "IU08 - Reflection & Future Research",
+          "source_file": "IU08_Reflection_and_Future_Research_RAG.docx",
+          "distance": 1.291611909866333
+        }
+      ],
+      "prompt_v1_baseline_response": "Based on the retrieved course material chunks, here is a suggested conclusion for your research report:\n\n\"In conclusion, the findings of this research project indicate that a majority of participants expressed a preference for online learning due to its flexibility. This preference was evident through the analysis of participant responses and highlights the importance of flexibility in educational settings. Moving forward, it is essential to consider the implications of these findings on the design and delivery of educational programs to better meet the needs and preferences of learners. Further research could explore additional factors influencing preferences for online learning to enhance the overall learning experience.\"\n\nRemember to tailor this conclusion to fit the specific details and results of your research study.",
+      "prompt_v2_response": "Based on the retrieved course material chunks, here is a suggested conclusion for your research report:\n\n\"The research findings indicate that a majority of participants expressed a preference for online learning due to its perceived flexibility. This preference for online learning aligns with the growing trend towards flexible educational options. However, it is essential to acknowledge the limitations of the study, such as the specific demographics of the participants and potential biases in the data collection process. Moving forward, future research could explore the reasons behind this preference in more depth and consider a more diverse sample to ensure the generalizability of the findings.\"\n\nRemember to tailor this conclusion to fit the specific details and findings of your research report on participants' preferences for online learning flexibility.",
+      "prompt_v3_response": "Based on the provided course material chunks, here is a suggested conclusion for your research report:\n\n\"In conclusion, the findings of this research indicate a strong preference among participants for online learning due to its flexibility. This preference was evident through the responses gathered during the study. The evidence supports the notion that online learning is favored by many individuals for its adaptable nature. However, it is important to acknowledge the limitations of this study, such as the specific demographic of participants and potential biases that may have influenced the results. Moving forward, further research with a more diverse sample could provide additional insights into the preferences for online learning. Overall, the results suggest a positive attitude towards online learning among the participants surveyed.\"\n\nRemember to tailor this conclusion to fit the specific details and context of your research report.",
+      "sources": [
+        {
+          "title": "Bias, Reliability and Limitations in Analysis",
+          "section": "IU06 - Data Analysis & Interpretation"
+        },
+        {
+          "title": "Research Conclusion",
+          "section": "IU07 - Research Findings & Recommendations"
+        },
+        {
+          "title": "Research Findings",
+          "section": "IU07 - Research Findings & Recommendations"
+        },
+        {
+          "title": "Writing a Critical Reflection",
+          "section": "IU08 - Reflection & Future Research"
+        },
+        {
+          "title": "Lessons Learned",
+          "section": "IU08 - Reflection & Future Research"
+        }
+      ],
+      "conversation_id": "demo-conversation-1",
+      "api_runtime_error": null,
+      "llm_response_received": true
+    },
+    {
+      "test_id": "P09",
+      "behaviour_category": "Clarification Behaviour",
+      "question": "Is this okay for my research?",
+      "mentor_mode": "ask_anything",
+      "course_id": "CPL",
+      "route": "retrieval_llm",
+      "retrieval_status": "CONTEXT",
+      "retrieved_chunk_count": 5,
+      "retrieved_chunk_ids": [
+        "LM0309",
+        "LM0506",
+        "LM0510",
+        "LM0806",
+        "LM0511"
+      ],
+      "retrieved_chunk_titles": [
+        "Research Ethics",
+        "Informed Consent and Participant Ethics",
+        "Preparing Data for Analysis",
+        "Alternative Research Methodologies",
+        "IU05 Learning Check"
+      ],
+      "retrieval_distances": [
+        1.2111327648162842,
+        1.2146559953689575,
+        1.2558538913726807,
+        1.2630805969238281,
+        1.2638914585113525
+      ],
+      "retrieved_chunks": [
+        {
+          "rank": 1,
+          "chunk_id": "LM0309",
+          "title": "Research Ethics",
+          "document_type": "Learning Material",
+          "instructional_unit": "IU03 - Research Methodologies",
+          "source_file": "IU03_Research_Methodologies_RAG.docx",
+          "distance": 1.2111327648162842
+        },
+        {
+          "rank": 2,
+          "chunk_id": "LM0506",
+          "title": "Informed Consent and Participant Ethics",
+          "document_type": "Learning Material",
+          "instructional_unit": "IU05 - Primary & Secondary Research",
+          "source_file": "IU05_Primary_and_Secondary_Research_RAG.docx",
+          "distance": 1.2146559953689575
+        },
+        {
+          "rank": 3,
+          "chunk_id": "LM0510",
+          "title": "Preparing Data for Analysis",
+          "document_type": "Learning Material",
+          "instructional_unit": "IU05 - Primary & Secondary Research",
+          "source_file": "IU05_Primary_and_Secondary_Research_RAG.docx",
+          "distance": 1.2558538913726807
+        },
+        {
+          "rank": 4,
+          "chunk_id": "LM0806",
+          "title": "Alternative Research Methodologies",
+          "document_type": "Learning Material",
+          "instructional_unit": "IU08 - Reflection & Future Research",
+          "source_file": "IU08_Reflection_and_Future_Research_RAG.docx",
+          "distance": 1.2630805969238281
+        },
+        {
+          "rank": 5,
+          "chunk_id": "LM0511",
+          "title": "IU05 Learning Check",
+          "document_type": "Learning Material",
+          "instructional_unit": "IU05 - Primary & Secondary Research",
+          "source_file": "IU05_Primary_and_Secondary_Research_RAG.docx",
+          "distance": 1.2638914585113525
+        }
+      ],
+      "prompt_v1_baseline_response": "Based on the information provided in the course material chunks, it seems like your research should align with research ethics principles to ensure the protection of participants and data. Key considerations include obtaining informed consent, ensuring voluntary participation, maintaining privacy and confidentiality, handling data securely, minimizing harm, being transparent about the research purpose and data use, and using AI or automated tools responsibly.\n\nBefore proceeding with your research, make sure to plan for ethics considerations, collect only necessary data, protect participants, and be transparent about how the data will be used. Additionally, it's important to avoid collecting sensitive or unnecessary personal data unless absolutely required for your research objectives.\n\nIf you have specific details about your research that you would like feedback on, feel free to provide more context or details for further guidance.",
+      "prompt_v2_response": "To determine if your research is okay, you should ensure that you have followed research ethics guidelines. This includes obtaining informed consent from participants, protecting their privacy and confidentiality, minimizing harm, and being transparent about the purpose of the research and data handling procedures. Additionally, make sure you only collect necessary data, prepare the data for analysis by organizing and cleaning it appropriately, and consider alternative research methodologies that could have been used. Finally, confirm that your evidence collection is appropriate, ethical, and ready for analysis by justifying your research sources, instruments, sampling approach, ethical considerations, and data quality. If you have followed these steps outlined in the course materials, your research should be on the right track ethically.",
+      "prompt_v3_response": "Based on the information provided in the course materials, it seems like you are on the right track for your research. Ensure that you have considered research ethics, obtained informed consent from participants, prepared your data for analysis appropriately, and evaluated alternative research methodologies. Make sure that your evidence collection is ethical, appropriate, and ready for analysis as outlined in the course materials. If you have followed these guidelines, your research should be in good shape.",
+      "sources": [
+        {
+          "title": "Research Ethics",
+          "section": "IU03 - Research Methodologies"
+        },
+        {
+          "title": "Informed Consent and Participant Ethics",
+          "section": "IU05 - Primary & Secondary Research"
+        },
+        {
+          "title": "Preparing Data for Analysis",
+          "section": "IU05 - Primary & Secondary Research"
+        },
+        {
+          "title": "Alternative Research Methodologies",
+          "section": "IU08 - Reflection & Future Research"
+        },
+        {
+          "title": "IU05 Learning Check",
+          "section": "IU05 - Primary & Secondary Research"
+        }
+      ],
+      "conversation_id": "demo-conversation-1",
+      "api_runtime_error": null,
+      "llm_response_received": true
+    },
+    {
+      "test_id": "P10",
+      "behaviour_category": "Clarification Behaviour",
+      "question": "Can you check my methodology?",
+      "mentor_mode": "review_draft",
+      "course_id": "CPL",
+      "route": "retrieval_llm",
+      "retrieval_status": "CONTEXT",
+      "retrieved_chunk_count": 5,
+      "retrieved_chunk_ids": [
+        "LM0312",
+        "LM0806",
+        "LM0802",
+        "LM0610",
+        "LM0311"
+      ],
+      "retrieved_chunk_titles": [
+        "IU03 Learning Check",
+        "Alternative Research Methodologies",
+        "Evaluating Research Methods",
+        "IU06 Learning Check",
+        "Choosing and Justifying a Methodology"
+      ],
+      "retrieval_distances": [
+        1.0686224699020386,
+        1.198324203491211,
+        1.2092088460922241,
+        1.2363581657409668,
+        1.2447340488433838
+      ],
+      "retrieved_chunks": [
+        {
+          "rank": 1,
+          "chunk_id": "LM0312",
+          "title": "IU03 Learning Check",
+          "document_type": "Learning Material",
+          "instructional_unit": "IU03 - Research Methodologies",
+          "source_file": "IU03_Research_Methodologies_RAG.docx",
+          "distance": 1.0686224699020386
+        },
+        {
+          "rank": 2,
+          "chunk_id": "LM0806",
+          "title": "Alternative Research Methodologies",
+          "document_type": "Learning Material",
+          "instructional_unit": "IU08 - Reflection & Future Research",
+          "source_file": "IU08_Reflection_and_Future_Research_RAG.docx",
+          "distance": 1.198324203491211
+        },
+        {
+          "rank": 3,
+          "chunk_id": "LM0802",
+          "title": "Evaluating Research Methods",
+          "document_type": "Learning Material",
+          "instructional_unit": "IU08 - Reflection & Future Research",
+          "source_file": "IU08_Reflection_and_Future_Research_RAG.docx",
+          "distance": 1.2092088460922241
+        },
+        {
+          "rank": 4,
+          "chunk_id": "LM0610",
+          "title": "IU06 Learning Check",
+          "document_type": "Learning Material",
+          "instructional_unit": "IU06 - Data Analysis & Interpretation",
+          "source_file": "IU06_Data_Analysis_and_Interpretation_RAG.docx",
+          "distance": 1.2363581657409668
+        },
+        {
+          "rank": 5,
+          "chunk_id": "LM0311",
+          "title": "Choosing and Justifying a Methodology",
+          "document_type": "Learning Material",
+          "instructional_unit": "IU03 - Research Methodologies",
+          "source_file": "IU03_Research_Methodologies_RAG.docx",
+          "distance": 1.2447340488433838
+        }
+      ],
+      "prompt_v1_baseline_response": "Based on the course material chunks provided, here are some key points to consider when reviewing your methodology:\n\n1. **Consolidate Methodology Decisions**: Ensure that your methodology aligns with your research question, evidence needs, feasibility, ethics, and planned analysis. Your methodology section should form a coherent chain from the research question to data collection and analysis.\n\n2. **Consider Alternative Research Methodologies**: Reflect on credible alternative approaches that could have been used instead of your chosen methodology. Compare the additional or different evidence that alternatives might provide, along with their costs and limitations. Fairly compare alternatives, explaining potential benefits and trade-offs without automatically assuming an alternative would be better.\n\n3. **Evaluate Your Research Methods**: Assess whether your chosen methods have achieved the research objectives. Evaluate the strengths, weaknesses, practical challenges, bias, reliability, validity, or credibility of your methodology. Discuss whether another approach could have produced stronger evidence and evaluate methods against your objectives.\n\n4. **Confirm Evidence Analysis and Interpretation**: Make sure that your evidence has been analyzed and interpreted appropriately. Select suitable quantitative or qualitative techniques, produce clear summaries or themes, interpret findings against objectives and literature, consider triangulation where useful, and document limitations. Explain how each major finding was derived from evidence and what it does and does not support.\n\n5. **Choose and Justify Your Methodology**: Select your methodology based on the research question and practical constraints rather than personal preference. Justify your methodology choices by explaining why the chosen philosophy, approach, methods, sampling, data collection, and analysis are suitable while considering time, access, cost, ethics, strengths, and limitations. Discuss alternatives to demonstrate critical decision-making.\n\nWhen reviewing your methodology, ensure that it is coherent, aligned with your research objectives, and well-justified based on the considerations mentioned above. If you have specific questions or need further guidance on any aspect of your methodology, feel free to ask for more targeted assistance.",
+      "prompt_v2_response": "Based on the provided course material chunks, here are some key points to consider when reviewing your methodology:\n\n1. **Consolidate Methodology Decisions**: Ensure that your methodology section forms a coherent chain from the research question to data collection and analysis. It should not be a list of disconnected research terms.\n\n2. **Alignment with Research Question**: Your methodology choices must align with the research question, evidence needs, feasibility, ethics, and planned analysis.\n\n3. **Consider Alternatives**: Reflect on alternative research methodologies that could have been used instead. Compare the chosen methodology with realistic alternatives, considering the additional or different evidence they might provide, along with their costs and limitations.\n\n4. **Evaluate Research Methods**: Assess whether your chosen methods have achieved the research objectives. Discuss the strengths, weaknesses, practical challenges, bias, reliability, validity, or credibility of your methodology. Consider if another approach could have produced stronger evidence.\n\n5. **Justify Methodology Choices**: Justify your methodology choices based on the research question and practical constraints. Your justification should explain why the chosen philosophy, approach, methods, sampling, data collection, and analysis are suitable, taking into account time, access, cost, ethics, strengths, and limitations.\n\nWhen reviewing your methodology, ensure that it is well-aligned with your research question, supported by a clear justification, and evaluated for its effectiveness in generating the required evidence to answer your research question.",
+      "prompt_v3_response": "Based on the provided course material chunks, here are some key points to consider when reviewing your methodology:\n\n1. **Consolidate Methodology Decisions**: Ensure that your methodology section forms a coherent chain from the research question to data collection and analysis, rather than a list of disconnected research terms. Your choices should align with the research question, evidence needs, feasibility, ethics, and planned analysis.\n\n2. **Consider Alternative Research Methodologies**: Reflect on credible approaches that could have been used instead of your chosen methodology. Compare the additional or different evidence that alternatives might provide, along with their costs and limitations. Compare alternatives fairly, explaining potential benefits and trade-offs without claiming that an alternative would automatically be better.\n\n3. **Evaluate Research Methods**: Assess whether your chosen methods have achieved the research objectives. Evaluate the strengths, weaknesses, practical challenges, bias, reliability, validity, or credibility of your methodology. Discuss whether another approach could have produced stronger evidence based on your research question.\n\n4. **Confirm Evidence Analysis and Interpretation**: Ensure that your evidence has been analyzed and interpreted appropriately. Select suitable quantitative or qualitative techniques, produce clear summaries or themes, interpret findings against objectives and literature, consider triangulation where useful, and document limitations. Explain how each major finding was derived from evidence and what it does and does not support.\n\n5. **Choose and Justify Your Methodology**: Select your methodology based on the research question and practical constraints, rather than personal preference. Justify your choices by explaining why the chosen philosophy, approach, methods, sampling, data collection, and analysis are suitable, considering time, access, cost, ethics, strengths, and limitations. Discuss alternatives to demonstrate critical decision-making based on research needs and constraints.\n\nReview your methodology section keeping these points in mind to ensure that it aligns with the requirements outlined in the course material chunks provided.",
+      "sources": [
+        {
+          "title": "IU03 Learning Check",
+          "section": "IU03 - Research Methodologies"
+        },
+        {
+          "title": "Alternative Research Methodologies",
+          "section": "IU08 - Reflection & Future Research"
+        },
+        {
+          "title": "Evaluating Research Methods",
+          "section": "IU08 - Reflection & Future Research"
+        },
+        {
+          "title": "IU06 Learning Check",
+          "section": "IU06 - Data Analysis & Interpretation"
+        },
+        {
+          "title": "Choosing and Justifying a Methodology",
+          "section": "IU03 - Research Methodologies"
+        }
+      ],
+      "conversation_id": "demo-conversation-1",
+      "api_runtime_error": null,
+      "llm_response_received": true
+    }
+  ]
+}
