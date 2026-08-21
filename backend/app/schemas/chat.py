@@ -8,6 +8,7 @@ class ChatRequest(BaseModel):
     mentor_mode: Optional[str] = 'ask_anything'
     top_k: Optional[int] = 5
     conversation_id: Optional[str] = None
+    assessment_question: Optional[str] = None
     draft_text: Optional[str] = None
 
     @field_validator('message')
@@ -20,6 +21,13 @@ class ChatRequest(BaseModel):
     @field_validator('draft_text')
     @classmethod
     def validate_draft_text(cls, value: Optional[str]) -> Optional[str]:
+        if value is None:
+            return None
+        return value.strip()
+
+    @field_validator('assessment_question')
+    @classmethod
+    def validate_assessment_question(cls, value: Optional[str]) -> Optional[str]:
         if value is None:
             return None
         return value.strip()

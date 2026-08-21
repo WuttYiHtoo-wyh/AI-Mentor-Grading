@@ -48,15 +48,29 @@ def build_retrieval_prompt(message: str, mentor_mode: str, retrieval_context: Li
     return "\n\n".join(prompt_parts)
 
 
-def build_review_draft_prompt(message: str, draft_text: str, retrieval_context: List[Dict[str, Any]]) -> str:
+def build_review_draft_prompt(
+    message: str,
+    draft_text: str,
+    retrieval_context: List[Dict[str, Any]],
+    assessment_question: Optional[str] = None,
+) -> str:
     prompt_parts = [
         "Mentor mode: review_draft",
-        "The learner wants guidance on their latest assignment attempt.",
-        f"Learner request: {message}",
-        "\nLearner draft:",
+        "The learner wants guidance on their current answer.",
+        f"Review instruction or follow-up message: {message}",
+    ]
+
+    if assessment_question and assessment_question.strip():
+        prompt_parts.extend([
+            "\nAssessment question or task:",
+            assessment_question.strip(),
+        ])
+
+    prompt_parts.extend([
+        "\nLearner answer:",
         draft_text.strip(),
         "\nRetrieved CPL evidence (use this as the source of truth):",
-    ]
+    ])
 
     if not retrieval_context:
         prompt_parts.append(
@@ -76,11 +90,12 @@ def build_review_draft_prompt(message: str, draft_text: str, retrieval_context: 
             )
 
     prompt_parts.append(
-        "\nReview the learner draft against only the retrieved CPL evidence."
+        "\nReview the learner answer against only the retrieved CPL evidence."
+        " Compare the learner answer with the assessment question when one is provided."
         " Keep the response concise, learner-friendly, and easy to scan."
         " Use this structure exactly:"
         "\n1. What you did well - maximum 3 bullets."
-        "\n2. What you should improve - maximum 4 important areas. For each area, include one short explanation and one concrete action."
+        "\n2. What needs improvement - maximum 4 important areas. For each area, briefly state what is weak or missing, why it matters, and what to do."
         "\n3. What to work on first - one clear priority."
         "\n4. Relevant course materials - short list of the most relevant retrieved CPL materials or concepts."
         " Avoid long paragraphs and unnecessary repetition."
@@ -145,6 +160,7 @@ class LLMService:
         self,
         message: str,
         draft_text: str,
+        assessment_question: Optional[str] = None,
         conversation_id: Optional[str] = None,
         retrieval_context: Optional[List[Dict[str, Any]]] = None,
     ) -> Dict[str, Any]:
@@ -154,7 +170,12 @@ class LLMService:
             raise ValueError('draft_text must not be empty for review_draft mode.')
 
         retrieval_context = retrieval_context or []
-        user_prompt = build_review_draft_prompt(message, draft_text, retrieval_context)
+        user_prompt = build_review_draft_prompt(
+            message,
+            draft_text,
+            retrieval_context,
+            assessment_question=assessment_question,
+        )
 
         try:
             response = openai.ChatCompletion.create(

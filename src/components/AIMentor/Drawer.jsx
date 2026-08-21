@@ -8,6 +8,9 @@ const initialMessages = [
   { id: 'm1', role: 'assistant', text: 'Hi there. Ask me anything about your course or assignment.' },
 ]
 
+const REVIEW_MY_ANSWER_INSTRUCTION =
+  "Review the learner's answer against the assessment question and retrieved course evidence. Identify strengths, important gaps, and how the learner can improve."
+
 export default function Drawer({ open = true, onToggle }) {
   const [messages, setMessages] = useState(initialMessages)
   const [conversationId, setConversationId] = useState(null)
@@ -33,16 +36,19 @@ export default function Drawer({ open = true, onToggle }) {
     setError(null)
   }
 
-  async function handleSend({ messageText, draftText }) {
-    if (!messageText.trim()) return false
+  async function handleSend({ messageText, assessmentQuestion, draftText, initialReview }) {
+    const outgoingMessage = initialReview ? REVIEW_MY_ANSWER_INSTRUCTION : messageText
+    if (!outgoingMessage?.trim()) return false
 
     const userMessage = {
       id: `u-${Date.now()}`,
       role: 'user',
       text:
         mentorMode === 'review_draft'
-          ? `Review my draft: ${messageText}\n\nDraft submitted for review.`
-          : messageText,
+          ? initialReview
+            ? 'Review my answer.\n\nAnswer submitted for review.'
+            : messageText
+          : outgoingMessage,
     }
 
     setMessages((current) => [...current, userMessage])
@@ -51,10 +57,11 @@ export default function Drawer({ open = true, onToggle }) {
 
     try {
       const response = await sendChatMessage({
-        message: messageText,
+        message: outgoingMessage,
         courseId: 'CPL',
         mentorMode,
         conversationId,
+        assessmentQuestion: mentorMode === 'review_draft' ? assessmentQuestion : undefined,
         draftText: mentorMode === 'review_draft' ? draftText : undefined,
         topK: mentorMode === 'review_draft' ? 5 : undefined,
       })

@@ -8,12 +8,24 @@ async function fetchCurrentCourse() {
   return response.json()
 }
 
-async function sendChatMessage({ message, courseId, mentorMode = 'ask_anything', conversationId, draftText, topK }) {
+async function sendChatMessage({
+  message,
+  courseId,
+  mentorMode = 'ask_anything',
+  conversationId,
+  assessmentQuestion,
+  draftText,
+  topK,
+}) {
   const body = {
     message,
     course_id: courseId,
     mentor_mode: mentorMode,
     conversation_id: conversationId,
+  }
+
+  if (assessmentQuestion) {
+    body.assessment_question = assessmentQuestion
   }
 
   if (draftText) {

@@ -20,11 +20,13 @@ def post_chat(request: ChatRequest):
             retrieval_context = retrieve_review_draft_context(
                 message=request.message,
                 course_id=request.course_id,
+                assessment_question=request.assessment_question,
             )
 
             llm = LLMService()
             return llm.generate_review_draft_response(
                 message=request.message,
+                assessment_question=request.assessment_question,
                 draft_text=request.draft_text,
                 conversation_id=request.conversation_id,
                 retrieval_context=retrieval_context,

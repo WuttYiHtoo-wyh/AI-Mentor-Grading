@@ -1,43 +1,32 @@
 import React from 'react'
-import { actions } from '../../data/dummyData'
-import { ChevronRight, FileText, BookOpen, ClipboardCheck, FileCheck, MessageCircle } from 'lucide-react'
+import { ChevronRight, FileCheck, MessageCircle } from 'lucide-react'
 
 const iconMap = {
-  'Explain Assignment': FileText,
-  'Explain Rubric': ClipboardCheck,
-  'Explain a Topic': BookOpen,
-  'Review My Draft': FileCheck,
-  'Ask Anything': MessageCircle
+  'Ask Anything': MessageCircle,
+  'Review My Answer': FileCheck,
 }
 
 const actionConfig = {
-  'Explain Assignment': {
-    mode: 'explain_assignment',
-    description: 'Understand assignment tasks and requirements',
-  },
-  'Explain Rubric': {
-    mode: 'explain_rubric',
-    description: 'Understand assessment criteria and expectations',
-  },
-  'Explain a Topic': {
-    mode: 'explain_topic',
-    description: 'Get help understanding a course topic',
-  },
   'Ask Anything': {
     mode: 'ask_anything',
     description: 'Ask a general course-related question',
   },
-  'Review My Draft': {
+  'Review My Answer': {
     mode: 'review_draft',
-    description: 'Get guidance on your latest assignment attempt',
+    description: 'Get guidance on your current answer',
   },
 }
 
+const learnerActions = [
+  { id: 'ask_anything', title: 'Ask Anything' },
+  { id: 'review_draft', title: 'Review My Answer' },
+]
+
 export default function QuickActions({ selectedMode, onSelectMode }){
   return (
-    <div className="grid grid-cols-1 gap-3">
-      {actions.map((a)=> {
-        const Icon = iconMap[a.title] || FileText
+    <div className="grid grid-cols-1 gap-3 sm:grid-cols-2">
+      {learnerActions.map((a)=> {
+        const Icon = iconMap[a.title] || MessageCircle
         const config = actionConfig[a.title] || actionConfig['Ask Anything']
         const mode = config.mode
         const active = selectedMode === mode

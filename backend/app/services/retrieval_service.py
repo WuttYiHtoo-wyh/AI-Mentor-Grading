@@ -23,15 +23,15 @@ MODE_FILTERS = {
 REVIEW_DRAFT_ALLOWED = ['Rubric', 'Assignment Brief', 'Learning Material']
 REVIEW_DRAFT_ASSIGNMENT_BRIEF_QUERY = (
     'CPL assignment requirements, required tasks, deliverables, objectives and submission expectations. '
-    'Learner request: {message}'
+    '{review_focus}'
 )
 REVIEW_DRAFT_RUBRIC_QUERY = (
     'CPL assessment criteria, rubric expectations, quality requirements and evidence expected from the learner. '
-    'Learner request: {message}'
+    '{review_focus}'
 )
 REVIEW_DRAFT_LEARNING_MATERIAL_QUERY = (
     'Relevant CPL concepts and learning material that can help the learner improve this work. '
-    'Learner request: {message}'
+    '{review_focus}'
 )
 
 
@@ -113,21 +113,27 @@ def retrieve_by_document_type(
 def retrieve_review_draft_context(
     message: str,
     course_id: str,
+    assessment_question: Optional[str] = None,
 ) -> List[Dict[str, Any]]:
+    if assessment_question and assessment_question.strip():
+        review_focus = f"Assessment question: {assessment_question.strip()} Learner request: {message}"
+    else:
+        review_focus = f"Learner request: {message}"
+
     retrieval_plan = [
         (
             'Assignment Brief',
-            REVIEW_DRAFT_ASSIGNMENT_BRIEF_QUERY.format(message=message),
+            REVIEW_DRAFT_ASSIGNMENT_BRIEF_QUERY.format(review_focus=review_focus),
             2,
         ),
         (
             'Rubric',
-            REVIEW_DRAFT_RUBRIC_QUERY.format(message=message),
+            REVIEW_DRAFT_RUBRIC_QUERY.format(review_focus=review_focus),
             2,
         ),
         (
             'Learning Material',
-            REVIEW_DRAFT_LEARNING_MATERIAL_QUERY.format(message=message),
+            REVIEW_DRAFT_LEARNING_MATERIAL_QUERY.format(review_focus=review_focus),
             3,
         ),
     ]
