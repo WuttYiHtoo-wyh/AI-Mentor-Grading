@@ -2,7 +2,7 @@ from fastapi import APIRouter, HTTPException
 from app.schemas.chat import ChatRequest, ChatResponse
 from app.services.conversation_router import get_conversational_response
 from app.services.llm_service import LLMService
-from app.services.retrieval_service import retrieve_cpl_context
+from app.services.retrieval_service import retrieve_cpl_context, retrieve_review_draft_context
 
 router = APIRouter(prefix="/api/chat", tags=["chat"])
 
@@ -13,6 +13,23 @@ def post_chat(request: ChatRequest):
         raise HTTPException(status_code=400, detail="Message must not be empty.")
 
     try:
+        if request.mentor_mode == "review_draft":
+            if not request.draft_text:
+                raise ValueError("draft_text must not be empty for review_draft mode.")
+
+            retrieval_context = retrieve_review_draft_context(
+                message=request.message,
+                course_id=request.course_id,
+            )
+
+            llm = LLMService()
+            return llm.generate_review_draft_response(
+                message=request.message,
+                draft_text=request.draft_text,
+                conversation_id=request.conversation_id,
+                retrieval_context=retrieval_context,
+            )
+
         conversational_response = get_conversational_response(
             message=request.message,
             conversation_id=request.conversation_id,

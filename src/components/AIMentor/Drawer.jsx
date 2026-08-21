@@ -1,6 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react'
 import ConversationList from './ConversationList'
 import ChatInput from './ChatInput'
+import QuickActions from './QuickActions'
 import { sendChatMessage } from '../../api'
 
 const initialMessages = [
@@ -10,7 +11,7 @@ const initialMessages = [
 export default function Drawer({ open = true, onToggle }) {
   const [messages, setMessages] = useState(initialMessages)
   const [conversationId, setConversationId] = useState(null)
-  const [mentorMode] = useState('ask_anything')
+  const [mentorMode, setMentorMode] = useState('ask_anything')
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState(null)
   const conversationRef = useRef(null)
@@ -27,13 +28,21 @@ export default function Drawer({ open = true, onToggle }) {
 
   if (!open) return null
 
-  async function handleSend(messageText) {
+  function handleSelectMode(mode) {
+    setMentorMode(mode)
+    setError(null)
+  }
+
+  async function handleSend({ messageText, draftText }) {
     if (!messageText.trim()) return false
 
     const userMessage = {
       id: `u-${Date.now()}`,
       role: 'user',
-      text: messageText,
+      text:
+        mentorMode === 'review_draft'
+          ? `Review my draft: ${messageText}\n\nDraft submitted for review.`
+          : messageText,
     }
 
     setMessages((current) => [...current, userMessage])
@@ -46,6 +55,8 @@ export default function Drawer({ open = true, onToggle }) {
         courseId: 'CPL',
         mentorMode,
         conversationId,
+        draftText: mentorMode === 'review_draft' ? draftText : undefined,
+        topK: mentorMode === 'review_draft' ? 5 : undefined,
       })
 
       const assistantMessage = {
@@ -83,11 +94,14 @@ export default function Drawer({ open = true, onToggle }) {
         </div>
 
         <div ref={conversationRef} className="ai-conversation flex-1 overflow-y-auto px-6 py-5">
+          <div className="mb-5">
+            <QuickActions selectedMode={mentorMode} onSelectMode={handleSelectMode} />
+          </div>
           <ConversationList messages={messages} loading={loading} />
         </div>
 
         <div className="px-6 py-5 border-t border-[var(--border)] chat-input">
-          <ChatInput onSubmit={handleSend} disabled={loading} error={error} />
+          <ChatInput onSubmit={handleSend} disabled={loading} error={error} mentorMode={mentorMode} />
           <div className="text-xs text-[var(--subdued)] mt-3 leading-5">
             AI-Mentor uses course materials only. Answers may not be 100% accurate.
             <br />

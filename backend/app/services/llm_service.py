@@ -48,6 +48,46 @@ def build_retrieval_prompt(message: str, mentor_mode: str, retrieval_context: Li
     return "\n\n".join(prompt_parts)
 
 
+def build_review_draft_prompt(message: str, draft_text: str, retrieval_context: List[Dict[str, Any]]) -> str:
+    prompt_parts = [
+        "Mentor mode: review_draft",
+        "The learner wants guidance on their latest assignment attempt.",
+        f"Learner request: {message}",
+        "\nLearner draft:",
+        draft_text.strip(),
+        "\nRetrieved CPL evidence (use this as the source of truth):",
+    ]
+
+    if not retrieval_context:
+        prompt_parts.append(
+            "No relevant Rubric, Assignment Brief, or Learning Material chunks were retrieved."
+            " Tell the learner that the available CPL evidence is insufficient for a course-grounded draft review."
+        )
+    else:
+        for idx, item in enumerate(retrieval_context, start=1):
+            prompt_parts.append(
+                f"Chunk {idx}:"
+                f"\n- chunk_id: {item.get('chunk_id', 'unknown')}"
+                f"\n- title: {item.get('title', 'unknown')}"
+                f"\n- document_type: {item.get('document_type', 'unknown')}"
+                f"\n- instructional_unit: {item.get('instructional_unit', 'unknown')}"
+                f"\n- source_file: {item.get('source_file', 'unknown')}"
+                f"\n- content: {item.get('content', '').strip()}"
+            )
+
+    prompt_parts.append(
+        "\nReview the learner draft against only the retrieved CPL evidence."
+        " Return improvement guidance that covers what the learner has done well,"
+        " what appears weak, what appears missing or unclear, why it matters according to the retrieved evidence,"
+        " how the learner can improve, and relevant course concepts or materials to review."
+        " Do not assign or estimate a grade. Do not replace the autograder."
+        " Do not generate a complete replacement submission."
+        " Do not invent requirements not supported by the retrieved evidence."
+        " Clearly say when the retrieved evidence is insufficient."
+    )
+    return "\n\n".join(prompt_parts)
+
+
 class LLMService:
     def __init__(self, api_key: Optional[str] = None):
         self.api_key = api_key or settings.openai_api_key or os.getenv('OPENAI_API_KEY')
@@ -78,6 +118,49 @@ class LLMService:
                 ],
                 temperature=0.2,
                 max_completion_tokens=500,
+            )
+
+            message_obj = response.choices[0].message
+            answer = message_obj['content'].strip() if message_obj else ''
+            sources: List[ChatSource] = []
+            for item in retrieval_context[:5]:
+                section = item.get('instructional_unit') or item.get('document_type') or 'CPL Material'
+                sources.append(ChatSource(title=item.get('title', 'Unknown'), section=section))
+
+            return {
+                'answer': answer,
+                'sources': sources,
+                'conversation_id': conversation_id or 'demo-conversation-1',
+            }
+        except OpenAIError as exc:
+            raise RuntimeError(f'OpenAI API error: {exc}')
+        except Exception as exc:
+            raise RuntimeError(f'LLM request failed: {exc}')
+
+    def generate_review_draft_response(
+        self,
+        message: str,
+        draft_text: str,
+        conversation_id: Optional[str] = None,
+        retrieval_context: Optional[List[Dict[str, Any]]] = None,
+    ) -> Dict[str, Any]:
+        if not message or not message.strip():
+            raise ValueError('The message must not be empty.')
+        if not draft_text or not draft_text.strip():
+            raise ValueError('draft_text must not be empty for review_draft mode.')
+
+        retrieval_context = retrieval_context or []
+        user_prompt = build_review_draft_prompt(message, draft_text, retrieval_context)
+
+        try:
+            response = openai.ChatCompletion.create(
+                model='gpt-5.4-mini',
+                messages=[
+                    {'role': 'system', 'content': SYSTEM_PROMPT},
+                    {'role': 'user', 'content': user_prompt},
+                ],
+                temperature=0.2,
+                max_completion_tokens=1500,
             )
 
             message_obj = response.choices[0].message

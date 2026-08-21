@@ -21,6 +21,18 @@ MODE_FILTERS = {
     'ask_anything': None,
 }
 REVIEW_DRAFT_ALLOWED = ['Rubric', 'Assignment Brief', 'Learning Material']
+REVIEW_DRAFT_ASSIGNMENT_BRIEF_QUERY = (
+    'CPL assignment requirements, required tasks, deliverables, objectives and submission expectations. '
+    'Learner request: {message}'
+)
+REVIEW_DRAFT_RUBRIC_QUERY = (
+    'CPL assessment criteria, rubric expectations, quality requirements and evidence expected from the learner. '
+    'Learner request: {message}'
+)
+REVIEW_DRAFT_LEARNING_MATERIAL_QUERY = (
+    'Relevant CPL concepts and learning material that can help the learner improve this work. '
+    'Learner request: {message}'
+)
 
 
 def build_where_filter(course_id: str, mode: str) -> Dict[str, Any]:
@@ -64,6 +76,81 @@ def format_thresholded_results(
             continue
         items.append(format_retrieval_item(document, metadata, distance))
     return items
+
+
+def retrieve_by_document_type(
+    query: str,
+    course_id: str,
+    document_type: str,
+    top_k: int,
+) -> List[Dict[str, Any]]:
+    if top_k <= 0:
+        raise ValueError('top_k must be greater than zero')
+
+    embedding_service = EmbeddingService()
+    query_embedding = embedding_service.create_embeddings([query])[0]
+
+    client = get_chroma_client()
+    available_collections = [collection.name for collection in client.list_collections()]
+    if COLLECTION_NAME not in available_collections:
+        raise RuntimeError(f'Missing ChromaDB collection: {COLLECTION_NAME}')
+
+    collection = client.get_collection(COLLECTION_NAME)
+    results = collection.query(
+        query_embeddings=[query_embedding],
+        n_results=top_k,
+        where={'$and': [{'course_id': course_id}, {'document_type': document_type}]},
+        include=['documents', 'metadatas', 'distances'],
+    )
+
+    documents = results.get('documents', [[]])[0]
+    metadatas = results.get('metadatas', [[]])[0]
+    distances = results.get('distances', [[]])[0]
+
+    return format_thresholded_results(documents, metadatas, distances, 'review_draft')
+
+
+def retrieve_review_draft_context(
+    message: str,
+    course_id: str,
+) -> List[Dict[str, Any]]:
+    retrieval_plan = [
+        (
+            'Assignment Brief',
+            REVIEW_DRAFT_ASSIGNMENT_BRIEF_QUERY.format(message=message),
+            2,
+        ),
+        (
+            'Rubric',
+            REVIEW_DRAFT_RUBRIC_QUERY.format(message=message),
+            2,
+        ),
+        (
+            'Learning Material',
+            REVIEW_DRAFT_LEARNING_MATERIAL_QUERY.format(message=message),
+            3,
+        ),
+    ]
+
+    combined: List[Dict[str, Any]] = []
+    seen_chunk_ids = set()
+
+    for document_type, query, top_k in retrieval_plan:
+        items = retrieve_by_document_type(
+            query=query,
+            course_id=course_id,
+            document_type=document_type,
+            top_k=top_k,
+        )
+        for item in items:
+            chunk_id = item.get('chunk_id') or ''
+            dedupe_key = chunk_id or f"{item.get('document_type')}::{item.get('title')}::{item.get('source_file')}"
+            if dedupe_key in seen_chunk_ids:
+                continue
+            seen_chunk_ids.add(dedupe_key)
+            combined.append(item)
+
+    return combined
 
 
 def retrieve_cpl_context(

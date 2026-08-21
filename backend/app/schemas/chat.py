@@ -8,12 +8,20 @@ class ChatRequest(BaseModel):
     mentor_mode: Optional[str] = 'ask_anything'
     top_k: Optional[int] = 5
     conversation_id: Optional[str] = None
+    draft_text: Optional[str] = None
 
     @field_validator('message')
     @classmethod
     def validate_message(cls, value: str) -> str:
         if not value or not value.strip():
             raise ValueError('Message must not be empty.')
+        return value.strip()
+
+    @field_validator('draft_text')
+    @classmethod
+    def validate_draft_text(cls, value: Optional[str]) -> Optional[str]:
+        if value is None:
+            return None
         return value.strip()
 
     @field_validator('mentor_mode')

@@ -8,18 +8,28 @@ async function fetchCurrentCourse() {
   return response.json()
 }
 
-async function sendChatMessage({ message, courseId, mentorMode = 'ask_anything', conversationId }) {
+async function sendChatMessage({ message, courseId, mentorMode = 'ask_anything', conversationId, draftText, topK }) {
+  const body = {
+    message,
+    course_id: courseId,
+    mentor_mode: mentorMode,
+    conversation_id: conversationId,
+  }
+
+  if (draftText) {
+    body.draft_text = draftText
+  }
+
+  if (topK) {
+    body.top_k = topK
+  }
+
   const response = await fetch(`${API_BASE}/api/chat`, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
     },
-    body: JSON.stringify({
-      message,
-      course_id: courseId,
-      mentor_mode: mentorMode,
-      conversation_id: conversationId,
-    }),
+    body: JSON.stringify(body),
   })
 
   if (!response.ok) {
