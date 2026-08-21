@@ -77,9 +77,13 @@ def build_review_draft_prompt(message: str, draft_text: str, retrieval_context: 
 
     prompt_parts.append(
         "\nReview the learner draft against only the retrieved CPL evidence."
-        " Return improvement guidance that covers what the learner has done well,"
-        " what appears weak, what appears missing or unclear, why it matters according to the retrieved evidence,"
-        " how the learner can improve, and relevant course concepts or materials to review."
+        " Keep the response concise, learner-friendly, and easy to scan."
+        " Use this structure exactly:"
+        "\n1. What you did well - maximum 3 bullets."
+        "\n2. What you should improve - maximum 4 important areas. For each area, include one short explanation and one concrete action."
+        "\n3. What to work on first - one clear priority."
+        "\n4. Relevant course materials - short list of the most relevant retrieved CPL materials or concepts."
+        " Avoid long paragraphs and unnecessary repetition."
         " Do not assign or estimate a grade. Do not replace the autograder."
         " Do not generate a complete replacement submission."
         " Do not invent requirements not supported by the retrieved evidence."

@@ -45,6 +45,14 @@ function parseMarkdown(text) {
       return
     }
 
+    const markdownHeadingMatch = trimmed.match(/^#{1,3}\s+(.+)/)
+    if (markdownHeadingMatch) {
+      flushParagraph()
+      flushList()
+      blocks.push({ type: 'heading', text: markdownHeadingMatch[1].replace(/\s+#+$/, '') })
+      return
+    }
+
     if (bulletMatch || numberMatch) {
       flushParagraph()
       const nextType = bulletMatch ? 'bullet' : 'number'

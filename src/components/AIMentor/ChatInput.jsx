@@ -1,10 +1,25 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
+
+const inputPlaceholders = {
+  explain_assignment: 'What would you like to understand about the assignment?',
+  explain_rubric: 'What would you like to understand about the rubric?',
+  explain_topic: 'Which course topic would you like explained?',
+  ask_anything: 'Ask a question about your course...',
+  review_draft: 'What would you like help with?',
+}
 
 export default function ChatInput({ onSubmit, disabled, error, mentorMode }) {
   const [text, setText] = useState('')
   const [draftText, setDraftText] = useState('')
+  const [draftSubmitted, setDraftSubmitted] = useState(false)
   const [validationError, setValidationError] = useState(null)
   const reviewMode = mentorMode === 'review_draft'
+
+  useEffect(() => {
+    if (!reviewMode) {
+      setValidationError(null)
+    }
+  }, [reviewMode])
 
   async function handleSubmit(event) {
     event.preventDefault()
@@ -29,14 +44,14 @@ export default function ChatInput({ onSubmit, disabled, error, mentorMode }) {
     if (success) {
       setText('')
       if (reviewMode) {
-        setDraftText('')
+        setDraftSubmitted(true)
       }
     }
   }
 
   return (
     <form onSubmit={handleSubmit} className="space-y-2">
-      {reviewMode && (
+      {reviewMode && !draftSubmitted && (
         <div className="space-y-2">
           <label className="block text-sm font-medium text-[var(--text)]" htmlFor="draft-review-text">
             Paste your latest assignment attempt
@@ -54,6 +69,22 @@ export default function ChatInput({ onSubmit, disabled, error, mentorMode }) {
           />
         </div>
       )}
+      {reviewMode && draftSubmitted && (
+        <div className="flex items-center justify-between gap-3 rounded border border-[var(--border)] bg-white px-3 py-2 text-sm">
+          <span className="font-medium text-[var(--text)]">Draft submitted</span>
+          <button
+            type="button"
+            className="text-sm font-medium text-[var(--primary)] hover:underline"
+            onClick={() => {
+              setDraftSubmitted(false)
+              setValidationError(null)
+            }}
+            disabled={disabled}
+          >
+            Edit draft
+          </button>
+        </div>
+      )}
       <div className="flex items-center gap-2">
         <input
           value={text}
@@ -61,7 +92,7 @@ export default function ChatInput({ onSubmit, disabled, error, mentorMode }) {
             setText(event.target.value)
             setValidationError(null)
           }}
-          placeholder={reviewMode ? 'What would you like help with?' : 'Type your question here...'}
+          placeholder={inputPlaceholders[mentorMode] || inputPlaceholders.ask_anything}
           className="flex-1 border border-[var(--border)] rounded px-4 py-2 text-base"
           disabled={disabled}
         />
